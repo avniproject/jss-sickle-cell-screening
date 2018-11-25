@@ -1,0 +1,16 @@
+{
+  "organisation": "JSCS",
+  "catchments": [
+    {
+      "name": "Anuppur",
+      "uuid": "52b40a21-4ff3-409f-9d78-b1c1b455cd4d",
+      "type": "Villages",
+      "locations": [
+        {
+          "uuid": "432a2782-b1da-473a-8207-a54f862f4f6d",
+          "comment": "Anuppur"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Whether registration for pregnant woman",
+    "uuid": "e2c7cacd-03f7-4228-b0ce-4ddb2e220974",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "04bb1773-c353-44a1-a68c-9b448e07ff70"
+      },
+      {
+        "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
+      }
+    ]
+  }
+
+]
