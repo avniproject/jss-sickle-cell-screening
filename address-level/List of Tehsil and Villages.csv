@@ -1,0 +1,544 @@
+S. No.,Tehsil,Village
+1,Kotma,Bachhauli
+2,Kotma,Bagaiha Tola
+3,Kotma,Bahera Bandh
+4,Kotma,Baiha Tola
+5,Kotma,Bargawan
+6,Kotma,Baskhala
+7,Kotma,Baskhali
+8,Kotma,Belgaon
+9,Kotma,Beliya Chhot
+10,Kotma,Benibahara
+11,Kotma,Bhalmudi
+12,Kotma,Bhathadand
+13,Kotma,Bhuila
+14,Kotma,Bicharpur
+15,Kotma,Budhanpur
+16,Kotma,Chaka
+17,Kotma,Chandrauthi
+18,Kotma,Changeri
+19,Kotma,Chhatai
+20,Kotma,Chhulha
+21,Kotma,Dhawai Tola
+22,Kotma,Dhumkahai
+23,Kotma,Dogara Tola
+24,Kotma,Dogariya Kalan
+25,Kotma,Dogariya Khurd
+26,Kotma,Dulhi Bandh
+27,Kotma,Gadhi
+28,Kotma,Ghochimuda
+29,Kotma,Godaroo
+30,Kotma,Gohandra
+31,Kotma,Gulidand
+32,Kotma,Harri
+33,Kotma,Jalsar
+34,Kotma,Jharokha
+35,Kotma,Kamran Tola
+36,Kotma,Kanai Tola
+37,Kotma,Katkona
+38,Kotma,Keshori
+39,Kotma,Khamraudh
+40,Kotma,Korya
+41,Kotma,Kothi
+42,Kotma,Kudri
+43,Kotma,Kyontar
+44,Kotma,Lalpur
+45,Kotma,Majhauli
+46,Kotma,Majhtoliya
+47,Kotma,Manmari
+48,Kotma,Mauhari
+49,Kotma,Mentola
+50,Kotma,Nagarabandh
+51,Kotma,Nawatola
+52,Kotma,Nigwani
+53,Kotma,Nimha
+54,Kotma,Pachkhura
+55,Kotma,Pairichuwa
+56,Kotma,Pakriha
+57,Kotma,Pathraudi
+58,Kotma,Pipariya
+59,Kotma,Reusa
+60,Kotma,Saja Tola
+61,Kotma,Saranggarh
+62,Kotma,Saristal
+63,Kotma,Silpur
+64,Kotma,Tarsili
+65,Kotma,Thangaon
+66,Kotma,Thodaha
+67,Kotma,Umarda
+68,Kotma,Urtan
+69,Jaithari,madand
+70,Jaithari,mgawan
+71,Jaithari,njani
+72,Jaithari,aihar
+73,Jaithari,albahra
+74,Jaithari,anka
+75,Jaithari,eed
+76,Jaithari,ehnadawar
+77,Jaithari,haina Dongri
+78,Jaithari,Bhelma
+79,Jaithari,Chandpur
+80,Jaithari,Chhata Patpar
+81,Jaithari,Chhirpani
+82,Jaithari,Choi
+83,Jaithari,Cholna
+84,Jaithari,Chor Bhathi
+85,Jaithari,Daladeeh
+86,Jaithari,Dodhipani
+87,Jaithari,Gaurela
+88,Jaithari,Gobri
+89,Jaithari,Godhan
+90,Jaithari,Gorsi
+91,Jaithari,Guwari
+92,Jaithari,Jangwa
+93,Jaithari,Jariyari
+94,Jaithari,Jhaital
+95,Jaithari,Kadamsara
+96,Jaithari,Kalyanpur
+97,Jaithari,Kapariya
+98,Jaithari,Keyotar
+99,Jaithari,Khairi
+100,Jaithari,Khalbahra
+101,Jaithari,Khodari
+102,Jaithari,Kholadi
+103,Jaithari,Kholaiya
+104,Jaithari,Khoonta Tola
+105,Jaithari,Khursa
+106,Jaithari,Kukar Goda
+107,Jaithari,Kusmahai
+108,Jaithari,Laharpur
+109,Jaithari,Lahsuna
+110,Jaithari,Lapta
+111,Jaithari,Mahuda
+112,Jaithari,Manaura
+113,Jaithari,Manikpur
+114,Jaithari,Mauhari
+115,Jaithari,Munda
+116,Jaithari,Nigaura
+117,Jaithari,Padari
+118,Jaithari,Padariya
+119,Jaithari,Padripani
+120,Jaithari,Pagna
+121,Jaithari,Papraudi
+122,Jaithari,Patan
+123,Jaithari,Pcooha
+124,Jaithari,Pondi
+125,Jaithari,Rohila Kachhar
+126,Jaithari,Semarwar
+127,Jaithari,Sidhaura
+128,Jaithari,Siwni
+129,Jaithari,Sulkhari
+130,Jaithari,Takduli
+131,Jaithari,Thehi
+132,Jaithari,Umariya
+133,Jaithari,Vynkatnagar
+134,Pushparajgarh,chalpur
+135,Pushparajgarh,dawar
+136,Pushparajgarh,hirgawan
+137,Pushparajgarh,lhawar
+138,Pushparajgarh,mauda
+139,Pushparajgarh,mdari
+140,Pushparajgarh,mgawan
+141,Pushparajgarh,ndhiyar Khoh
+142,Pushparajgarh,ntariya
+143,Pushparajgarh,Badhamar
+144,Pushparajgarh,Badhar
+145,Pushparajgarh,Baghad
+146,Pushparajgarh,Baghadi
+147,Pushparajgarh,Bagharra
+148,Pushparajgarh,Baghni Bhawar
+149,Pushparajgarh,Bahpur
+150,Pushparajgarh,Bahpuri
+151,Pushparajgarh,Baidara
+152,Pushparajgarh,Bairagi
+153,Pushparajgarh,Bakan
+154,Pushparajgarh,Bamhani
+155,Pushparajgarh,Baranjh
+156,Pushparajgarh,Barbaspur
+157,Pushparajgarh,Barsot
+158,Pushparajgarh,Bartola
+159,Pushparajgarh,Basahi
+160,Pushparajgarh,Basaniha
+161,Pushparajgarh,Basantpur
+162,Pushparajgarh,Batki
+163,Pushparajgarh,Beldongri
+164,Pushparajgarh,Belgawan
+165,Pushparajgarh,Belha
+166,Pushparajgarh,Bendi
+167,Pushparajgarh,Benibari
+168,Pushparajgarh,Bhalu Chuwa
+169,Pushparajgarh,Bhalwar
+170,Pushparajgarh,Bhamarha
+171,Pushparajgarh,Bhamariya
+172,Pushparajgarh,Bharni
+173,Pushparajgarh,Bhejari
+174,Pushparajgarh,Bhimkundi
+175,Pushparajgarh,Bhundakona
+176,Pushparajgarh,Bicharpur
+177,Pushparajgarh,Bijapuri
+178,Pushparajgarh,Bijaura
+179,Pushparajgarh,Bijauri
+180,Pushparajgarh,Bilai Kher
+181,Pushparajgarh,Bilaspur
+182,Pushparajgarh,Boda
+183,Pushparajgarh,Bulhupani
+184,Pushparajgarh,Chachandih
+185,Pushparajgarh,Chandaniya
+186,Pushparajgarh,Charku Umar
+187,Pushparajgarh,Chatuwa
+188,Pushparajgarh,Chaura Dadav
+189,Pushparajgarh,Chhapani
+190,Pushparajgarh,Chhirpani
+191,Pushparajgarh,Chilihamar
+192,Pushparajgarh,Dabaniya
+193,Pushparajgarh,Daldali
+194,Pushparajgarh,Damehari
+195,Pushparajgarh,Damgarh
+196,Pushparajgarh,Dauniya
+197,Pushparajgarh,Deora
+198,Pushparajgarh,Deori
+199,Pushparajgarh,Deori Dadar
+200,Pushparajgarh,Dhanpuri
+201,Pushparajgarh,Dharamdas
+202,Pushparajgarh,Dharhar Kalan
+203,Pushparajgarh,Dharhar Khurd
+204,Pushparajgarh,Dhawai
+205,Pushparajgarh,Dhiru Tola
+206,Pushparajgarh,Dhobe
+207,Pushparajgarh,Dhopa Tola
+208,Pushparajgarh,Dhumma Kapa
+209,Pushparajgarh,Dhuradhar
+210,Pushparajgarh,Dhurwa Tola
+211,Pushparajgarh,Dodiya
+212,Pushparajgarh,Dona
+213,Pushparajgarh,Dongariya
+214,Pushparajgarh,Duari
+215,Pushparajgarh,Dubsara
+216,Pushparajgarh,Dudhmaniya
+217,Pushparajgarh,Gadhidadar
+218,Pushparajgarh,Gannaguda
+219,Pushparajgarh,Garjanbija
+220,Pushparajgarh,Gedi Ama
+221,Pushparajgarh,Ghata
+222,Pushparajgarh,Ghatha
+223,Pushparajgarh,Ghoghari
+224,Pushparajgarh,Ghotai Kalan
+225,Pushparajgarh,Ghotai Khurd
+226,Pushparajgarh,Ghuidadar
+227,Pushparajgarh,Gidhan Tola
+228,Pushparajgarh,Gijari
+229,Pushparajgarh,Girari Kalan
+230,Pushparajgarh,Girari Khurd
+231,Pushparajgarh,Girwi
+232,Pushparajgarh,Goga
+233,Pushparajgarh,Gonda
+234,Pushparajgarh,Gondi
+235,Pushparajgarh,Gora Tola
+236,Pushparajgarh,Guguwa Kapa
+237,Pushparajgarh,Gutti Para
+238,Pushparajgarh,Haraswah
+239,Pushparajgarh,Harra
+240,Pushparajgarh,Harra Tola
+241,Pushparajgarh,Harrai
+242,Pushparajgarh,Hathbandha
+243,Pushparajgarh,Haweli
+244,Pushparajgarh,Hirna Chhapar
+245,Pushparajgarh,Itaur
+246,Pushparajgarh,Jaitahari
+247,Pushparajgarh,Jamkachhar
+248,Pushparajgarh,Jarha
+249,Pushparajgarh,Jarhi
+250,Pushparajgarh,Jarwahi
+251,Pushparajgarh,Jatanga
+252,Pushparajgarh,Jhilmila
+253,Pushparajgarh,Jilan
+254,Pushparajgarh,Jinda Tola
+255,Pushparajgarh,Juhili
+256,Pushparajgarh,Kachhra Tola
+257,Pushparajgarh,Kanchanpur
+258,Pushparajgarh,Kandi Kapa
+259,Pushparajgarh,Karan Pathar
+260,Pushparajgarh,Karaunda Pani
+261,Pushparajgarh,Karaunda Tola
+262,Pushparajgarh,Karaundi
+263,Pushparajgarh,Karondi
+264,Pushparajgarh,Karpa
+265,Pushparajgarh,Kasturi
+266,Pushparajgarh,Katurdona
+267,Pushparajgarh,Kekariya
+268,Pushparajgarh,Keshwani
+269,Pushparajgarh,Khajurwar
+270,Pushparajgarh,Khalhedudhi
+271,Pushparajgarh,Khamraudh
+272,Pushparajgarh,Kharsol
+273,Pushparajgarh,Khati
+274,Pushparajgarh,Khetgaon
+275,Pushparajgarh,Khirni
+276,Pushparajgarh,Khursi
+277,Pushparajgarh,Kirgi
+278,Pushparajgarh,Kodar
+279,Pushparajgarh,Kohka
+280,Pushparajgarh,Koliha Tola
+281,Pushparajgarh,Koylari
+282,Pushparajgarh,Kui
+283,Pushparajgarh,Kumhani
+284,Pushparajgarh,Kumharwar
+285,Pushparajgarh,Kusera
+286,Pushparajgarh,Kyontar
+287,Pushparajgarh,Lakhaura
+288,Pushparajgarh,Lalpur
+289,Pushparajgarh,Lamsarai
+290,Pushparajgarh,Lapti
+291,Pushparajgarh,Ledhara
+292,Pushparajgarh,Lila Tola
+293,Pushparajgarh,Lohari
+294,Pushparajgarh,Loharin Tola
+295,Pushparajgarh,Mahora
+296,Pushparajgarh,Majhgawan
+297,Pushparajgarh,Majhigawan
+298,Pushparajgarh,Majholi
+299,Pushparajgarh,Malaiki
+300,Pushparajgarh,Manpur
+301,Pushparajgarh,Mauhari
+302,Pushparajgarh,Medha Khar
+303,Pushparajgarh,Mediya Ras
+304,Pushparajgarh,Mekal Pahad
+305,Pushparajgarh,Miriya
+306,Pushparajgarh,Mithu Mahua
+307,Pushparajgarh,Mohadi
+308,Pushparajgarh,Nadpur
+309,Pushparajgarh,Nagmala
+310,Pushparajgarh,Nagula
+311,Pushparajgarh,Naguli Dadar
+312,Pushparajgarh,Nardaha
+313,Pushparajgarh,Naugai
+314,Pushparajgarh,Newsa
+315,Pushparajgarh,Nonghati
+316,Pushparajgarh,Nougawan
+317,Pushparajgarh,Padariya
+318,Pushparajgarh,Padmaniya
+319,Pushparajgarh,Padri
+320,Pushparajgarh,Padri Khar
+321,Pushparajgarh,Paladigwar
+322,Pushparajgarh,Paladongri
+323,Pushparajgarh,Pamra
+324,Pushparajgarh,Paraswar
+325,Pushparajgarh,Pardi
+326,Pushparajgarh,Parsel Kalan
+327,Pushparajgarh,Parsel Khurd
+328,Pushparajgarh,Pathaiti
+329,Pushparajgarh,Patna
+330,Pushparajgarh,Payari
+331,Pushparajgarh,Pharhada
+332,Pushparajgarh,Pharrisemar
+333,Pushparajgarh,Picharwahi
+334,Pushparajgarh,Pipar Khunta
+335,Pushparajgarh,Piparha
+336,Pushparajgarh,Pipariya
+337,Pushparajgarh,Podaki
+338,Pushparajgarh,Pondi
+339,Pushparajgarh,Pouni
+340,Pushparajgarh,Purga
+341,Pushparajgarh,Rakhital
+342,Pushparajgarh,Ramna Sarkari 1
+343,Pushparajgarh,Ramna Sarkari 2
+344,Pushparajgarh,Ranai Kapa
+345,Pushparajgarh,Rausar Khar
+346,Pushparajgarh,Rehidadar
+347,Pushparajgarh,Salaiya
+348,Pushparajgarh,Salargondi
+349,Pushparajgarh,Salharo
+350,Pushparajgarh,Sanchara
+351,Pushparajgarh,Sarai
+352,Pushparajgarh,Sarai Patera
+353,Pushparajgarh,Sarai Tola
+354,Pushparajgarh,Sarpha
+355,Pushparajgarh,Sarwahi
+356,Pushparajgarh,Sendur Khar
+357,Pushparajgarh,Sheoni Sangam
+358,Pushparajgarh,Sheori Chandas
+359,Pushparajgarh,Shyam Duwari
+360,Pushparajgarh,Silwari Tola
+361,Pushparajgarh,Sital Pani
+362,Pushparajgarh,Sonhara
+363,Pushparajgarh,Soniyamar
+364,Pushparajgarh,Suadand
+365,Pushparajgarh,Sunpuri
+366,Pushparajgarh,Sursapara
+367,Pushparajgarh,Tala
+368,Pushparajgarh,Tali
+369,Pushparajgarh,Tanki Tola
+370,Pushparajgarh,Tarang
+371,Pushparajgarh,Tarera
+372,Pushparajgarh,Thadh Pathar
+373,Pushparajgarh,Thamardar
+374,Pushparajgarh,Thunguni
+375,Pushparajgarh,Tikuradudhi
+376,Pushparajgarh,Titahi
+377,Pushparajgarh,Tiwari Tola
+378,Pushparajgarh,Tulra
+379,Pushparajgarh,Tummi Badi
+380,Pushparajgarh,Udal
+381,Pushparajgarh,Umaniya
+382,Pushparajgarh,Umargohan
+383,Pushparajgarh,Uphari Kalan
+384,Pushparajgarh,Uphari Khurd
+385,Anuppur,Agriyanar
+386,Anuppur,Akua
+387,Anuppur,Amadand
+388,Anuppur,Amiliha
+389,Anuppur,Amlai
+390,Anuppur,Audhera
+391,Anuppur,Badhar
+392,Anuppur,Badikhar
+393,Anuppur,Badra
+394,Anuppur,Bagdumara
+395,Anuppur,Baherahatola
+396,Anuppur,Bairi Bandh
+397,Anuppur,Bakeli
+398,Anuppur,Bamhni
+399,Anuppur,Bandhwa Tola
+400,Anuppur,Bangawan
+401,Anuppur,Banka Tola
+402,Anuppur,Barbaspur
+403,Anuppur,Barha Tola
+404,Anuppur,Barri
+405,Anuppur,Bartarai
+406,Anuppur,Bela
+407,Anuppur,Beliya
+408,Anuppur,Beliya Badi
+409,Anuppur,Bhad
+410,Anuppur,Bhagat Bandh
+411,Anuppur,Bhagha
+412,Anuppur,Bhalmudi
+413,Anuppur,Bhalwahi
+414,Anuppur,Bhathisarai
+415,Anuppur,Bhedwa Tola
+416,Anuppur,Bholgarh 33
+417,Anuppur,Bijaha Tola
+418,Anuppur,Bijauri 
+419,Anuppur,Bodiha 
+420,Anuppur,Bodri 
+421,Anuppur,Chachai Abad 
+422,Anuppur,Chachai Viran 
+423,Anuppur,Chakethi 
+424,Anuppur,Chandwar 
+425,Anuppur,Chapani 
+426,Anuppur,Chatha Tola 
+427,Anuppur,Chatua 
+428,Anuppur,Chhidmidi 
+429,Anuppur,Chhilpa 
+430,Anuppur,Chhira Patpar 
+431,Anuppur,Chhohari 
+432,Anuppur,Chhulha 
+433,Anuppur,Chhulha Tola 
+434,Anuppur,Chhulkari 
+435,Anuppur,Chilhari 
+436,Anuppur,Chondi 
+437,Anuppur,Chukan 
+438,Anuppur,Dadai Bahra 
+439,Anuppur,Daikhal 
+440,Anuppur,Daldal 
+441,Anuppur,Damana
+442,Anuppur,Darsagar 
+443,Anuppur,Deogawan 
+444,Anuppur,Deohra 
+445,Anuppur,Deori  
+446,Anuppur,Dhangawan
+447,Anuppur,Dhankuta 
+448,Anuppur,Dhanoli 
+449,Anuppur,Dhanpuri 
+450,Anuppur,Dhiraul 
+451,Anuppur,Dhumma 
+452,Anuppur,Dhurvasin 
+453,Anuppur,Didwapani 
+454,Anuppur,Dola 
+455,Anuppur,Dongara Tola
+456,Anuppur,Dudhmaniya
+457,Anuppur,Dulhara
+458,Anuppur,Dumar Kachhar 
+459,Anuppur,Fulkona
+460,Anuppur,Funga
+461,Anuppur,Gambhirwa Tola
+462,Anuppur,Harad 
+463,Anuppur,Harri 
+464,Anuppur,Jalda Tola 
+465,Anuppur,Jamudi 
+466,Anuppur,Jamuniha
+467,Anuppur,Jarra Tola
+468,Anuppur,Jogi Tola
+469,Anuppur,Kadam Tola
+470,Anuppur,Kansa
+471,Anuppur,Kanwahi
+472,Anuppur,Karra Tola
+473,Anuppur,Kekarpani 
+474,Anuppur,Kelhauri
+475,Anuppur,Khamhariya
+476,Anuppur,Khanda 
+477,Anuppur,Khodari 
+478,Anuppur,Kholadhi 
+479,Anuppur,Kholgarhi 
+480,Anuppur,Kholi
+481,Anuppur,Kikri Pondi 98. Kirar 
+482,Anuppur,Koda
+483,Anuppur,Kodaili 
+484,Anuppur,Kolmi
+485,Anuppur,Kotmi 
+486,Anuppur,Kuhka
+487,Anuppur,Kushiyara
+488,Anuppur,Kusmahai 
+489,Anuppur,Lakhanpur 
+490,Anuppur,Lama Tola
+491,Anuppur,Latar 
+492,Anuppur,Ledra
+493,Anuppur,Lodhi
+494,Anuppur,Lohasur
+495,Anuppur,Majhgawan
+496,Anuppur,Majholi 
+497,Anuppur,Majhtoliya 1 
+498,Anuppur,Majhtoliya 2 
+499,Anuppur,Manpur 
+500,Anuppur,Mantoliya 
+501,Anuppur,Mauhari 
+502,Anuppur,Mauhari Badi 
+503,Anuppur,Mediyaras 
+504,Anuppur,Mlaga
+505,Anuppur,Muddhoba 
+506,Anuppur,Nakti Tola
+507,Anuppur,Nidawan
+508,Anuppur,Nimha 
+509,Anuppur,Padaur 
+510,Anuppur,Padri Tola 
+511,Anuppur,Padripani 
+512,Anuppur,Pakariha Tola 
+513,Anuppur,Pakariya
+514,Anuppur,Pali
+515,Anuppur,Parasi
+516,Anuppur,Paraswar
+517,Anuppur,Parsapani 
+518,Anuppur,Pasala
+519,Anuppur,Patna Kalan
+520,Anuppur,Patna Khurd
+521,Anuppur,Payari
+522,Anuppur,Pejha Tola
+523,Anuppur,Pipariya 
+524,Anuppur,Pipraha 
+525,Anuppur,Pondi 
+526,Anuppur,Pondi Khurd
+527,Anuppur,Raja Kachhar
+528,Anuppur,Raksa
+529,Anuppur,Reula
+530,Anuppur,Reunda
+531,Anuppur,Saddi 
+532,Anuppur,Sakariya 
+533,Anuppur,Sakola 
+534,Anuppur,Sakra 
+535,Anuppur,Semarwar
+536,Anuppur,Semra
+537,Anuppur,Senduri
+538,Anuppur,Sikarpur 
+539,Anuppur,Sitapur 
+540,Anuppur,Sohibelha
+541,Anuppur,Suidand 
+542,Anuppur,Tanki
+543,Anuppur,Taradand
