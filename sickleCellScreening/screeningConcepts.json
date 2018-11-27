@@ -1,0 +1,171 @@
+[
+  {
+    "name": "Whether BT done in last 3 months",
+    "uuid": "c1a4e2f9-8dbf-431d-bdbb-19644d7f3eba",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "04bb1773-c353-44a1-a68c-9b448e07ff70"
+      },
+      {
+        "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
+      }
+    ]
+  },
+  {
+    "name": "BT date",
+    "uuid": "87dbdfc1-2bdf-4a8d-9933-a48b9a40ff8a",
+    "dataType": "Date"
+  },
+  {
+    "name": "Whether SC confirmatory report available",
+    "uuid": "843cec0f-5f7d-451f-be22-68c7167ffc64",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "04bb1773-c353-44a1-a68c-9b448e07ff70"
+      },
+      {
+        "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
+      }
+    ]
+  },
+  {
+    "uuid": "7f32dd91-78d3-4f5c-b43e-a00bff7d6055",
+    "name": "Beta"
+  },
+  {
+    "uuid": "05732977-ed46-4a04-ad06-bec319482500",
+    "name": "Thal"
+  },
+  {
+    "name": "Hemoglobin genotype",
+    "uuid": "e19e68fd-97f1-4803-a1b2-bb850836ff54",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "name": "SS",
+        "uuid": "3648a650-2f3e-4c2c-a899-c0a8212aace1",
+        "abnormal": true
+      },
+      {
+        "name": "AS",
+        "uuid": "77ee8a6a-2a01-421f-85ca-fc0ab39abcdb",
+        "abnormal": true
+      },
+      {
+        "name": "AA",
+        "uuid": "daa7c62f-c663-4981-a134-1f662b3036d0"
+      },
+      {
+        "uuid": "7f32dd91-78d3-4f5c-b43e-a00bff7d6055",
+        "name": "Beta Thal"
+      },
+      {
+        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
+        "name": "Other",
+        "abnormal": true
+      }
+    ]
+  },
+  {
+    "name": "Whether prep and/or solubility result from field available",
+    "uuid": "5a4cf5f3-5af8-46be-a14a-de205a070367",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "04bb1773-c353-44a1-a68c-9b448e07ff70"
+      },
+      {
+        "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
+      }
+    ]
+  },
+  {
+    "name": "Solubility result",
+    "uuid": "d41b5986-e8b1-41dc-8685-beb4d86abf79",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "name": "Positive",
+        "uuid": "479cd95a-54ef-4818-b84a-09b478fc68b8"
+      },
+      {
+        "name": "Negative",
+        "uuid": "ad1f0481-a8ed-411a-ac00-d0435a670269"
+      }
+    ]
+  },
+  {
+    "name": "Collect sample for screening and electrophoresis",
+    "uuid": "3ed1b571-bf02-418b-8ea5-18acfa87c55f",
+    "dataType": "Coded",
+    "answers": [
+    ]
+  },
+  {
+    "name": "BT check reason",
+    "uuid": "16053c1b-6eba-4819-8075-da6962ff55e5",
+    "dataType": "Coded",
+    "answers": [
+    ]
+  },
+  {
+    "name": "BT check failed revisit instruction",
+    "uuid": "4e2779d9-81d7-4595-9e3e-07d02bc0cd35",
+    "dataType": "Coded",
+    "answers": [
+
+    ]
+  },
+  {
+    "name": "Electrophoresis result",
+    "uuid": "0cb6e694-fc5f-45cb-ad71-0bd22ef8b381",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "name": "SS",
+        "uuid": "3648a650-2f3e-4c2c-a899-c0a8212aace1",
+        "abnormal": true
+      },
+      {
+        "name": "AS",
+        "uuid": "77ee8a6a-2a01-421f-85ca-fc0ab39abcdb"
+      }
+    ]
+  },
+  {
+    "name": "HPLC",
+    "uuid": "93eb5a4d-b399-46d3-86d0-6fd4d6443d44",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "7f32dd91-78d3-4f5c-b43e-a00bff7d6055",
+        "name": "Beta Thal",
+        "abnormal": true
+      },
+      {
+        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
+        "name": "Other",
+        "abnormal": true
+      }
+    ]
+  },
+  {
+    "name": "Sample number",
+    "uuid": "b0c9dcc7-2c4c-4fa6-9186-0bc11e753ac1",
+    "dataType": "Text"
+  },
+  {
+    "name": "Laboratory",
+    "uuid": "c392dcf2-c4c5-475f-a7c4-f84e9498b0df",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
+        "name": "Other"
+      }
+    ]
+  }
+
+]

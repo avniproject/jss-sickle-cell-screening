@@ -1,0 +1,230 @@
+{
+  "name": "Sickle Cell Screening",
+  "uuid": "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
+  "formType": "ProgramEncounter",
+  "formElementGroups": [
+    {
+      "uuid": "e21264d1-1dd7-4a8f-a949-364d2d4fa873",
+      "name": "Sickle cell screening history",
+      "display": "Sickle cell screening history",
+      "displayOrder": 1,
+      "formElements": [
+        {
+          "name": "SC confirmatory report available?",
+          "uuid": "26d3b3fa-03f9-44f2-a278-7657aa2fc0b7",
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Whether SC confirmatory report available",
+            "uuid": "843cec0f-5f7d-451f-be22-68c7167ffc64"
+          },
+          "displayOrder": 1,
+          "mandatory": false
+        },
+        {
+          "name": "Hemoglobin genotype from old report",
+          "uuid": "011ea26d-cc18-4e72-9e9e-a08cb218b50c",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Hemoglobin genotype from old report",
+            "uuid": "e19e68fd-97f1-4803-a1b2-bb850836ff54"
+          },
+          "displayOrder": 2,
+          "mandatory": false
+        }
+      ]
+    },
+    {
+      "uuid": "9ed15d8f-ae75-4a3f-bf53-564ba44f58c9",
+      "name": "Blood Transfusion Check",
+      "display": "Blood Transfusion Check",
+      "displayOrder": 2,
+      "formElements": [
+        {
+          "name": "BT check reason",
+          "uuid": "861bd6ce-ecae-4110-b0e2-ed8b4b95f4e8",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "BT check reason",
+            "uuid": "16053c1b-6eba-4819-8075-da6962ff55e5"
+          },
+          "displayOrder": 1,
+          "mandatory": false
+        },
+        {
+          "name": "BT done in last 3 months?",
+          "uuid": "d787198b-523c-4d22-9645-914aa8d49dd4",
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Whether BT done in last 3 months",
+            "uuid": "c1a4e2f9-8dbf-431d-bdbb-19644d7f3eba"
+          },
+          "displayOrder": 2,
+          "mandatory": false
+        },
+        {
+          "name": "BT date",
+          "uuid": "2f17015c-ff8b-4b62-94f5-bfa68f714c3d",
+          "keyValues": [],
+          "concept": {
+            "name": "BT date",
+            "uuid": "87dbdfc1-2bdf-4a8d-9933-a48b9a40ff8a",
+            "dataType": "Date"
+          },
+          "displayOrder": 3,
+          "mandatory": false
+        },
+        {
+          "name": "Collect sample for hb solubility and electrophoresis",
+          "uuid": "600c0473-48e0-401d-a64d-fa2a70894af2",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Collect sample for screening and electrophoresis",
+            "uuid": "3ed1b571-bf02-418b-8ea5-18acfa87c55f"
+          },
+          "displayOrder": 4,
+          "mandatory": false
+        },
+        {
+          "name": "BT check failed revisit instruction",
+          "uuid": "4ad7e726-29c6-4f5f-ac6d-6e570648ef4d",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "BT check failed revisit instruction",
+            "uuid": "4e2779d9-81d7-4595-9e3e-07d02bc0cd35"
+          },
+          "displayOrder": 5,
+          "mandatory": false
+        }
+      ]
+    },
+    {
+      "uuid": "4d7165c2-cce3-44d5-8198-3350b34a8e16",
+      "name": "Result from field",
+      "display": "Result from field",
+      "displayOrder": 3,
+      "formElements": [
+        {
+          "name": "Is solubility result available from field?",
+          "uuid": "37fdcb83-1a76-430c-81be-78d3eb517117",
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Whether prep and/or solubility result from field available",
+            "uuid": "5a4cf5f3-5af8-46be-a14a-de205a070367"
+          },
+          "displayOrder": 1,
+          "mandatory": false
+        }
+      ]
+    },
+    {
+      "uuid": "f2ea4c49-47e9-40f2-9cdc-b923bac8a31c",
+      "name": "Test Results",
+      "display": "Test Results",
+      "displayOrder": 4,
+      "formElements": [
+        {
+          "name": "Solubility result",
+          "uuid": "f137192d-dc8c-4604-9d09-c8446ca86f68",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Solubility result",
+            "uuid": "d41b5986-e8b1-41dc-8685-beb4d86abf79"
+          },
+          "displayOrder": 1,
+          "mandatory": false
+        },
+        {
+          "name": "Electrophoresis result",
+          "uuid": "69be09d5-dedf-4016-83b9-5d14cab722fd",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Electrophoresis result",
+            "uuid": "0cb6e694-fc5f-45cb-ad71-0bd22ef8b381"
+          },
+          "displayOrder": 2,
+          "mandatory": false
+        },
+        {
+          "name": "HPLC result",
+          "uuid": "b173c543-d004-4c07-8629-96c0adb1d1f6",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "HPLC",
+            "uuid": "93eb5a4d-b399-46d3-86d0-6fd4d6443d44"
+          },
+          "displayOrder": 3,
+          "mandatory": false
+        }
+      ]
+    },
+    {
+      "uuid": "1660ec5b-e1f8-41b3-9bac-abfe2f97b240",
+      "name": "Sample collection/shipment details",
+      "display": "Sample collection/shipment details",
+      "displayOrder": 5,
+      "formElements": [
+        {
+          "name": "Sample number",
+          "uuid": "3315bf0f-5216-4df4-8909-1a1d123be355",
+          "keyValues": [],
+          "concept": {
+            "name": "Sample number",
+            "uuid": "b0c9dcc7-2c4c-4fa6-9186-0bc11e753ac1"
+          },
+          "displayOrder": 1,
+          "mandatory": false
+        },
+        {
+          "name": "Sample sent to",
+          "uuid": "3a72bac4-bcf6-4503-aa0d-e7f68420bfde",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Laboratory",
+            "uuid": "c392dcf2-c4c5-475f-a7c4-f84e9498b0df"
+          },
+          "displayOrder": 2,
+          "mandatory": false
+        }
+      ]
+    },
+    {
+      "uuid": "e519cd15-1894-44f2-8b39-d635e9f1edd2",
+      "name": "Other relevant details",
+      "display": "Other relevant details",
+      "displayOrder": 6,
+      "formElements": [
+        {
+          "name": "Hb",
+          "uuid": "a0c833e1-27cf-418e-9d3f-b90f38c2be1e",
+          "keyValues": [],
+          "concept": {
+            "name": "Hb",
+            "uuid": "f9ecabbc-2df2-4bfc-a6fa-aa417c50e11b"
+          },
+          "displayOrder": 1,
+          "mandatory": false
+        },
+        {
+          "name": "Blood group",
+          "uuid": "0c994ce0-ba88-4bdc-9059-21b5cfdfd56c",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Blood group",
+            "uuid": "3493c80a-8af5-40e6-b598-8385c4db2bd7"
+          },
+          "displayOrder": 2,
+          "mandatory": false
+        }
+      ]
+    }
+  ]
+}

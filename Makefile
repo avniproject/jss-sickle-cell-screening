@@ -79,9 +79,17 @@ deploy_org_data_live:
 _deploy_refdata:
 	$(call _curl,POST,concepts,@registration/registrationConcepts.json)
 	$(call _curl,POST,forms,@registration/registrationForm.json)
+	$(call _curl,POST,programs,@programs.json)
+	$(call _curl,POST,encounterTypes,@encounterTypes.json)
+	$(call _curl,POST,operationalEncounterTypes,@operationalModules/operationalEncounterTypes.json)
+	$(call _curl,POST,operationalPrograms,@operationalModules/operationalPrograms.json)
+	$(call _curl,POST,forms,@sickleCellScreening/sickleCellScreeningProgramEnrolmentNullForm.json)
+	$(call _curl,POST,concepts,@sickleCellScreening/screeningConcepts.json)
+	$(call _curl,POST,forms,@sickleCellScreening/screeningForm.json)
+	$(call _curl,POST,formMappings,@formMappings.json)
 
 deploy_rules:
-#	node index.js "$(server_url)" "$(token)" "$(username)"
+	node index.js "$(server_url)" "$(token)" "$(username)"
 
 deploy_rules_live:
 	make auth deploy_rules poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) username=jscs-admin password=$(password) server=https://server.openchs.org port=443

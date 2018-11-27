@@ -1,0 +1,13 @@
+{
+  "organisationName": "JSCS",
+  "operationalEncounterTypes": [
+    {
+      "uuid": "95135ed2-51cc-48a8-b36d-e0be05a5f5d4",
+      "name": "Sickle Cell Screening",
+      "encounterType": {
+        "uuid": "f599f393-c50e-48d1-a89e-e73295e570ea",
+        "comment": "Sickle Cell Screening"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "organisationName": "JSCS",
+  "operationalPrograms": [
+    {
+      "uuid": "9e28d3d5-d17c-4ffb-b68b-fb191f496a1d",
+      "name": "Sickle Cell Screening",
+      "program": {
+        "comment": "Sickle Cell Screening",
+        "uuid": "e93303fa-f465-4db7-a945-d4fd6295f2b9"
+      }
+    }
+  ]
+}
