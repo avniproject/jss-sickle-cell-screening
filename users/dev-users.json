@@ -8,7 +8,7 @@
     "organisationUUID": "95021fc0-e414-4b29-b140-0b315dd23ca2",
     "catchmentUUID": "52b40a21-4ff3-409f-9d78-b1c1b455cd4d",
     "operatingIndividualScope": "ByCatchment",
-    "isAdmin": "false",
-    "isOrgAdmin": "false"
+    "admin": false,
+    "orgAdmin": false
   }
 ]

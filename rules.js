@@ -67,5 +67,5 @@ class SickleCellScreeningHandlerJSS {
 
 }
 
-module.exports = {SickleCellScreeningHandlerJSS}
+module.exports = {SickleCellScreeningHandlerJSS};
 
