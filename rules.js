@@ -27,7 +27,7 @@ class SickleCellScreeningHandlerJSS {
     sickleCellScreeningHistory(programEncounter, formElementGroup) {
         return formElementGroup.formElements.map(fe=>{
             let statusBuilder = new FormElementStatusBuilder({programEncounter:programEncounter, formElement:fe});
-            statusBuilder.show().when.valueInEnrolment("Whether SC confirmatory report available").is.not.defined;
+            statusBuilder.show().when.valueInEntireEnrolment("Whether SC confirmatory report available").is.notDefined;
             return statusBuilder.build();
         });
     }
@@ -42,7 +42,7 @@ class SickleCellScreeningHandlerJSS {
 
     @WithStatusBuilder
     scConfirmatoryReportAvailable([], statusBuilder) {
-        statusBuilder.show().when.valueInEnrolment("Whether SC confirmatory report available").is.not.defined;
+        statusBuilder.show().when.valueInEntireEnrolment("Whether SC confirmatory report available").is.notDefined;
     }
 
     @WithStatusBuilder
@@ -52,18 +52,19 @@ class SickleCellScreeningHandlerJSS {
 
     @WithStatusBuilder
     whetherElectrophoresisResultAvailable([], statusBuilder) {
-        console.log("came to whetherElectrophoresisResultAvailable");
         statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no;
     }
 
     @WithStatusBuilder
     btCheckReason([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no;
+        statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no
+            .or.latestValueInPreviousEncounters("Whether BT done in last 3 months").is.yes;
     }
 
     @WithStatusBuilder
     btDoneInLast3Months([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no;
+        statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no
+            .or.latestValueInPreviousEncounters("Whether BT done in last 3 months").is.yes;
     }
 
     @WithStatusBuilder
@@ -103,6 +104,12 @@ class SickleCellScreeningHandlerJSS {
     }
 
     @WithStatusBuilder
+    sendSampleForElectrophoresis([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Whether prep and/or solubility result from field available").is.yes
+            .and.valueInEncounter("Solubility result").containsAnswerConceptName("Positive");
+    }
+
+    @WithStatusBuilder
     electrophoresisResult([], statusBuilder) {
         statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no
             .and.valueInEncounter("Whether BT done in last 3 months").is.no;
@@ -117,9 +124,8 @@ class SickleCellScreeningHandlerJSS {
     sampleCollectionShipmentDetails(programEncounter, formElementGroup) {
         return formElementGroup.formElements.map(fe=>{
             let statusBuilder = new FormElementStatusBuilder({programEncounter:programEncounter, formElement:fe});
-            statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no
-                .and.valueInEncounter("Whether BT done in last 3 months").is.no
-                .and.not.valueInEncounter("Solubility result").containsAnswerConceptName("Negative");
+            statusBuilder.show().when.valueInEncounter("Whether prep and/or solubility result from field available").is.yes
+                .and.valueInEncounter("Solubility result").containsAnswerConceptName("Positive");
             return statusBuilder.build();
         });
     }
@@ -164,13 +170,10 @@ class SickleCellScreeningProgramRuleJSS {
 class SickleCellScreeningVisitScheduleJSS {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
 
-        console.log('came to SickleCellScreeningVisitScheduleJSS exec');
         let btDate = programEncounter.getObservationReadableValue('BT date');
 
-        console.log(btDate);
         if (!_.isNil(btDate)){
             const dateAfter3MonthsOfBT = moment(btDate).add(3, 'months').toDate();
-            console.log(dateAfter3MonthsOfBT);
             let scheduleBuilder = RuleHelper.createProgramEncounterVisitScheduleBuilder(programEncounter, visitSchedule);
             RuleHelper.addSchedule(scheduleBuilder, 'Sickle cell screening', 'Sickle cell screening', dateAfter3MonthsOfBT, 3);
             return scheduleBuilder.getAllUnique("encounterType");

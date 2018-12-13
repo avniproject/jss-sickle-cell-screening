@@ -173,6 +173,17 @@
           },
           "displayOrder": 2,
           "mandatory": false
+        },
+        {
+          "name": "Send sample for electrophoresis",
+          "uuid": "9e83464c-41c8-4566-98d1-03e19cc99e46",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "uuid": "b4e5a662-97bf-4846-b9b7-9baeab4d89c4"
+          },
+          "displayOrder": 3,
+          "mandatory": false
         }
       ]
     },
