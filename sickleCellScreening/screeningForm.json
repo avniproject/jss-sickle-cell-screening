@@ -26,7 +26,7 @@
           "keyValues": [],
           "type": "SingleSelect",
           "concept": {
-            "name": "Hemoglobin genotype from old report",
+            "name": "Hemoglobin genotype",
             "uuid": "e19e68fd-97f1-4803-a1b2-bb850836ff54"
           },
           "displayOrder": 2,
@@ -35,10 +35,54 @@
       ]
     },
     {
+      "uuid": "f2ea4c49-47e9-40f2-9cdc-b923bac8a31c",
+      "name": "Lab test Results",
+      "display": "Lab test Results",
+      "displayOrder": 2,
+      "formElements": [
+        {
+          "name": "Solubility result",
+          "uuid": "f137192d-dc8c-4604-9d09-c8446ca86f68",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Solubility result",
+            "uuid": "d41b5986-e8b1-41dc-8685-beb4d86abf79"
+          },
+          "displayOrder": 1,
+          "mandatory": false
+        },
+        {
+          "name": "Electrophoresis result",
+          "uuid": "69be09d5-dedf-4016-83b9-5d14cab722fd",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Electrophoresis result",
+            "uuid": "0cb6e694-fc5f-45cb-ad71-0bd22ef8b381"
+          },
+          "displayOrder": 2,
+          "mandatory": false
+        },
+        {
+          "name": "HPLC result",
+          "uuid": "b173c543-d004-4c07-8629-96c0adb1d1f6",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "HPLC",
+            "uuid": "93eb5a4d-b399-46d3-86d0-6fd4d6443d44"
+          },
+          "displayOrder": 3,
+          "mandatory": false
+        }
+      ]
+    },
+    {
       "uuid": "9ed15d8f-ae75-4a3f-bf53-564ba44f58c9",
       "name": "Blood Transfusion Check",
       "display": "Blood Transfusion Check",
-      "displayOrder": 2,
+      "displayOrder": 3,
       "formElements": [
         {
           "name": "BT check reason",
@@ -103,9 +147,9 @@
     },
     {
       "uuid": "4d7165c2-cce3-44d5-8198-3350b34a8e16",
-      "name": "Result from field",
-      "display": "Result from field",
-      "displayOrder": 3,
+      "name": "Field test results",
+      "display": "Field test results",
+      "displayOrder": 4,
       "formElements": [
         {
           "name": "Is solubility result available from field?",
@@ -117,49 +161,17 @@
           },
           "displayOrder": 1,
           "mandatory": false
-        }
-      ]
-    },
-    {
-      "uuid": "f2ea4c49-47e9-40f2-9cdc-b923bac8a31c",
-      "name": "Test Results",
-      "display": "Test Results",
-      "displayOrder": 4,
-      "formElements": [
+        },
         {
-          "name": "Solubility result",
-          "uuid": "f137192d-dc8c-4604-9d09-c8446ca86f68",
+          "name": "Solubility result from field",
+          "uuid": "a9d33ca5-9230-452e-87b1-95df0c3d52b6",
           "keyValues": [],
           "type": "SingleSelect",
           "concept": {
             "name": "Solubility result",
             "uuid": "d41b5986-e8b1-41dc-8685-beb4d86abf79"
           },
-          "displayOrder": 1,
-          "mandatory": false
-        },
-        {
-          "name": "Electrophoresis result",
-          "uuid": "69be09d5-dedf-4016-83b9-5d14cab722fd",
-          "keyValues": [],
-          "type": "SingleSelect",
-          "concept": {
-            "name": "Electrophoresis result",
-            "uuid": "0cb6e694-fc5f-45cb-ad71-0bd22ef8b381"
-          },
           "displayOrder": 2,
-          "mandatory": false
-        },
-        {
-          "name": "HPLC result",
-          "uuid": "b173c543-d004-4c07-8629-96c0adb1d1f6",
-          "keyValues": [],
-          "type": "SingleSelect",
-          "concept": {
-            "name": "HPLC",
-            "uuid": "93eb5a4d-b399-46d3-86d0-6fd4d6443d44"
-          },
-          "displayOrder": 3,
           "mandatory": false
         }
       ]
@@ -168,7 +180,7 @@
       "uuid": "1660ec5b-e1f8-41b3-9bac-abfe2f97b240",
       "name": "Sample collection/shipment details",
       "display": "Sample collection/shipment details",
-      "displayOrder": 5,
+      "displayOrder": 6,
       "formElements": [
         {
           "name": "Sample number",
@@ -199,7 +211,7 @@
       "uuid": "e519cd15-1894-44f2-8b39-d635e9f1edd2",
       "name": "Other relevant details",
       "display": "Other relevant details",
-      "displayOrder": 6,
+      "displayOrder": 7,
       "formElements": [
         {
           "name": "Hb",

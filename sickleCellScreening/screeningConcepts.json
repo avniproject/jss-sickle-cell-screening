@@ -32,11 +32,7 @@
   },
   {
     "uuid": "7f32dd91-78d3-4f5c-b43e-a00bff7d6055",
-    "name": "Beta"
-  },
-  {
-    "uuid": "05732977-ed46-4a04-ad06-bec319482500",
-    "name": "Thal"
+    "name": "Beta Thal"
   },
   {
     "name": "Hemoglobin genotype",
@@ -131,6 +127,10 @@
       {
         "name": "AS",
         "uuid": "77ee8a6a-2a01-421f-85ca-fc0ab39abcdb"
+      },
+      {
+        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
+        "abnormal": false
       }
     ]
   },
@@ -157,14 +157,57 @@
     "dataType": "Text"
   },
   {
+    "uuid": "6bd47365-e913-43f4-9d66-2be4dce62a37",
+    "name": "SCACM Lab, Anuppur"
+  },
+  {
+    "uuid": "d8fde700-29bd-4cc8-bd7d-d39b9f100fc1",
+    "name": "Lab CHC Rajendragram"
+  },
+  {
+    "uuid": "6676e275-4d2d-4f13-ab38-31234f41d37a",
+    "name": "Lab CHC Karpa"
+  },
+  {
+    "uuid": "cd056b81-7d9a-4fbd-9bf4-1303a5b4d090",
+    "name": "CHC Kotma"
+  },
+
+  {
     "name": "Laboratory",
     "uuid": "c392dcf2-c4c5-475f-a7c4-f84e9498b0df",
     "dataType": "Coded",
     "answers": [
       {
-        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
-        "name": "Other"
+        "uuid": "6bd47365-e913-43f4-9d66-2be4dce62a37",
+        "name": "SCACM Lab, Anuppur"
+      },
+      {
+        "uuid": "d8fde700-29bd-4cc8-bd7d-d39b9f100fc1",
+        "name": "Lab CHC Rajendragram"
+      },
+      {
+        "uuid": "6676e275-4d2d-4f13-ab38-31234f41d37a",
+        "name": "Lab CHC Karpa"
+      },
+      {
+        "uuid": "cd056b81-7d9a-4fbd-9bf4-1303a5b4d090",
+        "name": "CHC Kotma"
+      }
+    ]
+  },
+  {
+    "name": "Whether Electrophoresis result available",
+    "uuid": "508c57f9-da72-4d39-ba89-25af12929dda",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "04bb1773-c353-44a1-a68c-9b448e07ff70"
+      },
+      {
+        "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
       }
     ]
   }
+
 ]
