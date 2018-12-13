@@ -9,6 +9,7 @@ import {
     VisitScheduleBuilder,
     ProgramRule
 } from 'rules-config/rules';
+const RuleHelper = require('./RuleHelper');
 
 const ScreeningViewFilter = RuleFactory("0723fd75-dc66-4aae-a3c9-31a09c9c4c7a", "ViewFilter");
 
@@ -141,6 +142,7 @@ class SickleCellScreeningHandlerJSS {
     executionOrder: 100.0,
     metadata: {}
 })
+
 class SickleCellScreeningProgramRuleJSS {
     static exec(programEnrolment, summaries, context, today) {
         const hb = programEnrolment.findObservationInEntireEnrolment('Hb');
@@ -158,5 +160,24 @@ class SickleCellScreeningProgramRuleJSS {
     }
 }
 
-module.exports = {SickleCellScreeningHandlerJSS, SickleCellScreeningProgramRuleJSS};
+@ScreeningVisitRule("b0e1b1b1-3fe1-45fe-b813-9471ed2561c8", "JSS Sickle cell screening visit schedule", 100.0, {})
+class SickleCellScreeningVisitScheduleJSS {
+    static exec(programEncounter, visitSchedule = [], scheduleConfig) {
+
+        console.log('came to SickleCellScreeningVisitScheduleJSS exec');
+        let btDate = programEncounter.getObservationReadableValue('BT date');
+
+        console.log(btDate);
+        if (!_.isNil(btDate)){
+            const dateAfter3MonthsOfBT = moment(btDate).add(3, 'months').toDate();
+            console.log(dateAfter3MonthsOfBT);
+            let scheduleBuilder = RuleHelper.createProgramEncounterVisitScheduleBuilder(programEncounter, visitSchedule);
+            RuleHelper.addSchedule(scheduleBuilder, 'Sickle cell screening', 'Sickle cell screening', dateAfter3MonthsOfBT, 3);
+            return scheduleBuilder.getAllUnique("encounterType");
+        }
+        return visitSchedule;
+    }
+}
+
+module.exports = {SickleCellScreeningHandlerJSS, SickleCellScreeningProgramRuleJSS, SickleCellScreeningVisitScheduleJSS};
 
