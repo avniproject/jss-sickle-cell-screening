@@ -53,6 +53,17 @@
           "mandatory": false
         },
         {
+          "name": "Whether electrophoresis result available",
+          "uuid": "0c286c21-f04d-4fbf-a047-386d835726fe",
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Whether Electrophoresis result available",
+            "uuid": "508c57f9-da72-4d39-ba89-25af12929dda"
+          },
+          "displayOrder": 1.5,
+          "mandatory": false
+        },
+        {
           "name": "Electrophoresis result",
           "uuid": "69be09d5-dedf-4016-83b9-5d14cab722fd",
           "keyValues": [],
@@ -64,6 +75,18 @@
           "displayOrder": 2,
           "mandatory": false
         },
+        {
+          "name": "Whether HPLC result available",
+          "uuid": "09b459c7-fdcf-4e27-9bcf-eb8797662bc5",
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Whether HPLC result available",
+            "uuid": "645d4c3d-8b8a-4de6-85f2-87b5ba73fe86"
+          },
+          "displayOrder": 2.5,
+          "mandatory": false
+        },
+
         {
           "name": "HPLC result",
           "uuid": "b173c543-d004-4c07-8629-96c0adb1d1f6",
@@ -183,6 +206,17 @@
             "uuid": "b4e5a662-97bf-4846-b9b7-9baeab4d89c4"
           },
           "displayOrder": 3,
+          "mandatory": false
+        },
+        {
+          "name": "Send sample for solubility and electrophoresis",
+          "uuid": "8e3738ba-c9b3-4664-9e31-56f03e3b77d5",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "uuid": "b4e5a662-97bf-4846-b9b7-9baeab4d89c4"
+          },
+          "displayOrder": 4,
           "mandatory": false
         }
       ]
