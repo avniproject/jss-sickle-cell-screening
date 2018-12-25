@@ -43,7 +43,7 @@ describe('sickleCellScreeningForm', () => {
             .build();
     })
 
-    test('hemoglobinGenotypeFromOldReport is not visible when scConfirmatoryReportAvailable answer is no', () => {
+    test('hemoglobinGenotypeFromOldReport is not visible when scConfirmatoryReportAvailable answer is No', () => {
         let screeningEncounter = new EncounterFiller(programData, enrolment, "ANC", new Date())
             .forSingleCoded("Whether SC confirmatory report available", "No")
             .build();
@@ -51,11 +51,11 @@ describe('sickleCellScreeningForm', () => {
             .find(feg => feg.name === "Sickle cell screening history");
         let fe = formElementGroup.getFormElements().find(el => el.matches("SC confirmatory report available?"));
         let handler = new SickleCellScreeningHandlerJSS();
-        let statusBuilder = new FormElementStatusBuilder({programEncounter: screeningEncounter, formElement:fe});
-        let r = handler.hemoglobinGenotypeFromOldReport([], statusBuilder);
-        // let r = SickleCellScreeningHandlerJSS.exec(screeningEncounter, formElementGroup);
-        console.log(`${JSON.stringify(r, null, 4)}`);
+        let formElementStatus = handler.hemoglobinGenotypeFromOldReport(screeningEncounter, fe);
+        // console.log(JSON.stringify(formElementStatus, null, 4));
+        expect(formElementStatus.visibility).toBeFalsy();
     });
+
 });
 ;
 
