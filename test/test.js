@@ -59,7 +59,6 @@ describe('sickleCellScreeningForm', () => {
         let encounter = encounterFiller.forSingleCoded("Whether SC confirmatory report available", "No").build();
         let element = findElement(screeningHistory, "Hemoglobin genotype from old report");
         let formElementStatus = handler.hemoglobinGenotypeFromOldReport(encounter, element);
-        console.log(JSON.stringify(formElementStatus, null, 4));
         expect(formElementStatus.visibility).toBeFalsy();
 
     });
@@ -69,7 +68,6 @@ describe('sickleCellScreeningForm', () => {
         let encounter = encounterFiller.forSingleCoded("Whether BT done in last 3 months", "No").build();
         let element = findElement(bloodTransfusionCheck, "Collect sample for hb solubility and electrophoresis");
         let formElementStatus = handler.collectSampleForHbSolubilityAndElectrophoresis(encounter, element);
-        console.log(JSON.stringify(formElementStatus, null, 4));
         expect(formElementStatus.visibility).toBeTruthy();
 
     });
