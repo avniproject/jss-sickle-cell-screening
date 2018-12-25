@@ -9,7 +9,7 @@
   "license": "AGPL-3.0",
   "scripts": {
     "test": "jest",
-    "postinstall": "npm link openchs-models openchs-health-modules rules-config"
+    "postinstall": "npm link openchs-models openchs-health-modules"
   },
   "jest": {
     "transformIgnorePatterns": [
@@ -22,6 +22,7 @@
     "webpack": "^4.12.0"
   },
   "devDependencies": {
+    "rules-config": "github:openchs/rules-config#30bc80c",
     "@types/jest": "^23.3.10",
     "amazon-cognito-identity-js": "1.28.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
