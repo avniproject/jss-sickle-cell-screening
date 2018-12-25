@@ -22,8 +22,12 @@ import enrolmentForm
     from "../sickleCellScreening/sickleCellScreeningProgramEnrolmentNullForm";
 import IndividualBuilder from "openchs-models/test/ref/IndividualBuilder";
 
+function findElement(formElementGroup, elementName) {
+    return formElementGroup.getFormElements().find(el => el.matches(elementName));
+}
+
 describe('sickleCellScreeningForm', () => {
-    let programData, enrolment, individual;
+    let programData, enrolment, individual, handler, screeningHistory, bloodTransfusionCheck, encounterFiller;
     let sickleCellProgram = programs[0];
 
     beforeEach(() => {
@@ -41,21 +45,33 @@ describe('sickleCellScreeningForm', () => {
             .build();
         enrolment = new EnrolmentFiller(programData, individual, new Date())
             .build();
-    })
+        encounterFiller = new EncounterFiller(programData, enrolment, "ANC", new Date());
 
-    test('hemoglobinGenotypeFromOldReport is not visible when scConfirmatoryReportAvailable answer is No', () => {
-        let screeningEncounter = new EncounterFiller(programData, enrolment, "ANC", new Date())
-            .forSingleCoded("Whether SC confirmatory report available", "No")
-            .build();
-        let formElementGroup = programData.forms[1].getFormElementGroups()
+        handler = new SickleCellScreeningHandlerJSS();
+        screeningHistory = programData.forms[1].getFormElementGroups()
             .find(feg => feg.name === "Sickle cell screening history");
-        let fe = formElementGroup.getFormElements().find(el => el.matches("SC confirmatory report available?"));
-        let handler = new SickleCellScreeningHandlerJSS();
-        let formElementStatus = handler.hemoglobinGenotypeFromOldReport(screeningEncounter, fe);
-        // console.log(JSON.stringify(formElementStatus, null, 4));
-        expect(formElementStatus.visibility).toBeFalsy();
+        bloodTransfusionCheck = programData.forms[1].getFormElementGroups()
+            .find(feg => feg.name === "Blood Transfusion Check");
     });
 
+    test('hemoglobinGenotypeFromOldReport is not visible when scConfirmatoryReportAvailable answer is No', () => {
+
+        let encounter = encounterFiller.forSingleCoded("Whether SC confirmatory report available", "No").build();
+        let element = findElement(screeningHistory, "Hemoglobin genotype from old report");
+        let formElementStatus = handler.hemoglobinGenotypeFromOldReport(encounter, element);
+        console.log(JSON.stringify(formElementStatus, null, 4));
+        expect(formElementStatus.visibility).toBeFalsy();
+
+    });
+
+    test('collectSampleForHbSolubilityAndElectrophoresis is visible when btDoneInLast3Months is no', () => {
+
+        let encounter = encounterFiller.forSingleCoded("Whether BT done in last 3 months", "No").build();
+        let element = findElement(bloodTransfusionCheck, "Collect sample for hb solubility and electrophoresis");
+        let formElementStatus = handler.collectSampleForHbSolubilityAndElectrophoresis(encounter, element);
+        console.log(JSON.stringify(formElementStatus, null, 4));
+        expect(formElementStatus.visibility).toBeTruthy();
+
+    });
 });
-;
 
