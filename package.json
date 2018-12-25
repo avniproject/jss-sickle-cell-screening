@@ -7,12 +7,22 @@
     "url": "https://github.com/OpenCHS/jss-sickle-cell-screening.git"
   },
   "license": "AGPL-3.0",
-  "scripts": {},
+  "scripts": {
+    "test": "jest",
+    "postinstall": "npm link openchs-models openchs-health-modules"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!OpenCHSClient)"
+    ]
+  },
   "dependencies": {
     "webpack": "^4.12.0"
   },
   "devDependencies": {
-    "rules-config": "github:openchs/rules-config#30bc80c",
-    "amazon-cognito-identity-js": "1.28.0"
+    "amazon-cognito-identity-js": "1.28.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "jest": "^23.6.0",
+    "rules-config": "github:openchs/rules-config#30bc80c"
   }
 }
