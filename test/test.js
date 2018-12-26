@@ -11,7 +11,6 @@ import {
 } from 'rules-config/rules';
 import screeningForm from '../sickleCellScreening/screeningForm.json';
 import screeningConcepts from '../sickleCellScreening/screeningConcepts';
-import {ProgramEncounter, ProgramEnrolment} from "openchs-models";
 import EnrolmentFiller from "openchs-models/test/ref/EnrolmentFiller";
 import EncounterFiller from "openchs-models/test/ref/EncounterFiller";
 import ProgramFactory from "openchs-models/test/ref/ProgramFactory";
@@ -54,7 +53,7 @@ describe('sickleCellScreeningForm', () => {
             .find(feg => feg.name === "Blood Transfusion Check");
     });
 
-    test('hemoglobinGenotypeFromOldReport is not visible when scConfirmatoryReportAvailable answer is No', () => {
+    test('hemoglobinGenotypeFromOldReport is not visible when scConfirmatoryReportAvailable is No', () => {
 
         let encounter = encounterFiller.forSingleCoded("Whether SC confirmatory report available", "No").build();
         let element = findElement(screeningHistory, "Hemoglobin genotype from old report");
@@ -70,6 +69,18 @@ describe('sickleCellScreeningForm', () => {
         let formElementStatus = handler.collectSampleForHbSolubilityAndElectrophoresis(encounter, element);
         expect(formElementStatus.visibility).toBeTruthy();
 
+    });
+
+    test(`btDoneInLast3Months is visible when scConfirmatoryReportAvailable is No 
+        and last btDoneInLast3Months is yes`, () => {
+
+        let encounter = encounterFiller
+            .forSingleCoded("Whether SC confirmatory report available", "No")
+            .forSingleCoded("Whether BT done in last 3 months", "Yes")
+            .build();
+        let element = findElement(bloodTransfusionCheck, "BT done in last 3 months?");
+        let visibility = handler.btDoneInLast3Months(encounter, element).visibility;
+        expect(visibility).toBeTruthy();
     });
 });
 

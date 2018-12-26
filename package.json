@@ -8,12 +8,11 @@
   },
   "license": "AGPL-3.0",
   "scripts": {
-    "test": "jest",
-    "postinstall": "npm link openchs-models openchs-health-modules"
+    "test": "jest"
   },
   "jest": {
     "transformIgnorePatterns": [
-      "/node_modules/(?!OpenCHSClient)"
+      "/node_modules/(?!openchs-models)/"
     ]
   },
   "dependencies": {
@@ -22,7 +21,6 @@
     "webpack": "^4.12.0"
   },
   "devDependencies": {
-    "rules-config": "github:openchs/rules-config#30bc80c",
     "@types/jest": "^23.3.10",
     "amazon-cognito-identity-js": "1.28.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -31,6 +29,9 @@
     "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "openchs-health-modules": "0.0.2",
+    "openchs-models": "0.0.2",
+    "rules-config": "github:openchs/rules-config#30bc80c"
   }
 }
