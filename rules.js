@@ -15,7 +15,59 @@ const RuleHelper = require('./RuleHelper');
 const ScreeningViewFilter = RuleFactory("0723fd75-dc66-4aae-a3c9-31a09c9c4c7a", "ViewFilter");
 const WithStatusBuilder = StatusBuilderAnnotationFactory('programEncounter', 'formElement');
 const ScreeningVisitRule = RuleFactory("0723fd75-dc66-4aae-a3c9-31a09c9c4c7a", "VisitSchedule");
+const PostEnrolmentVisitRule = RuleFactory("da35a2b3-0d8f-4f12-b6a3-64cf1353284e", "VisitSchedule");
 const Decision = RuleFactory('0723fd75-dc66-4aae-a3c9-31a09c9c4c7a', 'Decision');
+
+const ProgramEncounterName = {
+    BASE_SCREENING: "Base screening",
+    SAMPLE_SHIPMENT: "Sample shipment",
+    LAB_RESULTS_ENTRY: "Lab results entry",
+    HPLC_SAMPLE_COLLECTION: "HPLC sample collection"
+};
+
+let resultFromOldElectrophoresisOther = function (programEncounter) {
+    return new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Electrophoresis result from old report").containsAnswerConceptName("Other").matches();
+};
+
+let scConfirmatoryTestAvailable = function (programEncounter) {
+    return new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether SC confirmatory report available").is.yes.matches();
+};
+
+
+let oldElectrophoresisResultAvailable = function (programEncounter) {
+    let oldElectrophoresisResultAvailable = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether old electrophoresis report available").is.yes.matches();
+    return oldElectrophoresisResultAvailable;
+};
+
+let sampleToBeCollectedForHPLC = function (programEncounter) {
+    let btCheckPassAndElectrophoresisOther = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether BT done in last 3 months").is.no
+        .and.valueInEntireEnrolment("Electrophoresis result").containsAnswerConceptName("Other").matches();
+
+    return (programEncounter.name === ProgramEncounterName.BASE_SCREENING || programEncounter.name === ProgramEncounterName.HPLC_SAMPLE_COLLECTION) && btCheckPassAndElectrophoresisOther;
+};
+
+let sampleToBeCollectedForSolubilityAndElectrophoresis = function (programEncounter) {
+    let btCheckPassAndElectroResultNotAvailable = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether BT done in last 3 months").is.no
+        .and.latestValueInPreviousEncounters("Electrophoresis result").is.notDefined.matches();
+
+    return programEncounter.name === ProgramEncounterName.BASE_SCREENING && btCheckPassAndElectroResultNotAvailable;
+};
+
+let sampleToBeShipped = function (programEncounter) {
+
+    console.log('came to sampleToBeShipped');
+    if (sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter)){
+        console.log('came to sampleToBeCollectedForSolubilityAndElectrophoresis');
+        const solubilityFromFieldPositive = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether prep and/or solubility result from field available").is.yes
+            .and.valueInEncounter("Solubility result").containsAnswerConceptName("Positive").matches();
+        console.log(solubilityFromFieldPositive);
+        const solubilityFromFieldUnavailable = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether prep and/or solubility result from field available").is.no.matches();
+        console.log(solubilityFromFieldUnavailable);
+
+        return solubilityFromFieldUnavailable || solubilityFromFieldPositive;
+    }
+    return sampleToBeCollectedForHPLC(programEncounter);
+};
 
 @ScreeningViewFilter("78aaf13f-04f2-47cc-b4da-914f204793a9", "JSS Sickle Cell Screening Encounter View Filter", 100.0, {})
 class SickleCellScreeningHandlerJSS {
@@ -33,26 +85,58 @@ class SickleCellScreeningHandlerJSS {
     }
 
     labTestResults(programEncounter, formElementGroup) {
-        console.log("labTestResults");
         return formElementGroup.formElements.map(fe=>{
             let statusBuilder = new FormElementStatusBuilder({programEncounter:programEncounter, formElement:fe});
-            statusBuilder.show().when.latestValueInPreviousEncounters("Sample number").is.defined;
+            statusBuilder.show().whenItem(programEncounter.name === ProgramEncounterName.LAB_RESULTS_ENTRY);
+            return statusBuilder.build();
+        });
+    }
+
+    static bloodTransfusionCheckNeeded(programEncounter){
+        if (programEncounter.name === ProgramEncounterName.BASE_SCREENING) {
+            console.log(scConfirmatoryTestAvailable(programEncounter));
+            console.log(oldElectrophoresisResultAvailable(programEncounter));
+            console.log(resultFromOldElectrophoresisOther(programEncounter));
+            return (!scConfirmatoryTestAvailable(programEncounter) || !oldElectrophoresisResultAvailable(programEncounter) || resultFromOldElectrophoresisOther(programEncounter));
+        }
+        return programEncounter.name === ProgramEncounterName.HPLC_SAMPLE_COLLECTION;
+    }
+
+
+    bloodTransfusionCheck(programEncounter, formElementGroup) {
+        console.log('came to bloodTransfusionCheck');
+        return formElementGroup.formElements.map(fe=>{
+            let statusBuilder = new FormElementStatusBuilder({programEncounter:programEncounter, formElement:fe});
+            let bloodTransfusionCheckNeeded = SickleCellScreeningHandlerJSS.bloodTransfusionCheckNeeded(programEncounter);
+            console.log(bloodTransfusionCheckNeeded);
+            statusBuilder.show().whenItem(bloodTransfusionCheckNeeded).is.truthy;
             return statusBuilder.build();
         });
     }
 
     @WithStatusBuilder
+    whetherOldElectrophoresisReportAvailable([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no;
+    }
+
+    @WithStatusBuilder
+    electrophoresisResultFromOldReport([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Whether old electrophoresis report available").is.yes;
+    }
+
+    @WithStatusBuilder
     solubilityResult([], statusBuilder) {
-        statusBuilder.show().when.valueInEntireEnrolment("Solubility result").is.notDefined
-            .and.latestValueInPreviousEncounters("Sample number").is.defined;
+        statusBuilder.show().whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterName.LAB_RESULTS_ENTRY).is.truthy
+            .and.valueInEntireEnrolment("Solubility result").is.notDefined
+            .and.valueInEntireEnrolment("Electrophoresis result").is.notDefined;
     }
 
 
     @WithStatusBuilder
     whetherElectrophoresisResultAvailable([], statusBuilder) {
         console.log("whetherElectrophoresisResultAvailable");
-        statusBuilder.show().when.valueInEntireEnrolment("Electrophoresis result").is.notDefined
-            .and.latestValueInPreviousEncounters("Sample number").is.defined;
+        statusBuilder.show().whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterName.LAB_RESULTS_ENTRY).is.truthy
+            .and.valueInEntireEnrolment("Electrophoresis result").is.notDefined;
     }
 
     @WithStatusBuilder
@@ -62,7 +146,8 @@ class SickleCellScreeningHandlerJSS {
 
     @WithStatusBuilder
     whetherHplcResultAvailable([], statusBuilder) {
-        statusBuilder.show().when.latestValueInPreviousEncounters("Sample number").is.defined;
+        statusBuilder.show().whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterName.LAB_RESULTS_ENTRY).is.truthy
+            .and.valueInEntireEnrolment("HPLC Result").is.notDefined;
     }
 
     @WithStatusBuilder
@@ -82,25 +167,18 @@ class SickleCellScreeningHandlerJSS {
 
 
     @WithStatusBuilder
-    btCheckReason([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no
-            .or.latestValueInPreviousEncounters("Whether BT done in last 3 months").is.yes;
-    }
-
-    @WithStatusBuilder
-    btDoneInLast3Months([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no
-            .or.latestValueInPreviousEncounters("Whether BT done in last 3 months").is.yes;
-    }
-
-    @WithStatusBuilder
     btDate([], statusBuilder) {
         statusBuilder.show().when.valueInEncounter("Whether BT done in last 3 months").is.yes;
     }
 
     @WithStatusBuilder
     collectSampleForHbSolubilityAndElectrophoresis([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether BT done in last 3 months").is.no;
+        statusBuilder.show().whenItem(sampleToBeCollectedForSolubilityAndElectrophoresis(statusBuilder.context.programEncounter)).is.truthy;
+    }
+
+    @WithStatusBuilder
+    collectSampleForHplc([], statusBuilder) {
+        statusBuilder.show().whenItem(sampleToBeCollectedForHPLC(statusBuilder.context.programEncounter)).is.truthy;
     }
 
     @WithStatusBuilder
@@ -112,16 +190,9 @@ class SickleCellScreeningHandlerJSS {
     fieldTestResults(programEncounter, formElementGroup) {
         return formElementGroup.formElements.map(fe=>{
             let statusBuilder = new FormElementStatusBuilder({programEncounter:programEncounter, formElement:fe});
-            statusBuilder.show().when.valueInEncounter("Whether BT done in last 3 months").is.no
-                .and.latestValueInPreviousEncounters("Whether prep and/or solubility result from field available").is.defined;
+            statusBuilder.show().whenItem(sampleToBeCollectedForSolubilityAndElectrophoresis(statusBuilder.context.programEncounter)).is.truthy;
             return statusBuilder.build();
         });
-    }
-
-
-    @WithStatusBuilder
-    isSolubilityResultAvailableFromField([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether BT done in last 3 months").is.no;
     }
 
     @WithStatusBuilder
@@ -141,20 +212,17 @@ class SickleCellScreeningHandlerJSS {
     }
 
 
-
     sampleCollectionShipmentDetails(programEncounter, formElementGroup) {
-        console.log('sampleCollectionShipmentDetails');
-        const ruleCondition = new RuleCondition({programEncounter: programEncounter});
-        const solubilityFromFieldPositive = ruleCondition.when.valueInEncounter("Whether prep and/or solubility result from field available").is.yes
-            .and.valueInEncounter("Solubility result").containsAnswerConceptName("Positive").matches();
-        console.log(solubilityFromFieldPositive);
-
         return formElementGroup.formElements.map(fe=>{
             let statusBuilder = new FormElementStatusBuilder({programEncounter:programEncounter, formElement:fe});
-            statusBuilder.show().whenItem(solubilityFromFieldPositive).is.truthy
-                .or.valueInEncounter("Whether prep and/or solubility result from field available").is.no;
+            statusBuilder.show().whenItem(sampleToBeShipped(programEncounter)).is.truthy;
             return statusBuilder.build();
         });
+    }
+
+    @WithStatusBuilder
+    sampleSentTo([], statusBuilder) {
+        statusBuilder.show().whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterName.SAMPLE_SHIPMENT).is.truthy;
     }
 
     @WithStatusBuilder
@@ -189,6 +257,11 @@ class SickleCellScreeningProgramRuleJSS {
         const genotype = programEnrolment.findObservationInEntireEnrolment('Hemoglobin genotype');
         if (!_.isNil(genotype)) {
             summaries.push({name: 'Hemoglobin genotype', value: genotype.getValue()});
+        } else {
+            const electrophoresisResult = programEnrolment.findObservationInEntireEnrolment('Electrophoresis result');
+            if (!_.isNil(electrophoresisResult)) {
+                summaries.push({name: 'Electrophoresis result', value: electrophoresisResult.getValue()});
+            }
         }
     }
 }
@@ -196,16 +269,64 @@ class SickleCellScreeningProgramRuleJSS {
 @ScreeningVisitRule("b0e1b1b1-3fe1-45fe-b813-9471ed2561c8", "JSS Sickle cell screening visit schedule", 100.0, {})
 class SickleCellScreeningVisitScheduleJSS {
     static exec(programEncounter, visitSchedule = [], scheduleConfig) {
+        console.log('In SickleCellScreeningVisitScheduleJSS');
 
-        let btDate = programEncounter.getObservationReadableValue('BT date');
+        if(programEncounter.name === ProgramEncounterName.BASE_SCREENING){
+            let btDate = programEncounter.getObservationReadableValue('BT date');
 
-        if (!_.isNil(btDate)){
-            const dateAfter3MonthsOfBT = moment(btDate).add(3, 'months').toDate();
+            if (!_.isNil(btDate)){
+                const dateAfter3MonthsOfBT = moment(btDate).add(3, 'months').toDate();
+                let scheduleBuilder = RuleHelper.createProgramEncounterVisitScheduleBuilder(programEncounter, visitSchedule);
+                RuleHelper.addSchedule(scheduleBuilder, ProgramEncounterName.BASE_SCREENING, 'Sickle cell screening', dateAfter3MonthsOfBT, 3);
+                return scheduleBuilder.getAllUnique("encounterType");
+            }
+        }
+
+        if(programEncounter.name === ProgramEncounterName.SAMPLE_SHIPMENT){
             let scheduleBuilder = RuleHelper.createProgramEncounterVisitScheduleBuilder(programEncounter, visitSchedule);
-            RuleHelper.addSchedule(scheduleBuilder, 'Sickle cell screening', 'Sickle cell screening', dateAfter3MonthsOfBT, 3);
+            RuleHelper.addSchedule(scheduleBuilder, ProgramEncounterName.LAB_RESULTS_ENTRY, 'Sickle cell screening', programEncounter.encounterDateTime, 3);
             return scheduleBuilder.getAllUnique("encounterType");
         }
+
+        if(programEncounter.name === ProgramEncounterName.LAB_RESULTS_ENTRY){
+            let electrophoresisResult = programEncounter.getObservationReadableValue('Electrophoresis result');
+            if (!_.isNil(electrophoresisResult) && electrophoresisResult === 'Other') {
+                let scheduleBuilder = RuleHelper.createProgramEncounterVisitScheduleBuilder(programEncounter, visitSchedule);
+                RuleHelper.addSchedule(scheduleBuilder, ProgramEncounterName.HPLC_SAMPLE_COLLECTION, 'Sickle cell screening', programEncounter.encounterDateTime, 3);
+                return scheduleBuilder.getAllUnique("encounterType");
+            }
+        }
+
+        if(programEncounter.name === ProgramEncounterName.HPLC_SAMPLE_COLLECTION){
+            let btDate = programEncounter.getObservationReadableValue('BT date');
+
+            if (!_.isNil(btDate)){
+                const dateAfter3MonthsOfBT = moment(btDate).add(3, 'months').toDate();
+                let scheduleBuilder = RuleHelper.createProgramEncounterVisitScheduleBuilder(programEncounter, visitSchedule);
+                RuleHelper.addSchedule(scheduleBuilder, ProgramEncounterName.HPLC_SAMPLE_COLLECTION, 'Sickle cell screening', dateAfter3MonthsOfBT, 3);
+                return scheduleBuilder.getAllUnique("encounterType");
+            }
+        }
+
+        let sampleNumber = programEncounter.getObservationReadableValue('Sample number');
+        if (!_.isNil(sampleNumber)){
+            let scheduleBuilder = RuleHelper.createProgramEncounterVisitScheduleBuilder(programEncounter, visitSchedule);
+            RuleHelper.addSchedule(scheduleBuilder, ProgramEncounterName.SAMPLE_SHIPMENT, 'Sickle cell screening', programEncounter.encounterDateTime, 3);
+            return scheduleBuilder.getAllUnique("encounterType");
+        }
+
+
         return visitSchedule;
+    }
+}
+
+@PostEnrolmentVisitRule("a1c048e1-64b6-4d5d-b16f-55947bf21cf5", "JSS Sickle cell post enrolment visit schedule", 100.0, {})
+class SickleCellScreeningPostEnrolmentVisitScheduleJSS {
+    static exec(programEnrolment, visitSchedule = [], scheduleConfig) {
+
+        let scheduleBuilder = RuleHelper.createEnrolmentScheduleBuilder(programEnrolment, visitSchedule);
+        RuleHelper.addSchedule(scheduleBuilder, ProgramEncounterName.BASE_SCREENING, 'Sickle cell screening', programEnrolment.enrolmentDateTime, 1);
+        return scheduleBuilder.getAllUnique("encounterType");
     }
 }
 
@@ -213,14 +334,33 @@ class SickleCellScreeningVisitScheduleJSS {
 class SickleCellScreeningFormDecisionsJSS {
 
     static exec(programEncounter, decisions, context, today) {
+
+        console.log('In SickleCellScreeningFormDecisionsJSS');
+
+        let hemoglobinGenotypeFromOldReport = programEncounter.getObservationReadableValue('Hemoglobin genotype from old report');
+        if(!_.isNil(hemoglobinGenotypeFromOldReport)){
+            decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:[hemoglobinGenotypeFromOldReport]});
+        }
+
+        let electrophoresisResultFromOldReport = programEncounter.getObservationReadableValue('Electrophoresis result from old report');
+        if(!_.isNil(electrophoresisResultFromOldReport) && electrophoresisResultFromOldReport === 'Other'){
+            decisions.encounterDecisions.push({name:"Electrophoresis result",value:["Other"]});
+        }
+
         let solubilityResult = programEncounter.getObservationReadableValue('Solubility result');
         if(!_.isNil(solubilityResult) && solubilityResult === 'Negative'){
             decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:["AA"]});
         }
+
+        let hplcResult = programEncounter.getObservationReadableValue('HPLC result');
+        if(!_.isNil(hplcResult)){
+            decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:[hplcResult === "Other" ? "Other (HPLC)" : "Beta Thal"]});
+        }
+
         return decisions;
     }
 
 }
 
-module.exports = {SickleCellScreeningHandlerJSS, SickleCellScreeningProgramRuleJSS, SickleCellScreeningVisitScheduleJSS,SickleCellScreeningFormDecisionsJSS};
+module.exports = {SickleCellScreeningHandlerJSS, SickleCellScreeningProgramRuleJSS, SickleCellScreeningVisitScheduleJSS,SickleCellScreeningFormDecisionsJSS, SickleCellScreeningPostEnrolmentVisitScheduleJSS};
 

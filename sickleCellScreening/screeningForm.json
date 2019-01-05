@@ -26,10 +26,33 @@
           "keyValues": [],
           "type": "SingleSelect",
           "concept": {
-            "name": "Hemoglobin genotype",
-            "uuid": "e19e68fd-97f1-4803-a1b2-bb850836ff54"
+            "name": "Hemoglobin genotype from old report",
+            "uuid": "3f0d938b-d7e6-4372-b2a0-e787430880f8"
           },
           "displayOrder": 2,
+          "mandatory": false
+        },
+        {
+          "name": "Whether old electrophoresis report available",
+          "uuid": "ea4e53c5-4085-4ad9-93cb-8bcf0369db96",
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Whether old electrophoresis report available",
+            "uuid": "f86513ff-828d-47e4-8631-c264b0a54167"
+          },
+          "displayOrder": 3,
+          "mandatory": false
+        },
+        {
+          "name": "Electrophoresis result from old report",
+          "uuid": "954e9335-99f8-4619-b034-564a079d0d2b",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Electrophoresis result from old report",
+            "uuid": "c95fb6c8-e89e-449d-bd59-5a4f0eec0aad"
+          },
+          "displayOrder": 4,
           "mandatory": false
         }
       ]
@@ -148,10 +171,20 @@
           "keyValues": [],
           "type": "SingleSelect",
           "concept": {
-            "name": "Collect sample for screening and electrophoresis",
-            "uuid": "3ed1b571-bf02-418b-8ea5-18acfa87c55f"
+            "uuid": "b4e5a662-97bf-4846-b9b7-9baeab4d89c4"
           },
           "displayOrder": 4,
+          "mandatory": false
+        },
+        {
+          "name": "Collect sample for HPLC",
+          "uuid": "69634e2c-0ab4-407c-bcc7-14b88cb7e142",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "uuid": "b4e5a662-97bf-4846-b9b7-9baeab4d89c4"
+          },
+          "displayOrder": 5,
           "mandatory": false
         },
         {
@@ -163,7 +196,7 @@
             "name": "BT check failed revisit instruction",
             "uuid": "4e2779d9-81d7-4595-9e3e-07d02bc0cd35"
           },
-          "displayOrder": 5,
+          "displayOrder": 6,
           "mandatory": false
         }
       ]

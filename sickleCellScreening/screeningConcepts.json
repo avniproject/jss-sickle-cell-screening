@@ -1,5 +1,9 @@
 [
   {
+    "uuid": "7472ce22-441c-4f07-9049-d53c943308e0",
+    "name": "Other (HPLC)"
+  },
+  {
     "name": "Whether BT done in last 3 months",
     "uuid": "c1a4e2f9-8dbf-431d-bdbb-19644d7f3eba",
     "dataType": "Coded",
@@ -55,11 +59,42 @@
       },
       {
         "uuid": "7f32dd91-78d3-4f5c-b43e-a00bff7d6055",
+        "name": "Beta Thal",
+        "abnormal": true
+      },
+      {
+        "uuid": "7472ce22-441c-4f07-9049-d53c943308e0",
+        "name": "Other (HPLC)",
+        "abnormal": true
+      }
+    ]
+  },
+  {
+    "name": "Hemoglobin genotype from old report",
+    "uuid": "3f0d938b-d7e6-4372-b2a0-e787430880f8",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "name": "SS",
+        "uuid": "3648a650-2f3e-4c2c-a899-c0a8212aace1",
+        "abnormal": true
+      },
+      {
+        "name": "AS",
+        "uuid": "77ee8a6a-2a01-421f-85ca-fc0ab39abcdb",
+        "abnormal": true
+      },
+      {
+        "name": "AA",
+        "uuid": "daa7c62f-c663-4981-a134-1f662b3036d0"
+      },
+      {
+        "uuid": "7f32dd91-78d3-4f5c-b43e-a00bff7d6055",
         "name": "Beta Thal"
       },
       {
-        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
-        "name": "Other",
+        "uuid": "7472ce22-441c-4f07-9049-d53c943308e0",
+        "name": "Other (HPLC)",
         "abnormal": true
       }
     ]
@@ -135,7 +170,7 @@
     ]
   },
   {
-    "name": "HPLC",
+    "name": "HPLC result",
     "uuid": "93eb5a4d-b399-46d3-86d0-6fd4d6443d44",
     "dataType": "Coded",
     "answers": [
@@ -172,7 +207,6 @@
     "uuid": "cd056b81-7d9a-4fbd-9bf4-1303a5b4d090",
     "name": "CHC Kotma"
   },
-
   {
     "name": "Laboratory",
     "uuid": "c392dcf2-c4c5-475f-a7c4-f84e9498b0df",
@@ -219,6 +253,39 @@
       },
       {
         "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
+      }
+    ]
+  },
+  {
+    "name": "Whether old electrophoresis report available",
+    "uuid": "f86513ff-828d-47e4-8631-c264b0a54167",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "04bb1773-c353-44a1-a68c-9b448e07ff70"
+      },
+      {
+        "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
+      }
+    ]
+  },
+  {
+    "name": "Electrophoresis result from old report",
+    "uuid": "c95fb6c8-e89e-449d-bd59-5a4f0eec0aad",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "name": "SS",
+        "uuid": "3648a650-2f3e-4c2c-a899-c0a8212aace1",
+        "abnormal": true
+      },
+      {
+        "name": "AS",
+        "uuid": "77ee8a6a-2a01-421f-85ca-fc0ab39abcdb"
+      },
+      {
+        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
+        "abnormal": false
       }
     ]
   }
