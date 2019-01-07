@@ -230,13 +230,31 @@ class SickleCellScreeningHandlerJSS {
     }
 
     @WithStatusBuilder
-    whetherThisIsAHighRiskPregnancy([], statusBuilder) {
-        statusBuilder.show().when.valueInRegistration("Whether registration for pregnant woman").is.yes;
+    medicalHistory([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Whether this is a high risk pregnancy").is.yes
+            .and.valueInEntireEnrolment("Medical history").is.notDefined
+            .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterName.BASE_SCREENING).is.truthy;
+        statusBuilder.skipAnswers('Sickle Cell');
     }
 
     @WithStatusBuilder
-    highRiskCondition([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether this is a high risk pregnancy").is.yes;
+    whetherThisIsAHighRiskPregnancy([], statusBuilder) {
+        statusBuilder.show().when.valueInRegistration("Whether registration for pregnant woman").is.yes
+            .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterName.BASE_SCREENING).is.truthy;
+    }
+
+    @WithStatusBuilder
+    dangerSignsInCurrentPregnancy([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Whether this is a high risk pregnancy").is.yes
+            .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterName.BASE_SCREENING).is.truthy;
+    }
+
+    @WithStatusBuilder
+    complicationsInPastPregnancy([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Whether this is a high risk pregnancy").is.yes
+            .and.valueInEntireEnrolment("Complications in past pregnancy").is.notDefined
+            .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterName.BASE_SCREENING).is.truthy;
+
     }
 }
 

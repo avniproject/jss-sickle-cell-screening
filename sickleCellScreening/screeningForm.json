@@ -239,7 +239,7 @@
             "uuid": "b4e5a662-97bf-4846-b9b7-9baeab4d89c4"
           },
           "displayOrder": 3,
-          "mandatory": true
+          "mandatory": false
         },
         {
           "name": "Send sample for solubility and electrophoresis",
@@ -334,15 +334,39 @@
           "mandatory": true
         },
         {
-          "name": "High risk condition",
+          "name": "Medical history",
+          "uuid": "7fe62b31-7f65-4f3b-b3e4-5ea0c8ef8bf2",
+          "keyValues": [],
+          "type": "MultiSelect",
+          "concept": {
+            "name": "Medical history",
+            "uuid": "2991127b-7064-4027-a030-4a3a8d0e8aa7"
+          },
+          "displayOrder": 2,
+          "mandatory": true
+        },
+        {
+          "name": "Complications in past pregnancy",
+          "uuid": "57a346e1-9a14-4ef2-b0ed-d51050e42428",
+          "keyValues": [],
+          "type": "MultiSelect",
+          "concept": {
+            "name": "Complications in past pregnancy",
+            "uuid": "35c34397-ebbf-492b-b504-f296836e529d"
+          },
+          "displayOrder": 3,
+          "mandatory": true
+        },
+        {
+          "name": "Danger signs in current pregnancy",
           "uuid": "61b18bf0-524a-490a-b20b-fe5ffed1fef6",
           "keyValues": [],
           "type": "MultiSelect",
           "concept": {
-            "name": "High Risk Conditions",
-            "uuid": "f34f974b-47b0-424d-ae97-d479c80efa49"
+            "name": "Danger signs in current pregnancy",
+            "uuid": "ae2fd3ca-1305-4b7d-ac1d-32f59af3e30a"
           },
-          "displayOrder": 2,
+          "displayOrder": 4,
           "mandatory": true
         }
       ]
