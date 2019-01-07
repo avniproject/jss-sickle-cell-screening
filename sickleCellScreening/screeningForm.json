@@ -18,7 +18,7 @@
             "uuid": "843cec0f-5f7d-451f-be22-68c7167ffc64"
           },
           "displayOrder": 1,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Hemoglobin genotype from old report",
@@ -30,7 +30,7 @@
             "uuid": "3f0d938b-d7e6-4372-b2a0-e787430880f8"
           },
           "displayOrder": 2,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Whether old electrophoresis report available",
@@ -41,19 +41,19 @@
             "uuid": "f86513ff-828d-47e4-8631-c264b0a54167"
           },
           "displayOrder": 3,
-          "mandatory": false
+          "mandatory": true
         },
         {
-          "name": "Electrophoresis result from old report",
+          "name": "Whether result from old electrophoresis report is Other",
           "uuid": "954e9335-99f8-4619-b034-564a079d0d2b",
           "keyValues": [],
           "type": "SingleSelect",
           "concept": {
-            "name": "Electrophoresis result from old report",
-            "uuid": "c95fb6c8-e89e-449d-bd59-5a4f0eec0aad"
+            "name": "Whether result from old electrophoresis report is Other",
+            "uuid": "1971a4c8-eaa5-4359-8e12-f085dccdb7c8"
           },
           "displayOrder": 4,
-          "mandatory": false
+          "mandatory": true
         }
       ]
     },
@@ -73,7 +73,7 @@
             "uuid": "d41b5986-e8b1-41dc-8685-beb4d86abf79"
           },
           "displayOrder": 1,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Whether electrophoresis result available",
@@ -84,7 +84,7 @@
             "uuid": "508c57f9-da72-4d39-ba89-25af12929dda"
           },
           "displayOrder": 1.5,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Electrophoresis result",
@@ -96,7 +96,7 @@
             "uuid": "0cb6e694-fc5f-45cb-ad71-0bd22ef8b381"
           },
           "displayOrder": 2,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Whether HPLC result available",
@@ -107,7 +107,7 @@
             "uuid": "645d4c3d-8b8a-4de6-85f2-87b5ba73fe86"
           },
           "displayOrder": 2.5,
-          "mandatory": false
+          "mandatory": true
         },
 
         {
@@ -120,7 +120,7 @@
             "uuid": "93eb5a4d-b399-46d3-86d0-6fd4d6443d44"
           },
           "displayOrder": 3,
-          "mandatory": false
+          "mandatory": true
         }
       ]
     },
@@ -137,7 +137,7 @@
           "type": "SingleSelect",
           "concept": {
             "name": "BT check reason",
-            "uuid": "16053c1b-6eba-4819-8075-da6962ff55e5"
+            "uuid": "b4e5a662-97bf-4846-b9b7-9baeab4d89c4"
           },
           "displayOrder": 1,
           "mandatory": false
@@ -151,7 +151,7 @@
             "uuid": "c1a4e2f9-8dbf-431d-bdbb-19644d7f3eba"
           },
           "displayOrder": 2,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "BT date",
@@ -163,7 +163,7 @@
             "dataType": "Date"
           },
           "displayOrder": 3,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Collect sample for hb solubility and electrophoresis",
@@ -194,7 +194,7 @@
           "type": "SingleSelect",
           "concept": {
             "name": "BT check failed revisit instruction",
-            "uuid": "4e2779d9-81d7-4595-9e3e-07d02bc0cd35"
+            "uuid": "b4e5a662-97bf-4846-b9b7-9baeab4d89c4"
           },
           "displayOrder": 6,
           "mandatory": false
@@ -216,7 +216,7 @@
             "uuid": "5a4cf5f3-5af8-46be-a14a-de205a070367"
           },
           "displayOrder": 1,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Solubility result from field",
@@ -228,7 +228,7 @@
             "uuid": "d41b5986-e8b1-41dc-8685-beb4d86abf79"
           },
           "displayOrder": 2,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Send sample for electrophoresis",
@@ -239,7 +239,7 @@
             "uuid": "b4e5a662-97bf-4846-b9b7-9baeab4d89c4"
           },
           "displayOrder": 3,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Send sample for solubility and electrophoresis",
@@ -269,7 +269,7 @@
             "uuid": "b0c9dcc7-2c4c-4fa6-9186-0bc11e753ac1"
           },
           "displayOrder": 1,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Sample sent to",
@@ -281,7 +281,7 @@
             "uuid": "c392dcf2-c4c5-475f-a7c4-f84e9498b0df"
           },
           "displayOrder": 2,
-          "mandatory": false
+          "mandatory": true
         }
       ]
     },
@@ -313,6 +313,37 @@
           },
           "displayOrder": 2,
           "mandatory": false
+        }
+      ]
+    },
+    {
+      "uuid": "c0beecac-aee1-4959-aecc-9383073be7f3",
+      "name": "High risk pregnancy",
+      "display": "High risk pregnancy",
+      "displayOrder": 8,
+      "formElements": [
+        {
+          "name": "Whether this is a high risk pregnancy",
+          "uuid": "c3d8e7f0-8046-4eb0-8e3b-8faaaae9468d",
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Whether this is a high risk pregnancy",
+            "uuid": "cecda0a9-869d-4c3c-8a65-4e343777eafe"
+          },
+          "displayOrder": 1,
+          "mandatory": true
+        },
+        {
+          "name": "High risk condition",
+          "uuid": "61b18bf0-524a-490a-b20b-fe5ffed1fef6",
+          "keyValues": [],
+          "type": "MultiSelect",
+          "concept": {
+            "name": "High Risk Conditions",
+            "uuid": "f34f974b-47b0-424d-ae97-d479c80efa49"
+          },
+          "displayOrder": 2,
+          "mandatory": true
         }
       ]
     }

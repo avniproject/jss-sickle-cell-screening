@@ -31,7 +31,7 @@
             "uuid": "476a0b71-485b-4a0a-ba6f-4f3cf13568ca"
           },
           "displayOrder": 2,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Father/Husband name",
@@ -42,7 +42,7 @@
             "uuid": "4edb709d-a0ad-44fd-9132-2884054cd114"
           },
           "displayOrder": 3,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Marital Status",
@@ -54,7 +54,7 @@
             "uuid": "aa6687c9-ba4d-49a3-9b3e-bba266eb6f32"
           },
           "displayOrder": 4,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Contact Number",
@@ -109,7 +109,7 @@
             "uuid": "e2c7cacd-03f7-4228-b0ce-4ddb2e220974"
           },
           "displayOrder": 9,
-          "mandatory": false
+          "mandatory": true
         }
       ]
     }

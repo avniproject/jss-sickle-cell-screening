@@ -128,28 +128,6 @@
     ]
   },
   {
-    "name": "Collect sample for screening and electrophoresis",
-    "uuid": "3ed1b571-bf02-418b-8ea5-18acfa87c55f",
-    "dataType": "Coded",
-    "answers": [
-    ]
-  },
-  {
-    "name": "BT check reason",
-    "uuid": "16053c1b-6eba-4819-8075-da6962ff55e5",
-    "dataType": "Coded",
-    "answers": [
-    ]
-  },
-  {
-    "name": "BT check failed revisit instruction",
-    "uuid": "4e2779d9-81d7-4595-9e3e-07d02bc0cd35",
-    "dataType": "Coded",
-    "answers": [
-
-    ]
-  },
-  {
     "name": "Electrophoresis result",
     "uuid": "0cb6e694-fc5f-45cb-ad71-0bd22ef8b381",
     "dataType": "Coded",
@@ -270,25 +248,29 @@
     ]
   },
   {
-    "name": "Electrophoresis result from old report",
-    "uuid": "c95fb6c8-e89e-449d-bd59-5a4f0eec0aad",
+    "name": "Whether result from old electrophoresis report is Other",
+    "uuid": "1971a4c8-eaa5-4359-8e12-f085dccdb7c8",
     "dataType": "Coded",
     "answers": [
       {
-        "name": "SS",
-        "uuid": "3648a650-2f3e-4c2c-a899-c0a8212aace1",
-        "abnormal": true
+        "uuid": "04bb1773-c353-44a1-a68c-9b448e07ff70"
       },
       {
-        "name": "AS",
-        "uuid": "77ee8a6a-2a01-421f-85ca-fc0ab39abcdb"
+        "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
+      }
+    ]
+  },
+  {
+    "name": "Whether this is a high risk pregnancy",
+    "uuid": "cecda0a9-869d-4c3c-8a65-4e343777eafe",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "04bb1773-c353-44a1-a68c-9b448e07ff70"
       },
       {
-        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
-        "abnormal": false
+        "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
       }
     ]
   }
-
-
 ]

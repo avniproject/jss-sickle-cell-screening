@@ -12,5 +12,12 @@
     "encounterTypeUUID": null,
     "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
     "comment": "JSS Sickle Cell Screening Enrolment"
+  },
+  {
+    "uuid": "8b2312e7-3138-4112-b4c4-b6c570e82e3e",
+    "formUUID": "1d9501a3-40f3-41dc-81da-2d13fabc5898",
+    "encounterTypeUUID": null,
+    "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+    "comment": "JSS Sickle Cell Screening Exit"
   }
 ]
