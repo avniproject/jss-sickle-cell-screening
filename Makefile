@@ -111,6 +111,10 @@ create_deploy: create_org deploy ##
 
 deploy_refdata_live:
 	make auth _deploy_refdata poolId=$(STAGING_USER_POOL_ID) clientId=$(STAGING_APP_CLIENT_ID) username=jscs-admin password=$(STAGING_LBP_ADMIN_USER_PASSWORD)
+
+deploy_uat:
+	make auth _deploy_prod poolId=$(OPENCHS_UAT_USER_POOL_ID) clientId=$(OPENCHS_UAT_APP_CLIENT_ID) server=https://uat.openchs.org port=443 username=jscs-admin password=$(password)
+
 # </deploy>
 
 # <package>
