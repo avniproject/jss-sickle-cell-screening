@@ -61,7 +61,7 @@ let sampleToBeShipped = function (programEncounter) {
 
     if (sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter)){
         const solubilityFromFieldPositive = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether prep and/or solubility result from field available").is.yes
-            .and.valueInEncounter("Solubility result").containsAnswerConceptName("Positive").matches();
+            .and.valueInEncounter("Solubility result from field").containsAnswerConceptName("Positive").matches();
         const solubilityFromFieldUnavailable = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether prep and/or solubility result from field available").is.no.matches();
 
         return solubilityFromFieldUnavailable || solubilityFromFieldPositive;
@@ -366,10 +366,19 @@ class SickleCellScreeningFormDecisionsJSS {
             decisions.encounterDecisions.push({name:"Electrophoresis result",value:["Other"]});
         }
 
+        let solubilityResultFromField = programEncounter.getObservationReadableValue('Solubility result from field');
+        if(!_.isNil(solubilityResultFromField)){
+            decisions.encounterDecisions.push({name:"Solubility result",value:[solubilityResultFromField]});
+            if(solubilityResultFromField === 'Negative'){
+                decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:["AA"]});
+            }
+        }
+
         let solubilityResult = programEncounter.getObservationReadableValue('Solubility result');
         if(!_.isNil(solubilityResult) && solubilityResult === 'Negative'){
             decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:["AA"]});
         }
+
 
         let hplcResult = programEncounter.getObservationReadableValue('HPLC result');
         if(!_.isNil(hplcResult)){

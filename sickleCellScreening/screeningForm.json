@@ -224,8 +224,8 @@
           "keyValues": [],
           "type": "SingleSelect",
           "concept": {
-            "name": "Solubility result",
-            "uuid": "d41b5986-e8b1-41dc-8685-beb4d86abf79"
+            "name": "Solubility result from field",
+            "uuid": "66b7dc27-d719-4348-ac01-e8f6e7a3930a"
           },
           "displayOrder": 2,
           "mandatory": true

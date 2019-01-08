@@ -128,6 +128,21 @@
     ]
   },
   {
+    "name": "Solubility result from field",
+    "uuid": "66b7dc27-d719-4348-ac01-e8f6e7a3930a",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "name": "Positive",
+        "uuid": "479cd95a-54ef-4818-b84a-09b478fc68b8"
+      },
+      {
+        "name": "Negative",
+        "uuid": "ad1f0481-a8ed-411a-ac00-d0435a670269"
+      }
+    ]
+  },
+  {
     "name": "Electrophoresis result",
     "uuid": "0cb6e694-fc5f-45cb-ad71-0bd22ef8b381",
     "dataType": "Coded",
@@ -186,6 +201,10 @@
     "name": "CHC Kotma"
   },
   {
+    "uuid": "9068e470-c670-4a93-a046-ff6d859c1dc5",
+    "name": "HPLC lab Bilaspur"
+  },
+  {
     "name": "Laboratory",
     "uuid": "c392dcf2-c4c5-475f-a7c4-f84e9498b0df",
     "dataType": "Coded",
@@ -205,6 +224,10 @@
       {
         "uuid": "cd056b81-7d9a-4fbd-9bf4-1303a5b4d090",
         "name": "CHC Kotma"
+      },
+      {
+        "uuid": "9068e470-c670-4a93-a046-ff6d859c1dc5",
+        "name": "HPLC lab Bilaspur"
       }
     ]
   },
