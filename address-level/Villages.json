@@ -23,7 +23,7 @@
   },
   {
     "uuid": "8bf02158-3ec7-4612-879f-1b3e1b0c5f44",
-    "name": "Kyontar",
+    "name": "Kyontar (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -298,7 +298,7 @@
   },
   {
     "uuid": "b855328d-3a65-47d3-a744-804cb11f7a7e",
-    "name": "Barbaspur",
+    "name": "Barbaspur (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -463,7 +463,7 @@
   },
   {
     "uuid": "d93d95f8-42da-4da2-a462-433625820188",
-    "name": "Padripani",
+    "name": "Padripani (Jaithari)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -661,7 +661,7 @@
   },
   {
     "uuid": "de7a22d6-a8ac-4f6c-8f19-b9d1eca3797e",
-    "name": "Pipariya",
+    "name": "Pipariya (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -672,7 +672,7 @@
   },
   {
     "uuid": "1bb4fc8e-bef3-4bb2-8231-63832406582c",
-    "name": "Dhanpuri",
+    "name": "Dhanpuri (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -760,7 +760,7 @@
   },
   {
     "uuid": "cdb5a322-9c40-4a5d-a2f8-6dd93ae52ace",
-    "name": "Bicharpur",
+    "name": "Bicharpur (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -815,7 +815,7 @@
   },
   {
     "uuid": "7f1af1f5-4593-4b0b-8ff4-f3d7447ce353",
-    "name": "Deori",
+    "name": "Deori (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -848,7 +848,7 @@
   },
   {
     "uuid": "bf9f507f-dcf9-4be1-81f5-91eaaa5adb7f",
-    "name": "Majholi",
+    "name": "Majholi (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -859,7 +859,7 @@
   },
   {
     "uuid": "8f4b13f5-327d-497e-8890-316b87282b28",
-    "name": "Badhar",
+    "name": "Badhar (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -892,7 +892,7 @@
   },
   {
     "uuid": "ac3be62c-1485-4e01-a6d6-97b8a07b4640",
-    "name": "Kusmahai",
+    "name": "Kusmahai (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -1068,7 +1068,7 @@
   },
   {
     "uuid": "83541bf7-0885-48ab-b1e1-862f85e09fc0",
-    "name": "Padariya",
+    "name": "Padariya (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -1288,7 +1288,7 @@
   },
   {
     "uuid": "39f3bb7f-cf13-47cb-85c3-5b4b381dd6b3",
-    "name": "Mauhari",
+    "name": "Mauhari (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -1431,7 +1431,7 @@
   },
   {
     "uuid": "9d2f3e34-da02-4291-a6cb-9837f0eebadb",
-    "name": "Mauhari",
+    "name": "Mauhari (Jaithari)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -1453,7 +1453,7 @@
   },
   {
     "uuid": "133fc601-cf0e-445a-93d5-a67f5646bf0a",
-    "name": "Mauhari",
+    "name": "Mauhari (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -1508,7 +1508,7 @@
   },
   {
     "uuid": "b1bbb1e2-aa16-4922-b0c5-b7af0c24663d",
-    "name": "Bijauri",
+    "name": "Bijauri (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -1563,7 +1563,7 @@
   },
   {
     "uuid": "597b07e2-8acb-4da5-8996-f054a9816e7e",
-    "name": "Bicharpur",
+    "name": "Bicharpur (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -1662,7 +1662,7 @@
   },
   {
     "uuid": "c314b626-71dd-435a-be69-2bca421bcaff",
-    "name": "Dudhmaniya",
+    "name": "Dudhmaniya (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -1717,7 +1717,7 @@
   },
   {
     "uuid": "21aeb914-bcc5-4a62-bbab-242a0937e8da",
-    "name": "Chhulha",
+    "name": "Chhulha (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -1992,7 +1992,7 @@
   },
   {
     "uuid": "a9200a1c-68f9-47eb-b5b5-ec6a8707880a",
-    "name": "Paraswar",
+    "name": "Paraswar (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2025,7 +2025,7 @@
   },
   {
     "uuid": "60bba35f-908a-416a-8f9e-b743717ea4e0",
-    "name": "Payari",
+    "name": "Payari (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2080,7 +2080,7 @@
   },
   {
     "uuid": "0b4d534e-311d-40c5-a013-13eb6980bb4b",
-    "name": "Pondi",
+    "name": "Pondi (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2289,7 +2289,7 @@
   },
   {
     "uuid": "796c0b30-d817-40de-9b40-82bb1704250f",
-    "name": "Nimha",
+    "name": "Nimha (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2388,7 +2388,7 @@
   },
   {
     "uuid": "2d9570a3-63dd-47f0-a793-e74f47af34ad",
-    "name": "Badhar",
+    "name": "Badhar (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2454,7 +2454,7 @@
   },
   {
     "uuid": "71e02d1e-a1ef-498a-90c9-b74924e02d2a",
-    "name": "Khodari",
+    "name": "Khodari (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2696,7 +2696,7 @@
   },
   {
     "uuid": "43fd5cbf-5f63-4fda-b8ea-49859403ee2f",
-    "name": "Pipariya",
+    "name": "Pipariya (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2762,7 +2762,7 @@
   },
   {
     "uuid": "7e859639-03c5-42ea-877b-7fc8d406fdc0",
-    "name": "Harri",
+    "name": "Harri (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2839,7 +2839,7 @@
   },
   {
     "uuid": "a1c69b79-23ad-4ceb-a8b9-5286243cb8af",
-    "name": "Pondi",
+    "name": "Pondi (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2894,7 +2894,7 @@
   },
   {
     "uuid": "51a11795-9c8e-416f-8535-1c681cd28b8a",
-    "name": "Mgawan",
+    "name": "Mgawan (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2949,7 +2949,7 @@
   },
   {
     "uuid": "f700a14a-134a-481c-90ad-c1e0af50a63e",
-    "name": "Padripani",
+    "name": "Padripani (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -2960,7 +2960,7 @@
   },
   {
     "uuid": "d117c957-c8b4-4d15-9cc5-d3e665b406c2",
-    "name": "Harri",
+    "name": "Harri (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3169,7 +3169,7 @@
   },
   {
     "uuid": "b91ea827-1618-44e8-afb5-3939be17d689",
-    "name": "Majhgawan",
+    "name": "Majhgawan (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3257,7 +3257,7 @@
   },
   {
     "uuid": "50c803af-069b-46eb-aae3-ca723dcb88a8",
-    "name": "Dhanpuri",
+    "name": "Dhanpuri (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3334,7 +3334,7 @@
   },
   {
     "uuid": "488cbed2-1713-482e-90a4-d0de3c3885ad",
-    "name": "Padariya",
+    "name": "Padariya (Jaithari)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3455,7 +3455,7 @@
   },
   {
     "uuid": "eea249e0-4547-4b2c-9d87-07f960e7fccf",
-    "name": "Semarwar",
+    "name": "Semarwar (Jaithari)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3521,7 +3521,7 @@
   },
   {
     "uuid": "a4b3cd61-730f-496c-ac67-9b9e734c0607",
-    "name": "Deori",
+    "name": "Deori (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3730,7 +3730,7 @@
   },
   {
     "uuid": "4df4f6b8-05b3-463d-99c7-d3bba704fdfe",
-    "name": "Mauhari",
+    "name": "Mauhari (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3774,7 +3774,7 @@
   },
   {
     "uuid": "9723fe5d-b9df-4f05-8c7a-3eae4532aa6e",
-    "name": "Manpur",
+    "name": "Manpur (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3829,7 +3829,7 @@
   },
   {
     "uuid": "7050ab59-2201-4e0b-9d69-e816a2000335",
-    "name": "Lalpur",
+    "name": "Lalpur (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3862,7 +3862,7 @@
   },
   {
     "uuid": "32e21e23-b460-4475-a564-6fcbdda7b037",
-    "name": "Dudhmaniya",
+    "name": "Dudhmaniya (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -3983,7 +3983,7 @@
   },
   {
     "uuid": "3eaf64eb-d92f-48b3-b5b2-1bf7d39bdc29",
-    "name": "Chhirpani",
+    "name": "Chhirpani (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4104,7 +4104,7 @@
   },
   {
     "uuid": "6d98fe29-cc3a-4932-a575-f89765d24c85",
-    "name": "Majholi",
+    "name": "Majholi (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4159,7 +4159,7 @@
   },
   {
     "uuid": "4ff5fb3c-e521-452b-a0f2-88ecebd2a71d",
-    "name": "Nimha",
+    "name": "Nimha (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4346,7 +4346,7 @@
   },
   {
     "uuid": "973be37b-75a8-4c8d-8226-788f1fef245b",
-    "name": "Lalpur",
+    "name": "Lalpur (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4434,7 +4434,7 @@
   },
   {
     "uuid": "72408398-a484-4603-8c67-24c98d9db3a6",
-    "name": "Pipariya",
+    "name": "Pipariya (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4456,7 +4456,7 @@
   },
   {
     "uuid": "927faee6-ab31-4f3f-ad4f-88a9c143ed6d",
-    "name": "Khamraudh",
+    "name": "Khamraudh (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4555,7 +4555,7 @@
   },
   {
     "uuid": "6ff99be9-fd72-4afd-8886-80fe920bace1",
-    "name": "Chhulha",
+    "name": "Chhulha (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4588,7 +4588,7 @@
   },
   {
     "uuid": "75e9c3cd-2a24-4ed5-aa02-97a28a56c06b",
-    "name": "Paraswar",
+    "name": "Paraswar (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4643,7 +4643,7 @@
   },
   {
     "uuid": "d74df9f4-fff1-4ba1-8bd0-c7a21faf5963",
-    "name": "Bijauri",
+    "name": "Bijauri (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4687,7 +4687,7 @@
   },
   {
     "uuid": "bc0ee10a-c9be-4b80-b062-0250f8b62790",
-    "name": "Majhgawan",
+    "name": "Majhgawan (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -4874,7 +4874,7 @@
   },
   {
     "uuid": "16abf7cb-9781-43c4-a5a5-4369d20c8630",
-    "name": "Pondi",
+    "name": "Pondi (Jaithari)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5314,7 +5314,7 @@
   },
   {
     "uuid": "9cc3bdf5-6ba0-417b-bef9-31c21d0caf32",
-    "name": "Kusmahai",
+    "name": "Kusmahai (Jaithari)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5336,7 +5336,7 @@
   },
   {
     "uuid": "5f03d8d6-0dc5-47b1-bffa-01d8310e7a8d",
-    "name": "Chhirpani",
+    "name": "Chhirpani (Jaithari)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5358,7 +5358,7 @@
   },
   {
     "uuid": "386c75a4-929e-42f8-b793-5a90cd2856b1",
-    "name": "Mgawan",
+    "name": "Mgawan (Jaithari)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5402,7 +5402,7 @@
   },
   {
     "uuid": "fe1ab466-a9b8-41f6-a0c4-6867dfb9f5aa",
-    "name": "Bhalmudi",
+    "name": "Bhalmudi (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5468,7 +5468,7 @@
   },
   {
     "uuid": "1be8aef1-de16-4b44-a375-709037879391",
-    "name": "Khodari",
+    "name": "Khodari (Jaithari)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5490,7 +5490,7 @@
   },
   {
     "uuid": "649598c6-c40a-420d-b6ec-b9caadf963b5",
-    "name": "Semarwar",
+    "name": "Semarwar (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5512,7 +5512,7 @@
   },
   {
     "uuid": "08bd639e-c18b-40eb-8b1f-a2be44644704",
-    "name": "Bhalmudi",
+    "name": "Bhalmudi (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5523,7 +5523,7 @@
   },
   {
     "uuid": "a0d51ec8-865c-4288-941a-3e6ce76272c1",
-    "name": "Payari",
+    "name": "Payari (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5578,7 +5578,7 @@
   },
   {
     "uuid": "5e523502-5018-4a0f-9113-7720a5c0caef",
-    "name": "Manpur",
+    "name": "Manpur (Pushparajgarh)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5743,7 +5743,7 @@
   },
   {
     "uuid": "3de28533-20a5-40fd-b56f-c5cae7a93513",
-    "name": "Khamraudh",
+    "name": "Khamraudh (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5842,7 +5842,7 @@
   },
   {
     "uuid": "f7122cea-3a27-4bbd-9514-2c7c626af5c8",
-    "name": "Barbaspur",
+    "name": "Barbaspur (Anuppur)",
     "level": 1,
     "type": "Village",
     "parents": [
@@ -5875,7 +5875,7 @@
   },
   {
     "uuid": "d60e1f08-069a-4832-9275-191491831dbf",
-    "name": "Kyontar",
+    "name": "Kyontar (Kotma)",
     "level": 1,
     "type": "Village",
     "parents": [

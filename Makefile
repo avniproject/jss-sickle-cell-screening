@@ -55,13 +55,12 @@ create_org: ## Create Lokbiradari Prakalp org and user+privileges
 	psql -U$(su) openchs < create_organisation.sql
 # </create_org>
 
-
 deploy_checklists:
-
 
 # <deploy>
 deploy_org_data:
-	$(call _curl,POST,locations,@locations.json)
+	$(call _curl,POST,locations,@address-level/Villages.json)
+	$(call _curl,POST,locations,@address-level/blocks.json)
 	$(call _curl,POST,catchments,@catchments.json)
 
 create_admin_user:
