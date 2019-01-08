@@ -11,6 +11,10 @@
         "uuid": "e7b50c78-3d90-484d-a224-9887887780dc"
       }
     ]
+  },
+  {
+    "name": "Registration number",
+    "uuid": "d695a22f-82b0-4f4f-9227-a4f3344d5dcf",
+    "dataType": "Text"
   }
-
 ]
