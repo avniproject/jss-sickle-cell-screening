@@ -18,7 +18,7 @@
             "uuid": "d695a22f-82b0-4f4f-9227-a4f3344d5dcf"
           },
           "displayOrder": 1,
-          "mandatory": false
+          "mandatory": true
         },
         {
           "name": "Address",
