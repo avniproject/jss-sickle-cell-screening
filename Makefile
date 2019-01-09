@@ -59,8 +59,9 @@ deploy_checklists:
 
 # <deploy>
 deploy_org_data:
-	$(call _curl,POST,locations,@address-level/Villages.json)
+	$(call _curl,POST,locations,@address-level/districts.json)
 	$(call _curl,POST,locations,@address-level/blocks.json)
+	$(call _curl,POST,locations,@address-level/Villages.json)
 	$(call _curl,POST,catchments,@catchments.json)
 
 create_admin_user:
@@ -113,6 +114,9 @@ deploy_refdata_live:
 
 deploy_uat:
 	make auth _deploy_prod poolId=$(OPENCHS_UAT_USER_POOL_ID) clientId=$(OPENCHS_UAT_APP_CLIENT_ID) server=https://uat.openchs.org port=443 username=jscs-admin password=$(password)
+
+deploy_org_data_uat:
+	make auth deploy_org_data poolId=$(OPENCHS_UAT_USER_POOL_ID) clientId=$(OPENCHS_UAT_APP_CLIENT_ID) server=https://uat.openchs.org port=443 username=jscs-admin password=$(password)
 
 # </deploy>
 

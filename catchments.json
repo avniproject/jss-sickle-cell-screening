@@ -2,13 +2,13 @@
   "organisation": "JSCS",
   "catchments": [
     {
-      "name": "Pushparajgarh",
+      "name": "Anuppur",
       "uuid": "52b40a21-4ff3-409f-9d78-b1c1b455cd4d",
-      "type": "Villages",
+      "type": "District",
       "locations": [
         {
-          "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1",
-          "comment": "Pushparajgarh"
+          "uuid": "371dd45c-2546-4958-b00f-80af2430965d",
+          "comment": "Anuppur"
         }
       ]
     }
