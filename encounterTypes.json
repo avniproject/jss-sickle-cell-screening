@@ -1,6 +1,18 @@
 [
   {
     "uuid": "f599f393-c50e-48d1-a89e-e73295e570ea",
-    "name": "Sickle cell screening"
+    "name": "Base screening"
+  },
+  {
+    "uuid": "a786ca25-c32d-4b8a-b8f1-9d5154cfbde3",
+    "name": "Sample shipment"
+  },
+  {
+    "uuid": "8166375f-c95f-435b-b103-d3d70e0af06f",
+    "name": "Lab results entry"
+  },
+  {
+    "uuid": "e99184ad-9082-43d0-9726-7644e37543dd",
+    "name": "HPLC sample collection"
   }
 ]

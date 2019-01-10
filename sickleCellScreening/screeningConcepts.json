@@ -157,6 +157,10 @@
         "uuid": "77ee8a6a-2a01-421f-85ca-fc0ab39abcdb"
       },
       {
+        "name": "AA",
+        "uuid": "daa7c62f-c663-4981-a134-1f662b3036d0"
+      },
+      {
         "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
         "abnormal": false
       }
@@ -167,6 +171,20 @@
     "uuid": "93eb5a4d-b399-46d3-86d0-6fd4d6443d44",
     "dataType": "Coded",
     "answers": [
+      {
+        "name": "SS",
+        "uuid": "3648a650-2f3e-4c2c-a899-c0a8212aace1",
+        "abnormal": true
+      },
+      {
+        "name": "AS",
+        "uuid": "77ee8a6a-2a01-421f-85ca-fc0ab39abcdb",
+        "abnormal": true
+      },
+      {
+        "name": "AA",
+        "uuid": "daa7c62f-c663-4981-a134-1f662b3036d0"
+      },
       {
         "uuid": "7f32dd91-78d3-4f5c-b43e-a00bff7d6055",
         "name": "Beta Thal",

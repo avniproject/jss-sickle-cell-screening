@@ -4,14 +4,35 @@
     "formUUID": "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
     "encounterTypeUUID": "f599f393-c50e-48d1-a89e-e73295e570ea",
     "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-    "comment": "Sickle Cell Screening"
+    "comment": "Sickle cell base screening"
+  },
+  {
+    "uuid": "c6a7ea87-46d5-4dcc-9a3d-5b08c99a4cec",
+    "formUUID": "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
+    "encounterTypeUUID": "a786ca25-c32d-4b8a-b8f1-9d5154cfbde3",
+    "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+    "comment": "Sickle cell sample shipment"
+  },
+  {
+    "uuid": "c0a33115-9449-4b40-86c9-9d0777c9fe31",
+    "formUUID": "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
+    "encounterTypeUUID": "8166375f-c95f-435b-b103-d3d70e0af06f",
+    "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+    "comment": "Sickle cell lab results entry"
+  },
+  {
+    "uuid": "65706495-0625-4159-9614-1439842afa5b",
+    "formUUID": "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
+    "encounterTypeUUID": "e99184ad-9082-43d0-9726-7644e37543dd",
+    "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+    "comment": "Sickle cell HPLC sample collection"
   },
   {
     "uuid": "008828e5-119e-409b-ace8-031bf83fe1b2",
     "formUUID": "da35a2b3-0d8f-4f12-b6a3-64cf1353284e",
     "encounterTypeUUID": null,
     "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-    "comment": "JSS Sickle Cell Screening Enrolment"
+    "comment": "JSS sickle cell screening enrolment"
   },
   {
     "uuid": "8b2312e7-3138-4112-b4c4-b6c570e82e3e",

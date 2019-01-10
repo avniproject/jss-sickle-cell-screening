@@ -3,10 +3,34 @@
   "operationalEncounterTypes": [
     {
       "uuid": "95135ed2-51cc-48a8-b36d-e0be05a5f5d4",
-      "name": "Sickle Cell Screening",
+      "name": "Base screening",
       "encounterType": {
         "uuid": "f599f393-c50e-48d1-a89e-e73295e570ea",
-        "comment": "Sickle Cell Screening"
+        "comment": "Base screening"
+      }
+    },
+    {
+      "uuid": "f9bdc722-b00e-4e8e-818a-e019ffb2e51c",
+      "name": "Sample shipment",
+      "encounterType": {
+        "uuid": "a786ca25-c32d-4b8a-b8f1-9d5154cfbde3",
+        "comment": "Sample shipment"
+      }
+    },
+    {
+      "uuid": "b69aee56-2426-4bbf-9160-5839f092d453",
+      "name": "Lab results entry",
+      "encounterType": {
+        "uuid": "8166375f-c95f-435b-b103-d3d70e0af06f",
+        "comment": "Lab results entry"
+      }
+    },
+    {
+      "uuid": "f67504bf-d672-4ca9-a457-dc6988b5bd50",
+      "name": "HPLC sample collection",
+      "encounterType": {
+        "uuid": "e99184ad-9082-43d0-9726-7644e37543dd",
+        "comment": "HPLC sample collection"
       }
     }
   ]
