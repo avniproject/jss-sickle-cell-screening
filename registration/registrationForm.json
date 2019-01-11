@@ -20,7 +20,6 @@
           "displayOrder": 1,
           "mandatory": true
         },
-        
         {
           "name": "Registration number",
           "uuid": "836394be-d0ed-4a27-bed1-be069826cda0",
@@ -41,6 +40,17 @@
             "uuid": "5f28bfdc-b4f4-4560-bafa-66690d9a9dcc"
           },
           "displayOrder": 3,
+          "mandatory": false
+        },
+        {
+          "name": "Caste (Free Text)",
+          "uuid": "5ad7f235-7c1f-406f-9ec6-abbe387eeafb",
+          "keyValues": [],
+          "concept": {
+            "name": "Caste (Free Text)",
+            "uuid": "60c44aa2-3635-487d-8962-43000e77d382"
+          },
+          "displayOrder": 3.5,
           "mandatory": false
         },
         {
