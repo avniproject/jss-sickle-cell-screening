@@ -263,7 +263,12 @@
         {
           "name": "Sample number",
           "uuid": "3315bf0f-5216-4df4-8909-1a1d123be355",
-          "keyValues": [],
+          "keyValues": [
+            {
+              "key": "editable",
+              "value": false
+            }
+          ],
           "concept": {
             "name": "Sample number",
             "uuid": "b0c9dcc7-2c4c-4fa6-9186-0bc11e753ac1"

@@ -220,6 +220,19 @@ class SickleCellScreeningHandlerJSS {
     }
 
     @WithStatusBuilder
+    sampleNumber([], statusBuilder) {
+        let status = statusBuilder.build();
+        let programEncounter = statusBuilder.context.programEncounter;
+        if(sampleToBeShipped(programEncounter)){
+            status.value = programEncounter.programEnrolment.individual.getObservationValue("Registration number");
+            status.visibility = true;
+        } else {
+            status.visibility = false;
+        }
+        return status;
+    }
+
+    @WithStatusBuilder
     sampleSentTo([], statusBuilder) {
         statusBuilder.show().whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterTypeName.SAMPLE_SHIPMENT).is.truthy;
     }
@@ -334,14 +347,11 @@ class SickleCellScreeningVisitScheduleJSS {
             }
         }
 
-        let sampleNumber = programEncounter.getObservationReadableValue('Sample number');
-        if (!_.isNil(sampleNumber)){
+        if(sampleToBeShipped(programEncounter)){
             let scheduleBuilder = RuleHelper.createProgramEncounterVisitScheduleBuilder(programEncounter, visitSchedule);
             RuleHelper.addSchedule(scheduleBuilder, ProgramEncounterTypeName.SAMPLE_SHIPMENT, ProgramEncounterTypeName.SAMPLE_SHIPMENT, programEncounter.encounterDateTime, 3);
             return scheduleBuilder.getAllUnique("encounterType");
         }
-
-
         return visitSchedule;
     }
 }
