@@ -393,6 +393,9 @@ class SickleCellScreeningFormDecisionsJSS {
                     decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:["AA"]});
                 }
             }
+            if (sampleNumberExists(programEncounter)) {
+                decisions.encounterDecisions.push(getCollectionDecision(programEncounter));
+            }
         }
 
         if(programEncounter.encounterType.name === ProgramEncounterTypeName.LAB_RESULTS_ENTRY){
@@ -416,10 +419,61 @@ class SickleCellScreeningFormDecisionsJSS {
             }
         }
 
+        if (programEncounter.encounterType.name === ProgramEncounterTypeName.SAMPLE_SHIPMENT) {
+            if (bTDateNotExists(programEncounter)) {
+                decisions.encounterDecisions.push(getShipmentDecision(programEncounter));
+            }
+        }
+
+        if (programEncounter.encounterType.name === ProgramEncounterTypeName.HPLC_SAMPLE_COLLECTION) {
+            if (sampleNumberExists(programEncounter)) {
+                decisions.encounterDecisions.push({name: 'Sample collected for', value: ['HPLC']});
+            }
+        }
         return decisions;
     }
 
 }
+
+const sampleNumberExists = (programEncounter) => new RuleCondition({programEncounter})
+    .when.valueInEncounter('Sample number').is.defined
+    .matches();
+
+const bTDateNotExists = (programEncounter) => new RuleCondition({programEncounter})
+    .when.valueInEncounter('BT date').is.notDefined
+    .matches();
+
+const getShipmentDecision = (programEncounter) => {
+    const latestSampleCollectedFor = (ans) => new RuleCondition({programEncounter})
+        .when.latestValueInPreviousEncounters('Sample collected for').containsAnyAnswerConceptName(ans)
+        .matches();
+
+    const sampleBeingShippedFor = [];
+    const solubilityResultNeeded = new RuleCondition({programEncounter})
+        .when.latestValueInPreviousEncounters('Solubility result').is.notDefined
+        .matches();
+    if (solubilityResultNeeded && latestSampleCollectedFor('Solubility')) {
+        sampleBeingShippedFor.push('Solubility');
+    }
+    if (latestSampleCollectedFor('Electrophoresis')) {
+        sampleBeingShippedFor.push('Electrophoresis');
+    }
+    if (latestSampleCollectedFor('HPLC')) {
+        sampleBeingShippedFor.push('HPLC');
+    }
+    return {name: 'Sample shipped for', value: sampleBeingShippedFor};
+};
+const getCollectionDecision = (programEncounter) => {
+    let sampleCollectedFor = [];
+
+    if (sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter)) {
+        sampleCollectedFor = ['Solubility', 'Electrophoresis'];
+    }
+    if (sampleToBeCollectedForHPLC(programEncounter)) {
+        sampleCollectedFor = ['HPLC'];
+    }
+    return {name: 'Sample collected for', value: sampleCollectedFor};
+};
 
 @RegistrationViewFilter("4a329f64-e131-4946-9b94-d2f988cc45be", "JSS Sickle Cell Screening Registration View Filter", 100.0, {})
 class SickleCellRegistrationViewHandlerJSS {

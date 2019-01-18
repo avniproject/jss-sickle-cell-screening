@@ -412,5 +412,58 @@
         "dataType": "NA"
       }
     ]
+  },
+  {
+    "uuid": "6201104e-3360-4a55-b87e-22f84ec1eec2",
+    "name": "Electrophoresis",
+    "dataType": "NA"
+  },
+  {
+    "uuid": "0765e9dd-8104-42aa-8f5c-2bb1e4a61d9f",
+    "name": "HPLC",
+    "dataType": "NA"
+  },
+  {
+    "uuid": "2ea592b9-19dd-4215-a354-d3cd4263e0d9",
+    "name": "Solubility",
+    "dataType": "NA"
+  },
+  {
+    "uuid": "92e5fc81-5c6f-473a-8d13-415cf45720e2",
+    "name": "Sample collected for",
+    "dataType": "Coded",
+    "answers":[
+      {
+        "uuid":"2ea592b9-19dd-4215-a354-d3cd4263e0d9",
+        "comment":"Solubility"
+      },
+      {
+        "uuid":"6201104e-3360-4a55-b87e-22f84ec1eec2",
+        "comment":"Electrophoresis"
+      },
+      {
+        "uuid":"0765e9dd-8104-42aa-8f5c-2bb1e4a61d9f",
+        "comment":"HPLC"
+      }
+    ]
+  },
+  {
+    "uuid": "83234150-e08d-4581-a615-aa71efd96433",
+    "name": "Sample shipped for",
+    "dataType": "Coded",
+    "answers":[
+      {
+        "uuid":"2ea592b9-19dd-4215-a354-d3cd4263e0d9",
+        "comment":"Solubility"
+      },
+      {
+        "uuid":"6201104e-3360-4a55-b87e-22f84ec1eec2",
+        "comment":"Electrophoresis"
+      },
+      {
+        "uuid":"0765e9dd-8104-42aa-8f5c-2bb1e4a61d9f",
+        "comment":"HPLC"
+      }
+    ]
   }
 ]
