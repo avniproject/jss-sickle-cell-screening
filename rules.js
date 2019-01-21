@@ -294,7 +294,7 @@ class SickleCellScreeningProgramRuleJSS {
         if (!_.isNil(bloodGroup)) {
             summaries.push({name: 'Blood group', value: bloodGroup.getValue()});
         }
-        const genotype = programEnrolment.findObservationInEntireEnrolment('Hemoglobin genotype');
+        const genotype = programEnrolment.findLatestObservationInEntireEnrolment('Hemoglobin genotype');
         if (!_.isNil(genotype)) {
             summaries.push({name: 'Hemoglobin genotype', value: genotype.getValue()});
         } else {
