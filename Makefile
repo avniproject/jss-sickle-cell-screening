@@ -27,7 +27,7 @@ password:=
 
 auth:
 	$(if $(poolId),$(eval token:=$(shell node scripts/token.js $(poolId) $(clientId) $(username) $(password))))
-	echo $(token)
+	@echo $(token)
 
 auth_live:
 	make auth poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) username=jscs-admin password=$(OPENCHS_PROD_ADMIN_USER_PASSWORD)
@@ -50,10 +50,11 @@ define _curl_as_openchs
 	@echo
 endef
 
-# <create_org>
-create_org: ## Create Lokbiradari Prakalp org and user+privileges
+create_org:
 	psql -U$(su) openchs < create_organisation.sql
-# </create_org>
+
+create_views:
+	psql -U$(jscs) openchs < create_views.sql
 
 deploy_checklists:
 
