@@ -122,6 +122,10 @@ deploy_org_data_uat:
 deploy_staging:
 	make auth _deploy_prod poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=jscs-admin password=$(password)
 
+deploy_rules_staging:
+	make auth deploy_rules poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=jscs-admin password=$(password)
+
+
 deploy_org_data_staging:
 	make auth deploy_org_data poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=jscs-admin password=$(password)
 
@@ -136,6 +140,7 @@ _create_admin_user_staging:
 
 create_admin_user_staging:
 		make auth _create_users_staging poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=admin password=$(password)
+
 
 
 

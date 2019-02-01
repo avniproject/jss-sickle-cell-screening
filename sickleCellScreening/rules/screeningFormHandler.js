@@ -199,7 +199,7 @@ class SickleCellScreeningHandlerJSS {
     @WithStatusBuilder
     sendSampleForElectrophoresis([], statusBuilder) {
         statusBuilder.show().when.valueInEncounter("Whether prep and/or solubility result from field available").is.yes
-            .and.valueInEncounter("Solubility result").containsAnswerConceptName("Positive");
+            .and.valueInEncounter("Solubility result from field").containsAnswerConceptName("Positive");
     }
 
     @WithStatusBuilder
