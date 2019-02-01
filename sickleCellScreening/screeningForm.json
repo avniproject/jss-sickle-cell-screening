@@ -10,23 +10,23 @@
       "displayOrder": 1,
       "formElements": [
         {
-          "name": "SC confirmatory report available?",
+          "name": "Whether old report available?",
           "uuid": "26d3b3fa-03f9-44f2-a278-7657aa2fc0b7",
           "type": "SingleSelect",
           "concept": {
-            "name": "Whether SC confirmatory report available",
+            "name": "Whether old report available",
             "uuid": "843cec0f-5f7d-451f-be22-68c7167ffc64"
           },
           "displayOrder": 1,
           "mandatory": true
         },
         {
-          "name": "Hemoglobin genotype from old report",
+          "name": "Result from old report",
           "uuid": "011ea26d-cc18-4e72-9e9e-a08cb218b50c",
           "keyValues": [],
           "type": "SingleSelect",
           "concept": {
-            "name": "Hemoglobin genotype from old report",
+            "name": "Result from old sickle cell test report",
             "uuid": "3f0d938b-d7e6-4372-b2a0-e787430880f8"
           },
           "displayOrder": 2,
@@ -41,7 +41,8 @@
             "uuid": "f86513ff-828d-47e4-8631-c264b0a54167"
           },
           "displayOrder": 3,
-          "mandatory": true
+          "mandatory": true,
+          "voided": true
         },
         {
           "name": "Whether result from old electrophoresis report is Other",
@@ -53,7 +54,8 @@
             "uuid": "1971a4c8-eaa5-4359-8e12-f085dccdb7c8"
           },
           "displayOrder": 4,
-          "mandatory": true
+          "mandatory": true,
+          "voided": true
         }
       ]
     },
@@ -198,6 +200,65 @@
           },
           "displayOrder": 6,
           "mandatory": false
+        },
+        {
+          "name": "Sample number",
+          "uuid": "a9c260b4-a238-4a75-b7a1-5630fb021937",
+          "keyValues": [
+            {
+              "key": "editable",
+              "value": false
+            }
+          ],
+          "concept": {
+            "name": "Sample number",
+            "uuid": "b0c9dcc7-2c4c-4fa6-9186-0bc11e753ac1"
+          },
+          "displayOrder": 7,
+          "mandatory": true
+        }
+      ]
+    },
+    {
+      "uuid": "e519cd15-1894-44f2-8b39-d635e9f1edd2",
+      "name": "HB & Blood group",
+      "display": "HB & Blood group",
+      "displayOrder": 4,
+      "formElements": [
+        {
+          "name": "Hb",
+          "uuid": "a0c833e1-27cf-418e-9d3f-b90f38c2be1e",
+          "keyValues": [],
+          "concept": {
+            "name": "Hb",
+            "uuid": "f9ecabbc-2df2-4bfc-a6fa-aa417c50e11b"
+          },
+          "displayOrder": 1,
+          "mandatory": false
+        },
+        {
+          "name": "Hb range (Copper Sulphate method)",
+          "uuid": "1d66e24b-ee1a-4017-8283-4c5ab79e0425",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Hb range (Copper Sulphate method)",
+            "uuid": "732a1094-0fbc-48a3-86d6-aa3ba1daf4da"
+          },
+          "displayOrder": 2,
+          "mandatory": false
+        },
+        {
+          "name": "Blood group",
+          "uuid": "0c994ce0-ba88-4bdc-9059-21b5cfdfd56c",
+          "keyValues": [],
+          "type": "SingleSelect",
+          "concept": {
+            "name": "Blood group",
+            "uuid": "3493c80a-8af5-40e6-b598-8385c4db2bd7"
+          },
+          "displayOrder": 3,
+          "mandatory": false
         }
       ]
     },
@@ -205,7 +266,7 @@
       "uuid": "4d7165c2-cce3-44d5-8198-3350b34a8e16",
       "name": "Field test results",
       "display": "Field test results",
-      "displayOrder": 4,
+      "displayOrder": 5,
       "formElements": [
         {
           "name": "Is solubility result available from field?",
@@ -274,7 +335,8 @@
             "uuid": "b0c9dcc7-2c4c-4fa6-9186-0bc11e753ac1"
           },
           "displayOrder": 1,
-          "mandatory": true
+          "mandatory": true,
+          "voided": true
         },
         {
           "name": "Sample sent to",
@@ -291,41 +353,10 @@
       ]
     },
     {
-      "uuid": "e519cd15-1894-44f2-8b39-d635e9f1edd2",
-      "name": "Other relevant details",
-      "display": "Other relevant details",
-      "displayOrder": 7,
-      "formElements": [
-        {
-          "name": "Hb",
-          "uuid": "a0c833e1-27cf-418e-9d3f-b90f38c2be1e",
-          "keyValues": [],
-          "concept": {
-            "name": "Hb",
-            "uuid": "f9ecabbc-2df2-4bfc-a6fa-aa417c50e11b"
-          },
-          "displayOrder": 1,
-          "mandatory": false
-        },
-        {
-          "name": "Blood group",
-          "uuid": "0c994ce0-ba88-4bdc-9059-21b5cfdfd56c",
-          "keyValues": [],
-          "type": "SingleSelect",
-          "concept": {
-            "name": "Blood group",
-            "uuid": "3493c80a-8af5-40e6-b598-8385c4db2bd7"
-          },
-          "displayOrder": 2,
-          "mandatory": false
-        }
-      ]
-    },
-    {
       "uuid": "c0beecac-aee1-4959-aecc-9383073be7f3",
       "name": "High risk pregnancy",
       "display": "High risk pregnancy",
-      "displayOrder": 8,
+      "displayOrder": 7,
       "formElements": [
         {
           "name": "Whether this is a high risk pregnancy",

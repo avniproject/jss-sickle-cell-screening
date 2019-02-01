@@ -27,39 +27,47 @@ const ProgramEncounterTypeName = {
     HPLC_SAMPLE_COLLECTION: "HPLC sample collection"
 };
 
-let resultFromOldElectrophoresisOther = function (programEncounter) {
-    return new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether result from old electrophoresis report is Other").is.yes.matches();
+let resultFromOldReportIsElectrophoresisUnconfirmed = function (programEncounter) {
+    return new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Result from old sickle cell test report").containsAnswerConceptName("Unconfirmed (Electrophoresis)").matches();
 };
 
-let scConfirmatoryTestAvailable = function (programEncounter) {
+let oldReportAvailable = function (programEncounter) {
     return new RuleCondition({programEncounter: programEncounter}).when
-        .valueInEncounter("Whether SC confirmatory report available").is.yes.matches();
+        .valueInEncounter("Whether old report available").is.yes.matches();
 };
 
+let genotypeConfirmedFromOldReport = function (programEncounter) {
+    return !resultFromOldReportIsElectrophoresisUnconfirmed(programEncounter);
 
-let oldElectrophoresisResultAvailable = function (programEncounter) {
+};
+
+let hplcTestRequired = function (programEncounter) {
     return new RuleCondition({programEncounter: programEncounter}).when
-        .valueInEncounter("Whether old electrophoresis report available").is.yes.matches();
+        .latestValueInPreviousEncounters("Electrophoresis result").containsAnswerConceptName("Other").or
+        .whenItem(resultFromOldReportIsElectrophoresisUnconfirmed(programEncounter)).is.truthy.matches();
+
+};
+
+let electrophoresisTestRequired = function (programEncounter) {
+    return !oldReportAvailable(programEncounter);
 };
 
 let sampleToBeCollectedForHPLC = function (programEncounter) {
-    let electrophoresisOther = new RuleCondition({programEncounter: programEncounter}).when
-        .latestValueInPreviousEncounters("Electrophoresis result").containsAnswerConceptName("Other").or
-        .valueInEncounter("Whether result from old electrophoresis report is Other").is.yes.matches();
-
-    let btCheckPassAndElectrophoresisOther = new RuleCondition({programEncounter: programEncounter})
+    let hplcTestRequiredAndBTCheckPassed = new RuleCondition({programEncounter: programEncounter})
         .when.valueInEncounter("Whether BT done in last 3 months").is.no
-        .and.whenItem(electrophoresisOther).is.truthy.matches();
+        .and.whenItem(hplcTestRequired(programEncounter)).is.truthy.matches();
 
-    return (programEncounter.encounterType.name === ProgramEncounterTypeName.BASE_SCREENING || programEncounter.encounterType.name === ProgramEncounterTypeName.HPLC_SAMPLE_COLLECTION) && btCheckPassAndElectrophoresisOther;
+    return (programEncounter.encounterType.name === ProgramEncounterTypeName.BASE_SCREENING || programEncounter.encounterType.name === ProgramEncounterTypeName.HPLC_SAMPLE_COLLECTION) && hplcTestRequiredAndBTCheckPassed;
 };
 
 let sampleToBeCollectedForSolubilityAndElectrophoresis = function (programEncounter) {
-    let btCheckPassAndElectroResultNotAvailable = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether BT done in last 3 months").is.no
-        .and.latestValueInPreviousEncounters("Electrophoresis result").is.notDefined
-        .and.valueInEncounter("Whether result from old electrophoresis report is Other").is.notDefined.matches();
+    if(programEncounter.encounterType.name !== ProgramEncounterTypeName.BASE_SCREENING){
+        return false;
+    }
+    let electrophoresisTestRequiredAndBTcheckPassed = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether BT done in last 3 months").is.no
+        .and.whenItem(electrophoresisTestRequired(programEncounter)).is.truthy.matches();
 
-    return programEncounter.encounterType.name === ProgramEncounterTypeName.BASE_SCREENING && btCheckPassAndElectroResultNotAvailable;
+    return electrophoresisTestRequiredAndBTcheckPassed;
 };
 
 let sampleToBeShipped = function (programEncounter) {
@@ -84,7 +92,8 @@ class SickleCellScreeningHandlerJSS {
     sickleCellScreeningHistory(programEncounter, formElementGroup) {
         return formElementGroup.formElements.map(fe=>{
             let statusBuilder = new FormElementStatusBuilder({programEncounter:programEncounter, formElement:fe});
-            statusBuilder.show().when.latestValueInPreviousEncounters("Whether SC confirmatory report available").is.notDefined;
+            statusBuilder.show().whenItem(programEncounter.encounterType.name === ProgramEncounterTypeName.BASE_SCREENING)
+                .and.latestValueInPreviousEncounters("Whether old report available").is.notDefined;
             return statusBuilder.build();
         });
     }
@@ -99,7 +108,7 @@ class SickleCellScreeningHandlerJSS {
 
     static bloodTransfusionCheckNeeded(programEncounter){
         if (programEncounter.encounterType.name === ProgramEncounterTypeName.BASE_SCREENING) {
-            return (!scConfirmatoryTestAvailable(programEncounter) && (!oldElectrophoresisResultAvailable(programEncounter) || resultFromOldElectrophoresisOther(programEncounter)));
+            return (electrophoresisTestRequired(programEncounter) || hplcTestRequired(programEncounter));
         }
         return programEncounter.encounterType.name === ProgramEncounterTypeName.HPLC_SAMPLE_COLLECTION;
     }
@@ -114,14 +123,15 @@ class SickleCellScreeningHandlerJSS {
         });
     }
 
-    @WithStatusBuilder
-    whetherOldElectrophoresisReportAvailable([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.no;
+    hbBloodGroup(programEncounter, formElementGroup) {
+        return formElementGroup.formElements.map(fe=>{
+            return new FormElementStatus(fe.uuid, programEncounter.encounterType.name !== ProgramEncounterTypeName.SAMPLE_SHIPMENT);
+        });
     }
 
     @WithStatusBuilder
-    whetherResultFromOldElectrophoresisReportIsOther([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether old electrophoresis report available").is.yes;
+    resultFromOldReport([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Whether old report available").is.yes;
     }
 
     @WithStatusBuilder
@@ -152,16 +162,6 @@ class SickleCellScreeningHandlerJSS {
     @WithStatusBuilder
     hplcResult([], statusBuilder) {
         statusBuilder.show().when.valueInEncounter("Whether HPLC result available").is.yes;
-    }
-
-    @WithStatusBuilder
-    scConfirmatoryReportAvailable([], statusBuilder) {
-        statusBuilder.show().when.latestValueInPreviousEncounters("Whether SC confirmatory report available").is.notDefined;
-    }
-
-    @WithStatusBuilder
-    hemoglobinGenotypeFromOldReport([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Whether SC confirmatory report available").is.yes;
     }
 
 
@@ -223,7 +223,7 @@ class SickleCellScreeningHandlerJSS {
     sampleNumber([], statusBuilder) {
         let status = statusBuilder.build();
         let programEncounter = statusBuilder.context.programEncounter;
-        if(sampleToBeShipped(programEncounter)){
+        if(sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter) || sampleToBeCollectedForHPLC(programEncounter)){
             status.value = programEncounter.programEnrolment.individual.getObservationValue("Registration number");
             status.visibility = true;
         } else {
@@ -238,13 +238,9 @@ class SickleCellScreeningHandlerJSS {
     }
 
     @WithStatusBuilder
-    hb([], statusBuilder) {
-        statusBuilder.show().when.latestValueInPreviousEncounters("Hb").is.notDefined;
-    }
-
-    @WithStatusBuilder
     bloodGroup([], statusBuilder) {
-        statusBuilder.show().when.latestValueInPreviousEncounters("Blood group").is.notDefined;
+        statusBuilder.show().whenItem(statusBuilder.context.programEncounter.name !== ProgramEncounterTypeName.SAMPLE_SHIPMENT).is.truthy
+            .and.latestValueInPreviousEncounters("Blood group").is.notDefined;
     }
 
     @WithStatusBuilder
@@ -376,14 +372,10 @@ class SickleCellScreeningFormDecisionsJSS {
             //Emptying to handle edit scenario
             decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:[]});
 
-            let hemoglobinGenotypeFromOldReport = programEncounter.getObservationReadableValue('Hemoglobin genotype from old report');
-            if(!_.isNil(hemoglobinGenotypeFromOldReport)){
-                decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:[hemoglobinGenotypeFromOldReport]});
-            }
-
-            let electrophoresisResultFromOldReport = programEncounter.getObservationReadableValue('Whether result from old electrophoresis report is Other');
-            if(!_.isNil(electrophoresisResultFromOldReport) && electrophoresisResultFromOldReport === 'Yes'){
-                decisions.encounterDecisions.push({name:"Electrophoresis result",value:["Other"]});
+            let resultFromOldReport = programEncounter.getObservationReadableValue('Result from old sickle cell test report');
+            if(!_.isNil(resultFromOldReport)){
+                (resultFromOldReport === "Unconfirmed (Electrophoresis)") ? decisions.encounterDecisions.push({name:"Electrophoresis result",value:["Other"]})
+                : decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:[resultFromOldReport]});
             }
 
             let solubilityResultFromField = programEncounter.getObservationReadableValue('Solubility result from field');
@@ -393,6 +385,7 @@ class SickleCellScreeningFormDecisionsJSS {
                     decisions.encounterDecisions.push({name:"Hemoglobin genotype",value:["AA"]});
                 }
             }
+
             if (sampleNumberExists(programEncounter)) {
                 decisions.encounterDecisions.push(getCollectionDecision(programEncounter));
             }
@@ -420,9 +413,7 @@ class SickleCellScreeningFormDecisionsJSS {
         }
 
         if (programEncounter.encounterType.name === ProgramEncounterTypeName.SAMPLE_SHIPMENT) {
-            if (bTDateNotExists(programEncounter)) {
                 decisions.encounterDecisions.push(getShipmentDecision(programEncounter));
-            }
         }
 
         if (programEncounter.encounterType.name === ProgramEncounterTypeName.HPLC_SAMPLE_COLLECTION) {
@@ -437,10 +428,6 @@ class SickleCellScreeningFormDecisionsJSS {
 
 const sampleNumberExists = (programEncounter) => new RuleCondition({programEncounter})
     .when.valueInEncounter('Sample number').is.defined
-    .matches();
-
-const bTDateNotExists = (programEncounter) => new RuleCondition({programEncounter})
-    .when.valueInEncounter('BT date').is.notDefined
     .matches();
 
 const getShipmentDecision = (programEncounter) => {
@@ -485,6 +472,13 @@ class SickleCellRegistrationViewHandlerJSS {
     @WithRegistrationStatusBuilder
     otherVillage([], statusBuilder) {
         statusBuilder.show().whenItem(_.startsWith(statusBuilder.context.individual.lowestAddressLevel.name, "Other")).is.truthy;
+    }
+
+    isThisRegistrationForPregnantWoman(individual, formElement) {
+        // if(individual.isMale()){
+        //     return new FormElementStatus(formElement.uuid, true, "e7b50c78-3d90-484d-a224-9887887780dc");
+        // }
+        return new FormElementStatus(formElement.uuid, true);
     }
 
 }

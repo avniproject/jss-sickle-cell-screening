@@ -22,7 +22,7 @@
     "dataType": "Date"
   },
   {
-    "name": "Whether SC confirmatory report available",
+    "name": "Whether old report available",
     "uuid": "843cec0f-5f7d-451f-be22-68c7167ffc64",
     "dataType": "Coded",
     "answers": [
@@ -70,7 +70,11 @@
     ]
   },
   {
-    "name": "Hemoglobin genotype from old report",
+    "uuid": "4dafecda-4c47-4962-a276-32e9da36515d",
+    "name": "Unconfirmed (Electrophoresis)"
+  },
+  {
+    "name": "Result from old sickle cell test report",
     "uuid": "3f0d938b-d7e6-4372-b2a0-e787430880f8",
     "dataType": "Coded",
     "answers": [
@@ -90,11 +94,17 @@
       },
       {
         "uuid": "7f32dd91-78d3-4f5c-b43e-a00bff7d6055",
-        "name": "Beta Thal"
+        "name": "Beta Thal",
+        "abnormal": true
       },
       {
         "uuid": "7472ce22-441c-4f07-9049-d53c943308e0",
         "name": "Other (HPLC)",
+        "abnormal": true
+      },
+      {
+        "uuid": "4dafecda-4c47-4962-a276-32e9da36515d",
+        "name": "Unconfirmed (Electrophoresis)",
         "abnormal": true
       }
     ]
@@ -465,5 +475,45 @@
         "comment":"HPLC"
       }
     ]
+  },
+  {
+    "uuid": "0606518a-f735-45f2-a3fd-0222d1243d19",
+    "name": "Less than 6gm/dl"
+  },
+  {
+    "uuid": "bba33e0a-83f6-4488-bfbc-e0b8ed65b110",
+    "name": "6 - 9 gm/dl"
+  },
+  {
+    "uuid": "13f9cac9-994e-4aea-9d66-c4a998a75c09",
+    "name": "9 - 11 gm/dl"
+  },
+  {
+    "uuid": "15126cb3-3d33-4061-a9b9-e509f45bcef2",
+    "name": "Greater than 11gm/dl"
+  },
+  {
+    "name": "Hb range (Copper Sulphate method)",
+    "uuid": "732a1094-0fbc-48a3-86d6-aa3ba1daf4da",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "0606518a-f735-45f2-a3fd-0222d1243d19",
+        "name": "Less than 6gm/dl"
+      },
+      {
+        "uuid": "bba33e0a-83f6-4488-bfbc-e0b8ed65b110",
+        "name": "6 - 9 gm/dl"
+      },
+      {
+        "uuid": "13f9cac9-994e-4aea-9d66-c4a998a75c09",
+        "name": "9 - 11 gm/dl"
+      },
+      {
+        "uuid": "15126cb3-3d33-4061-a9b9-e509f45bcef2",
+        "name": "Greater than 11gm/dl"
+      }
+    ]
   }
+  
 ]

@@ -29,7 +29,7 @@
             "uuid": "d695a22f-82b0-4f4f-9227-a4f3344d5dcf"
           },
           "displayOrder": 2,
-          "mandatory": true
+          "mandatory": false
         },
         {
           "name": "Address",
@@ -120,17 +120,6 @@
             "uuid": "43c4860f-fccf-48c9-818a-191bc0f8d0cf"
           },
           "displayOrder": 9,
-          "mandatory": false
-        },
-        {
-          "name": "MCTS Number",
-          "uuid": "4782b560-8ea6-4144-a8ab-c56b9b9b29ca",
-          "keyValues": [],
-          "concept": {
-            "name": "MCTS Number",
-            "uuid": "191f8a30-d543-4b98-9464-2f5838d1d9a6"
-          },
-          "displayOrder": 10,
           "mandatory": false
         },
         {
