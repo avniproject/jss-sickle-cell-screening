@@ -133,6 +133,12 @@ class SickleCellScreeningHandlerJSS {
     resultFromOldReport([], statusBuilder) {
         statusBuilder.show().when.valueInEncounter("Whether old report available").is.yes;
     }
+    
+    @WithStatusBuilder
+    hplcOtherResultDetails([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Result from old sickle cell test report").containsAnswerConceptName("Other (HPLC)")
+            .or.valueInEncounter("HPLC result").containsAnswerConceptName("Other");
+    }
 
     @WithStatusBuilder
     solubilityResult([], statusBuilder) {
@@ -256,11 +262,21 @@ class SickleCellScreeningHandlerJSS {
         statusBuilder.show().when.valueInRegistration("Whether registration for pregnant woman").is.yes
             .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterTypeName.BASE_SCREENING).is.truthy;
     }
+    
+    @WithStatusBuilder
+    otherMedicalHistory([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Medical history").containsAnswerConceptName("Other");
+    }
 
     @WithStatusBuilder
     dangerSignsInCurrentPregnancy([], statusBuilder) {
         statusBuilder.show().when.valueInEncounter("Whether this is a high risk pregnancy").is.yes
             .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterTypeName.BASE_SCREENING).is.truthy;
+    }
+
+    @WithStatusBuilder
+    otherDangerSignsInCurrentPregnancy([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Danger signs in current pregnancy").containsAnswerConceptName("Other");
     }
 
     @WithStatusBuilder
@@ -270,6 +286,12 @@ class SickleCellScreeningHandlerJSS {
             .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterTypeName.BASE_SCREENING).is.truthy;
 
     }
+    
+    @WithStatusBuilder
+    otherComplicationsInPastPregnancy([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("Complications in past pregnancy").containsAnswerConceptName("Other");
+    }
+
 }
 
 @ProgramRule({

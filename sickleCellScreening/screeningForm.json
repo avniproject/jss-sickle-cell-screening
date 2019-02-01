@@ -33,29 +33,15 @@
           "mandatory": true
         },
         {
-          "name": "Whether old electrophoresis report available",
-          "uuid": "ea4e53c5-4085-4ad9-93cb-8bcf0369db96",
-          "type": "SingleSelect",
-          "concept": {
-            "name": "Whether old electrophoresis report available",
-            "uuid": "f86513ff-828d-47e4-8631-c264b0a54167"
-          },
-          "displayOrder": 3,
-          "mandatory": true,
-          "voided": true
-        },
-        {
-          "name": "Whether result from old electrophoresis report is Other",
-          "uuid": "954e9335-99f8-4619-b034-564a079d0d2b",
+          "name": "HPLC Other result details",
+          "uuid": "30862954-22b1-423f-affa-7b0d08385b40",
           "keyValues": [],
-          "type": "SingleSelect",
           "concept": {
-            "name": "Whether result from old electrophoresis report is Other",
-            "uuid": "1971a4c8-eaa5-4359-8e12-f085dccdb7c8"
+            "name": "HPLC Other result details",
+            "uuid": "46af77ba-d316-422d-b15c-35d1cb118cd7"
           },
-          "displayOrder": 4,
-          "mandatory": true,
-          "voided": true
+          "displayOrder": 2.5,
+          "mandatory": false
         }
       ]
     },
@@ -111,7 +97,6 @@
           "displayOrder": 2.5,
           "mandatory": true
         },
-
         {
           "name": "HPLC result",
           "uuid": "b173c543-d004-4c07-8629-96c0adb1d1f6",
@@ -122,6 +107,17 @@
             "uuid": "93eb5a4d-b399-46d3-86d0-6fd4d6443d44"
           },
           "displayOrder": 3,
+          "mandatory": true
+        },
+        {
+          "name": "HPLC Other result details",
+          "uuid": "fa1be24a-f1f7-4b8c-ba18-633065768bed",
+          "keyValues": [],
+          "concept": {
+            "name": "HPLC Other result details",
+            "uuid": "46af77ba-d316-422d-b15c-35d1cb118cd7"
+          },
+          "displayOrder": 3.5,
           "mandatory": true
         }
       ]
@@ -382,6 +378,17 @@
           "mandatory": true
         },
         {
+          "name": "Other medical history",
+          "uuid": "668d8f2f-41a1-4194-9435-be2f52aa2c9f",
+          "keyValues": [],
+          "concept": {
+            "name": "Other medical history",
+            "uuid": "451f476d-f6b3-42c1-b1ba-f901a9051233"
+          },
+          "displayOrder": 2.5,
+          "mandatory": true
+        },
+        {
           "name": "Complications in past pregnancy",
           "uuid": "57a346e1-9a14-4ef2-b0ed-d51050e42428",
           "keyValues": [],
@@ -394,6 +401,18 @@
           "mandatory": true
         },
         {
+          "name": "Other complications in past pregnancy",
+          "uuid": "d4fc4e4d-ee8e-469f-96cc-47140b5247ef",
+          "keyValues": [],
+          "concept": {
+            "name": "Other complications in past pregnancy",
+            "uuid": "d28efc6f-e38a-4edb-9d62-2250da678b9b"
+          },
+          "displayOrder": 3.5,
+          "mandatory": true
+        },
+
+        {
           "name": "Danger signs in current pregnancy",
           "uuid": "61b18bf0-524a-490a-b20b-fe5ffed1fef6",
           "keyValues": [],
@@ -403,6 +422,17 @@
             "uuid": "ae2fd3ca-1305-4b7d-ac1d-32f59af3e30a"
           },
           "displayOrder": 4,
+          "mandatory": true
+        },
+        {
+          "name": "Other danger signs in current pregnancy",
+          "uuid": "ad473a1e-6c00-4605-986e-060827090d84",
+          "keyValues": [],
+          "concept": {
+            "uuid": "f98b5204-2c8b-4d9f-bef1-d5803f9413a1",
+            "name": "Other danger signs in current pregnancy"
+          },
+          "displayOrder": 4.5,
           "mandatory": true
         }
       ]

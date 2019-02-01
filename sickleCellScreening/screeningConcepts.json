@@ -333,6 +333,17 @@
     "name": "Deformities at birth"
   },
   {
+    "name": "Medical history",
+    "uuid": "2991127b-7064-4027-a030-4a3a8d0e8aa7",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
+        "abnormal": false
+      }
+    ]
+  },
+  {
     "name": "Complications in past pregnancy",
     "uuid": "35c34397-ebbf-492b-b504-f296836e529d",
     "dataType": "Coded",
@@ -397,6 +408,9 @@
         "name": "None",
         "uuid": "ebda5e05-a995-43ca-ad1a-30af3b937539",
         "dataType": "NA"
+      },
+      {
+        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538"
       }
     ]
   },
@@ -420,6 +434,9 @@
         "name": "None",
         "uuid": "ebda5e05-a995-43ca-ad1a-30af3b937539",
         "dataType": "NA"
+      },
+      {
+        "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538"
       }
     ]
   },
@@ -514,6 +531,26 @@
         "name": "Greater than 11gm/dl"
       }
     ]
+  },
+  {
+    "name": "Other medical history",
+    "uuid": "451f476d-f6b3-42c1-b1ba-f901a9051233",
+    "dataType": "Text"
+  },
+  {
+    "name": "Other complications in past pregnancy",
+    "uuid": "d28efc6f-e38a-4edb-9d62-2250da678b9b",
+    "dataType": "Text"
+  },
+  {
+    "uuid": "f98b5204-2c8b-4d9f-bef1-d5803f9413a1",
+    "name": "Other danger signs in current pregnancy",
+    "dataType": "Text"
+  },
+  {
+    "name": "HPLC Other result details",
+    "uuid": "46af77ba-d316-422d-b15c-35d1cb118cd7",
+    "dataType": "Text"
   }
-  
+
 ]
