@@ -10,68 +10,19 @@ import {
     RuleCondition
 } from 'rules-config/rules';
 
-const ScreeningViewFilter = RuleFactory("0723fd75-dc66-4aae-a3c9-31a09c9c4c7a", "ViewFilter");
-
-const WithStatusBuilder = StatusBuilderAnnotationFactory('programEncounter', 'formElement');
-
-const Decision = RuleFactory('0723fd75-dc66-4aae-a3c9-31a09c9c4c7a', 'Decision');
+import {ScreeningRuleHelper} from './screeningRuleHelper';
 
 const ProgramEncounterTypeName = {
-    BASE_SCREENING: "Base screening",
-    SAMPLE_SHIPMENT: "Sample shipment",
-    LAB_RESULTS_ENTRY: "Lab results entry",
-    HPLC_SAMPLE_COLLECTION: "HPLC sample collection"
+    BASE_SCREENING: 'Base screening',
+    SAMPLE_SHIPMENT: 'Sample shipment',
+    LAB_RESULTS_ENTRY: 'Lab results entry',
+    HPLC_SAMPLE_COLLECTION: 'HPLC sample collection'
 };
 
-let resultFromOldReportIsElectrophoresisUnconfirmed = function (programEncounter) {
-    return new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Result from old sickle cell test report").containsAnswerConceptName("Unconfirmed (Electrophoresis)").matches();
-};
 
-let oldReportAvailable = function (programEncounter) {
-    return new RuleCondition({programEncounter: programEncounter}).when
-        .valueInEncounter("Whether old report available").is.yes.matches();
-};
-
-let hplcTestRequired = function (programEncounter) {
-    return new RuleCondition({programEncounter: programEncounter}).when
-        .latestValueInPreviousEncounters("Electrophoresis result").containsAnswerConceptName("Other").or
-        .whenItem(resultFromOldReportIsElectrophoresisUnconfirmed(programEncounter)).is.truthy.matches();
-
-};
-
-let electrophoresisTestRequired = function (programEncounter) {
-    return !oldReportAvailable(programEncounter);
-};
-
-let sampleToBeCollectedForHPLC = function (programEncounter) {
-    let hplcTestRequiredAndBTCheckPassed = new RuleCondition({programEncounter: programEncounter})
-        .when.valueInEncounter("Whether BT done in last 3 months").is.no
-        .and.whenItem(hplcTestRequired(programEncounter)).is.truthy.matches();
-
-    return (programEncounter.encounterType.name === ProgramEncounterTypeName.BASE_SCREENING || programEncounter.encounterType.name === ProgramEncounterTypeName.HPLC_SAMPLE_COLLECTION) && hplcTestRequiredAndBTCheckPassed;
-};
-
-let sampleToBeCollectedForSolubilityAndElectrophoresis = function (programEncounter) {
-    if(programEncounter.encounterType.name !== ProgramEncounterTypeName.BASE_SCREENING){
-        return false;
-    }
-    let electrophoresisTestRequiredAndBTcheckPassed = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether BT done in last 3 months").is.no
-        .and.whenItem(electrophoresisTestRequired(programEncounter)).is.truthy.matches();
-
-    return electrophoresisTestRequiredAndBTcheckPassed;
-};
-
-let sampleToBeShipped = function (programEncounter) {
-
-    if (sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter)){
-        const solubilityFromFieldPositive = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether prep and/or solubility result from field available").is.yes
-            .and.valueInEncounter("Solubility result from field").containsAnswerConceptName("Positive").matches();
-        const solubilityFromFieldUnavailable = new RuleCondition({programEncounter: programEncounter}).when.valueInEncounter("Whether prep and/or solubility result from field available").is.no.matches();
-
-        return solubilityFromFieldUnavailable || solubilityFromFieldPositive;
-    }
-    return sampleToBeCollectedForHPLC(programEncounter);
-};
+const ScreeningViewFilter = RuleFactory("0723fd75-dc66-4aae-a3c9-31a09c9c4c7a", "ViewFilter");
+const WithStatusBuilder = StatusBuilderAnnotationFactory('programEncounter', 'formElement');
+const Decision = RuleFactory('0723fd75-dc66-4aae-a3c9-31a09c9c4c7a', 'Decision');
 
 @ScreeningViewFilter("78aaf13f-04f2-47cc-b4da-914f204793a9", "JSS Sickle Cell Screening Encounter View Filter", 100.0, {})
 class SickleCellScreeningHandlerJSS {
@@ -99,7 +50,7 @@ class SickleCellScreeningHandlerJSS {
 
     static bloodTransfusionCheckNeeded(programEncounter){
         if (programEncounter.encounterType.name === ProgramEncounterTypeName.BASE_SCREENING) {
-            return (electrophoresisTestRequired(programEncounter) || hplcTestRequired(programEncounter));
+            return (ScreeningRuleHelper.electrophoresisTestRequired(programEncounter) || ScreeningRuleHelper.hplcTestRequired(programEncounter));
         }
         return programEncounter.encounterType.name === ProgramEncounterTypeName.HPLC_SAMPLE_COLLECTION;
     }
@@ -169,12 +120,12 @@ class SickleCellScreeningHandlerJSS {
 
     @WithStatusBuilder
     collectSampleForHbSolubilityAndElectrophoresis([], statusBuilder) {
-        statusBuilder.show().whenItem(sampleToBeCollectedForSolubilityAndElectrophoresis(statusBuilder.context.programEncounter)).is.truthy;
+        statusBuilder.show().whenItem(ScreeningRuleHelper.sampleToBeCollectedForSolubilityAndElectrophoresis(statusBuilder.context.programEncounter)).is.truthy;
     }
 
     @WithStatusBuilder
     collectSampleForHplc([], statusBuilder) {
-        statusBuilder.show().whenItem(sampleToBeCollectedForHPLC(statusBuilder.context.programEncounter)).is.truthy;
+        statusBuilder.show().whenItem(ScreeningRuleHelper.sampleToBeCollectedForHPLC(statusBuilder.context.programEncounter)).is.truthy;
     }
 
     @WithStatusBuilder
@@ -186,7 +137,7 @@ class SickleCellScreeningHandlerJSS {
     fieldTestResults(programEncounter, formElementGroup) {
         return formElementGroup.formElements.map(fe=>{
             let statusBuilder = new FormElementStatusBuilder({programEncounter:programEncounter, formElement:fe});
-            statusBuilder.show().whenItem(sampleToBeCollectedForSolubilityAndElectrophoresis(statusBuilder.context.programEncounter)).is.truthy;
+            statusBuilder.show().whenItem(ScreeningRuleHelper.sampleToBeCollectedForSolubilityAndElectrophoresis(statusBuilder.context.programEncounter)).is.truthy;
             return statusBuilder.build();
         });
     }
@@ -211,7 +162,7 @@ class SickleCellScreeningHandlerJSS {
     sampleCollectionShipmentDetails(programEncounter, formElementGroup) {
         return formElementGroup.formElements.map(fe=>{
             let statusBuilder = new FormElementStatusBuilder({programEncounter:programEncounter, formElement:fe});
-            statusBuilder.show().whenItem(sampleToBeShipped(programEncounter)).is.truthy;
+            statusBuilder.show().whenItem(ScreeningRuleHelper.sampleToBeShipped(programEncounter)).is.truthy;
             return statusBuilder.build();
         });
     }
@@ -220,7 +171,7 @@ class SickleCellScreeningHandlerJSS {
     sampleNumber([], statusBuilder) {
         let status = statusBuilder.build();
         let programEncounter = statusBuilder.context.programEncounter;
-        if(sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter) || sampleToBeCollectedForHPLC(programEncounter)){
+        if(ScreeningRuleHelper.sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter) || ScreeningRuleHelper.sampleToBeCollectedForHPLC(programEncounter)){
             status.value = programEncounter.programEnrolment.individual.getObservationValue("Registration number");
             status.visibility = true;
         } else {
@@ -340,7 +291,7 @@ class SickleCellScreeningFormDecisionsJSS {
         }
 
         if (programEncounter.encounterType.name === ProgramEncounterTypeName.HPLC_SAMPLE_COLLECTION) {
-            if (sampleNumberExists(programEncounter)) {
+            if (ScreeningRuleHelper.sampleToBeCollectedForHPLC(programEncounter)) {
                 decisions.encounterDecisions.push({name: 'Sample collected for', value: ['HPLC']});
             }
         }
@@ -376,10 +327,10 @@ const getShipmentDecision = (programEncounter) => {
 const getCollectionDecision = (programEncounter) => {
     let sampleCollectedFor = [];
 
-    if (sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter)) {
+    if (ScreeningRuleHelper.sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter)) {
         sampleCollectedFor = ['Solubility', 'Electrophoresis'];
     }
-    if (sampleToBeCollectedForHPLC(programEncounter)) {
+    if (ScreeningRuleHelper.sampleToBeCollectedForHPLC(programEncounter)) {
         sampleCollectedFor = ['HPLC'];
     }
     return {name: 'Sample collected for', value: sampleCollectedFor};
