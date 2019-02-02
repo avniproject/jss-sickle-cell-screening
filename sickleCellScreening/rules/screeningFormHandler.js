@@ -260,7 +260,19 @@ class SickleCellScreeningFormDecisionsJSS {
                 }
             }
 
-            if (sampleNumberExists(programEncounter)) {
+            let btDoneInLast3Months = programEncounter.getObservationReadableValue('Whether BT done in last 3 months');
+            if (btDoneInLast3Months === 'No') {
+                decisions.encounterDecisions.push({name: "BT check status", value: ["Passed.Sample can be collected"]});
+            } else if (btDoneInLast3Months === 'Yes'){
+                decisions.encounterDecisions.push({
+                    name: "BT check status",
+                    value: ["Failed.Revisit in 3 months from BT date"]
+                });
+            }
+
+
+
+            if (ScreeningRuleHelper.sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter) || ScreeningRuleHelper.sampleToBeCollectedForHPLC(programEncounter)) {
                 decisions.encounterDecisions.push(getCollectionDecision(programEncounter));
             }
         }
@@ -291,6 +303,18 @@ class SickleCellScreeningFormDecisionsJSS {
         }
 
         if (programEncounter.encounterType.name === ProgramEncounterTypeName.HPLC_SAMPLE_COLLECTION) {
+
+            let btDoneInLast3Months = programEncounter.getObservationReadableValue('Whether BT done in last 3 months');
+            if (btDoneInLast3Months === 'No') {
+                decisions.encounterDecisions.push({name: "BT check status", value: ["Passed.Sample can be collected"]});
+            } else {
+                decisions.encounterDecisions.push({
+                    name: "BT check status",
+                    value: ["Failed.Revisit in 3 months from BT date"]
+                });
+            }
+
+
             if (ScreeningRuleHelper.sampleToBeCollectedForHPLC(programEncounter)) {
                 decisions.encounterDecisions.push({name: 'Sample collected for', value: ['HPLC']});
             }

@@ -551,6 +551,29 @@
     "name": "HPLC Other result details",
     "uuid": "46af77ba-d316-422d-b15c-35d1cb118cd7",
     "dataType": "Text"
+  },
+  {
+    "uuid": "11d05605-fb83-42a8-b906-80e15482f3bc",
+    "name": "Passed.Sample can be collected"
+  },
+  {
+    "uuid": "01d30668-dade-4904-8740-29217e7b5876",
+    "name": "Failed.Revisit in 3 months from BT date"
+  },
+  {
+    "name": "BT check status",
+    "uuid": "ee949b97-7fb0-42ab-bc50-f527ef3d54a2",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "11d05605-fb83-42a8-b906-80e15482f3bc",
+        "name": "Passed.Sample can be collected"
+      },
+      {
+        "uuid": "01d30668-dade-4904-8740-29217e7b5876",
+        "name": "Failed.Revisit in 3 months from BT date"
+      }
+    ]
   }
 
 ]
