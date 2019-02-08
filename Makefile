@@ -77,7 +77,12 @@ create_users_dev:
 deploy_org_data_live:
 	make auth deploy_org_data poolId=$(STAGING_USER_POOL_ID) clientId=$(STAGING_APP_CLIENT_ID) username=jscs-admin password=$(STAGING_ADMIN_USER_PASSWORD)
 
-_deploy_refdata:
+deploy_subjects:
+	$(call _curl,POST,subjectTypes,@subjectTypes.json)
+	$(call _curl,POST,operationalSubjectTypes,@operationalModules/operationalSubjectTypes.json)
+
+
+_deploy_refdata: deploy_subjects
 	$(call _curl,POST,concepts,@registration/registrationConcepts.json)
 	$(call _curl,POST,forms,@registration/registrationForm.json)
 	$(call _curl,POST,programs,@programs.json)
@@ -139,7 +144,7 @@ _create_admin_user_staging:
 	$(call _curl_as_openchs,POST,users,@users/staging_users.json)
 
 create_admin_user_staging:
-		make auth _create_users_staging poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=admin password=$(password)
+		make auth _create_admin_user_staging poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=admin password=$(password)
 
 
 
