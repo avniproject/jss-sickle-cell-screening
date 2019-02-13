@@ -60,9 +60,6 @@ deploy_checklists:
 
 # <deploy>
 deploy_org_data:
-	$(call _curl,POST,locations,@address-level/districts.json)
-	$(call _curl,POST,locations,@address-level/blocks.json)
-	$(call _curl,POST,locations,@address-level/Villages.json)
 	$(call _curl,POST,catchments,@catchments.json)
 
 create_admin_user:
@@ -78,7 +75,6 @@ deploy_org_data_live:
 	make auth deploy_org_data poolId=$(STAGING_USER_POOL_ID) clientId=$(STAGING_APP_CLIENT_ID) username=jscs-admin password=$(STAGING_ADMIN_USER_PASSWORD)
 
 deploy_subjects:
-	$(call _curl,POST,subjectTypes,@subjectTypes.json)
 	$(call _curl,POST,operationalSubjectTypes,@operationalModules/operationalSubjectTypes.json)
 
 
