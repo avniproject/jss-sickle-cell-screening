@@ -18,11 +18,11 @@ server:= $(if $(server),$(server),http://localhost)
 server_url:=$(server):$(port)
 su:=$(shell id -un)
 org_name=JSCS
-org_admin_name=jscs-admin
+org_admin_name=admin@jscs
 
 poolId:=
 clientId:=
-username:=jscs-admin
+username:=admin@jscs
 password:=
 
 auth:
@@ -30,7 +30,7 @@ auth:
 	@echo $(token)
 
 auth_live:
-	make auth poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) username=jscs-admin password=$(OPENCHS_PROD_ADMIN_USER_PASSWORD)
+	make auth poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) username=admin@jscs password=$(password)
 
 define _curl
 	curl -X $(1) $(server_url)/$(2) -d $(3)  \
@@ -72,7 +72,7 @@ create_users_dev:
 	$(call _curl,POST,users,@users/dev-users.json)
 
 deploy_org_data_live:
-	make auth deploy_org_data poolId=$(STAGING_USER_POOL_ID) clientId=$(STAGING_APP_CLIENT_ID) username=jscs-admin password=$(STAGING_ADMIN_USER_PASSWORD)
+	make auth deploy_org_data poolId=$(STAGING_USER_POOL_ID) clientId=$(STAGING_APP_CLIENT_ID) username=admin@jscs password=$(STAGING_ADMIN_USER_PASSWORD)
 
 deploy_subjects:
 	$(call _curl,POST,operationalSubjectTypes,@operationalModules/operationalSubjectTypes.json)
@@ -94,7 +94,7 @@ deploy_rules:
 	node index.js "$(server_url)" "$(token)" "$(username)"
 
 deploy_rules_live:
-	make auth deploy_rules poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) username=jscs-admin password=$(password) server=https://server.openchs.org port=443
+	make auth deploy_rules poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) username=admin@jscs password=$(password) server=https://server.openchs.org port=443
 
 deploy_refdata: deploy_org_data _deploy_refdata
 
@@ -106,42 +106,47 @@ deploy_prod:
 #	there is a bug in server side. which sets both isAdmin, isOrgAdmin to be false. it should be done. also metadata upload should not rely on isAdmin role.
 #	need to be fixed. then uncomment the following line.
 #	make auth deploy_admin_user poolId=ap-south-1_DU27AHJvZ clientId=1d6rgvitjsfoonlkbm07uivgmg server=https://server.openchs.org port=443 username=admin password=
-	make auth _deploy_prod poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) server=https://server.openchs.org port=443 username=jscs-admin password=$(password)
+	make auth _deploy_prod poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) server=https://server.openchs.org port=443 username=admin@jscs password=$(password)
 
 
 create_deploy: create_org deploy ##
 
 deploy_refdata_live:
-	make auth _deploy_refdata poolId=$(STAGING_USER_POOL_ID) clientId=$(STAGING_APP_CLIENT_ID) username=jscs-admin password=$(STAGING_LBP_ADMIN_USER_PASSWORD)
+	make auth _deploy_refdata poolId=$(STAGING_USER_POOL_ID) clientId=$(STAGING_APP_CLIENT_ID) username=admin@jscs password=$(STAGING_LBP_ADMIN_USER_PASSWORD)
 
 deploy_uat:
-	make auth _deploy_prod poolId=$(OPENCHS_UAT_USER_POOL_ID) clientId=$(OPENCHS_UAT_APP_CLIENT_ID) server=https://uat.openchs.org port=443 username=jscs-admin password=$(password)
+	make auth _deploy_prod poolId=$(OPENCHS_UAT_USER_POOL_ID) clientId=$(OPENCHS_UAT_APP_CLIENT_ID) server=https://uat.openchs.org port=443 username=admin@jscs password=$(password)
 
 deploy_org_data_uat:
-	make auth deploy_org_data poolId=$(OPENCHS_UAT_USER_POOL_ID) clientId=$(OPENCHS_UAT_APP_CLIENT_ID) server=https://uat.openchs.org port=443 username=jscs-admin password=$(password)
+	make auth deploy_org_data poolId=$(OPENCHS_UAT_USER_POOL_ID) clientId=$(OPENCHS_UAT_APP_CLIENT_ID) server=https://uat.openchs.org port=443 username=admin@jscs password=$(password)
 
 deploy_staging:
-	make auth _deploy_prod poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=jscs-admin password=$(password)
+	make auth _deploy_prod poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=admin@jscs password=$(password)
 
 deploy_rules_staging:
-	make auth deploy_rules poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=jscs-admin password=$(password)
+	make auth deploy_rules poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=admin@jscs password=$(password)
 
 
 deploy_org_data_staging:
-	make auth deploy_org_data poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=jscs-admin password=$(password)
+	make auth deploy_org_data poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=admin@jscs password=$(password)
 
 _create_users_staging:
 	$(call _curl,POST,users,@users/staging-users.json)
 
 create_users_staging:
-	make auth _create_users_staging poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=jscs-admin password=$(password)
+	make auth _create_users_staging poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=admin@jscs password=$(password)
 
 _create_admin_user_staging:
 	$(call _curl_as_openchs,POST,users,@users/staging_users.json)
 
-create_admin_user_staging:
-		make auth _create_admin_user_staging poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=admin password=$(password)
+_create_admin_user_live:
+	$(call _curl_as_openchs,POST,users,@users/prod_users.json)
 
+create_admin_user_staging:
+	make auth _create_admin_user_staging poolId=$(OPENCHS_STAGING_USER_POOL_ID) clientId=$(OPENCHS_STAGING_APP_CLIENT_ID) server=https://staging.openchs.org port=443 username=admin password=$(password)
+
+create_admin_user_live:
+	make auth _create_admin_user_live poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) server=https://server.openchs.org port=443 username=admin password=$(password)
 
 
 
