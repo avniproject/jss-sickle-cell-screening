@@ -214,6 +214,7 @@ class SickleCellScreeningHandlerJSS {
     dangerSignsInCurrentPregnancy([], statusBuilder) {
         statusBuilder.show().when.valueInEncounter("Whether this is a high risk pregnancy").is.yes
             .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterTypeName.BASE_SCREENING).is.truthy;
+        statusBuilder.skipAnswers('Eclampsia');
     }
 
     @WithStatusBuilder
@@ -226,7 +227,7 @@ class SickleCellScreeningHandlerJSS {
         statusBuilder.show().when.valueInEncounter("Whether this is a high risk pregnancy").is.yes
             .and.latestValueInPreviousEncounters("Complications in past pregnancy").is.notDefined
             .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterTypeName.BASE_SCREENING).is.truthy;
-
+        statusBuilder.skipAnswers('Seizures');
     }
     
     @WithStatusBuilder

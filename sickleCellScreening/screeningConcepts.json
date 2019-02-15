@@ -357,6 +357,11 @@
     "dataType": "Coded",
     "answers": [
       {
+        "name": "Epilepsy",
+        "uuid": "a34bf7a0-4d55-41fa-855a-0b8094f369f7",
+        "abnormal": true
+      },
+      {
         "name": "Seizures",
         "uuid": "f728efe5-6620-424a-ac91-ad3efe43df97",
         "dataType": "NA",
@@ -423,10 +428,72 @@
     ]
   },
   {
+    "name": "Smelly Blood flow",
+    "uuid": "679f6b4e-0c19-4599-81fb-510e503c2bf7",
+    "dataType": "NA"
+  },
+  {
+    "name": "Anemia",
+    "uuid": "268fa632-288e-44ad-ab52-774bbd7a2700",
+    "dataType": "NA"
+  },
+  {
+    "name": "MUAC<21 cms",
+    "uuid": "51f14185-4c81-4386-9806-4d7659cd4146",
+    "dataType": "NA"
+  },
+  {
+    "name": "Age above 35 or below 17 years",
+    "uuid": "51fe3e9e-3147-4e35-9c8f-9fa3cba279f8",
+    "dataType": "NA"
+  },
+  {
+    "name": "High-grade fever",
+    "uuid": "b967b7ae-a224-4e72-91af-f8d8cebb58ce",
+    "dataType": "NA"
+  },
+  {
     "name": "Danger signs in current pregnancy",
     "uuid": "ae2fd3ca-1305-4b7d-ac1d-32f59af3e30a",
     "dataType": "Coded",
     "answers": [
+      {
+        "uuid": "bbcab554-15c0-424f-a86f-e12a9ad38a53",
+        "abnormal": false
+      },
+      {
+        "uuid": "c99f5dc0-7dc7-410c-bb4a-997666ac312b",
+        "abnormal": false
+      },
+      {
+        "uuid": "674f348f-5075-4c85-8bc2-9edfdee27505",
+        "abnormal": false
+      },
+      {
+        "name": "Smelly Blood flow",
+        "uuid": "679f6b4e-0c19-4599-81fb-510e503c2bf7",
+        "dataType": "NA"
+      },
+      {
+        "name": "Anemia",
+        "uuid": "268fa632-288e-44ad-ab52-774bbd7a2700",
+        "dataType": "NA"
+      },
+      {
+        "name": "MUAC<21 cms",
+        "uuid": "51f14185-4c81-4386-9806-4d7659cd4146",
+        "dataType": "NA"
+      },
+      {
+        "name": "Age above 35 or below 17 years",
+        "uuid": "51fe3e9e-3147-4e35-9c8f-9fa3cba279f8",
+        "dataType": "NA"
+      },
+      {
+        "name": "High-grade fever",
+        "uuid": "b967b7ae-a224-4e72-91af-f8d8cebb58ce",
+        "dataType": "NA"
+      },
       {
         "name": "Eclampsia",
         "uuid": "489f07e5-d9e1-478a-969d-3acad587a15e"
