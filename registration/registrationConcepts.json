@@ -21,6 +21,39 @@
     "name": "Other village",
     "uuid": "d70c62f2-52c8-4a3a-8c65-c6fc1b84e1fb",
     "dataType": "Text"
+  },
+  {
+    "uuid": "d730f9e7-c80c-4989-97a3-33b5e0e911fd",
+    "name": "Deen dayal"
+  },
+  {
+    "name": "Ration Card",
+    "dataType": "Coded",
+    "uuid": "476a0b71-485b-4a0a-ba6f-4f3cf13568ca",
+    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
+    "answers": [
+      {
+        "uuid": "d730f9e7-c80c-4989-97a3-33b5e0e911fd",
+        "name": "Deen dayal"
+      }
+    ]
+  },
+  {
+    "uuid": "4dbfc65e-f3f4-469a-b10d-54b803368e17",
+    "name": "Married"
+  },
+  {
+    "name": "Marital status",
+    "uuid": "aa6687c9-ba4d-49a3-9b3e-bba266eb6f32",
+    "dataType": "Coded",
+    "answers": [
+      {
+        "uuid": "4dbfc65e-f3f4-469a-b10d-54b803368e17",
+        "name": "Married"
+      }
+    ]
   }
+
+
 
 ]

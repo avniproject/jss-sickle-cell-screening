@@ -196,7 +196,7 @@ class SickleCellScreeningHandlerJSS {
         statusBuilder.show().when.valueInEncounter("Whether this is a high risk pregnancy").is.yes
             .and.latestValueInPreviousEncounters("Medical history").is.notDefined
             .and.whenItem(statusBuilder.context.programEncounter.name === ProgramEncounterTypeName.BASE_SCREENING).is.truthy;
-        statusBuilder.skipAnswers('Sickle Cell');
+        statusBuilder.skipAnswers('Sickle Cell', 'Nephrotic syndrome', 'Renal Disease', 'Asthma', 'HIV/AIDS', 'Hepatitis B Positive');
     }
 
     @WithStatusBuilder

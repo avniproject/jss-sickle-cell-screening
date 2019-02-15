@@ -57,7 +57,7 @@
           "name": "Socio Economic Status",
           "uuid": "69af0305-3f80-4e2c-ac9d-674d5c7dfe29",
           "keyValues": [],
-          "type": "SingleSelect",
+          "type": "MultiSelect",
           "concept": {
             "name": "Ration Card",
             "dataType": "Coded",
@@ -97,6 +97,10 @@
             "name": "Contact Number",
             "uuid": "82fa0dbb-92f9-4ec2-9263-49054e64d909"
           },
+          "validFormat": {
+            "regex": "^[0-9]{10}$",
+            "descriptionKey": "Required10Digits"
+          },
           "displayOrder": 7,
           "mandatory": false
         },
@@ -108,6 +112,10 @@
             "name": "Alternative contact number",
             "uuid": "928b4521-98d0-4cb3-a38e-42a775bf814e"
           },
+          "validFormat": {
+            "regex": "^[0-9]{10}$",
+            "descriptionKey": "Required10Digits"
+          },
           "displayOrder": 8,
           "mandatory": false
         },
@@ -118,6 +126,10 @@
           "concept": {
             "name": "Aadhaar ID",
             "uuid": "43c4860f-fccf-48c9-818a-191bc0f8d0cf"
+          },
+          "validFormat": {
+            "regex": "^[0-9]{12}$",
+            "descriptionKey": "Required12Digits"
           },
           "displayOrder": 9,
           "mandatory": false

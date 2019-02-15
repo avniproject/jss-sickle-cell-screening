@@ -26,12 +26,17 @@ class SickleCellRegistrationViewHandlerJSS {
         statusBuilder.show().whenItem(_.startsWith(statusBuilder.context.individual.lowestAddressLevel.name, "Other")).is.truthy;
     }
 
-    isThisRegistrationForPregnantWoman(individual, formElement) {
-        // if(individual.isMale()){
-        //     return new FormElementStatus(formElement.uuid, true, "e7b50c78-3d90-484d-a224-9887887780dc");
-        // }
-        return new FormElementStatus(formElement.uuid, true);
+    @WithRegistrationStatusBuilder
+    isThisRegistrationForPregnantWoman([], statusBuilder) {
+        statusBuilder.show().whenItem(statusBuilder.context.individual.isFemale()).is.truthy;
     }
+
+    @WithRegistrationStatusBuilder
+    maritalStatus([], statusBuilder) {
+        statusBuilder.skipAnswers('Currently married', 'Separated', 'Divorced', 'Widow(er)', 'Remarried', 'Other');
+    }
+
+
 
 }
 

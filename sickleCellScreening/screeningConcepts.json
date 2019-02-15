@@ -333,6 +333,10 @@
     "name": "Deformities at birth"
   },
   {
+    "uuid": "35c6e43d-acc5-4980-93de-ce1cbd6cd402",
+    "name": "RTI (Reproductive tract syndrome)/STI (Sexually transmitted disease)"
+  },
+  {
     "name": "Medical history",
     "uuid": "2991127b-7064-4027-a030-4a3a8d0e8aa7",
     "dataType": "Coded",
@@ -340,6 +344,10 @@
       {
         "uuid": "05ea583c-51d2-412d-ad00-06c432ffe538",
         "abnormal": false
+      },
+      {
+        "uuid": "35c6e43d-acc5-4980-93de-ce1cbd6cd402",
+        "name": "RTI (Reproductive tract syndrome)/STI (Sexually transmitted disease)"
       }
     ]
   },
@@ -419,6 +427,10 @@
     "uuid": "ae2fd3ca-1305-4b7d-ac1d-32f59af3e30a",
     "dataType": "Coded",
     "answers": [
+      {
+        "name": "Eclampsia",
+        "uuid": "489f07e5-d9e1-478a-969d-3acad587a15e"
+      },
       {
         "name": "Hypertension",
         "uuid": "998d1bae-05d8-47b9-89b8-0254829f238f",
