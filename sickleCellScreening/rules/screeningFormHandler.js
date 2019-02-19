@@ -172,7 +172,7 @@ class SickleCellScreeningHandlerJSS {
         let status = statusBuilder.build();
         let programEncounter = statusBuilder.context.programEncounter;
         if(ScreeningRuleHelper.sampleToBeCollectedForSolubilityAndElectrophoresis(programEncounter) || ScreeningRuleHelper.sampleToBeCollectedForHPLC(programEncounter)){
-            status.value = programEncounter.programEnrolment.individual.getObservationValue("Registration number");
+            status.value = programEncounter.programEnrolment.getObservationValue("Enrolment number");
             status.visibility = true;
         } else {
             status.visibility = false;
