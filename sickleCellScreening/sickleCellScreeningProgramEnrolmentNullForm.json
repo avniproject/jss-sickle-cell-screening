@@ -5,8 +5,8 @@
   "formElementGroups": [
     {
       "uuid": "945c9d0c-8909-4bbf-a1c8-c939271eaf43",
-      "name": "Dummy",
-      "display": "Dummy",
+      "name": "Enrolment Details",
+      "display": "Enrolment Details",
       "displayOrder": 1,
       "formElements": [
         {
@@ -29,7 +29,7 @@
             "uuid": "8f852186-ccf1-4898-b581-99b37bcae2f1"
           },
           "displayOrder": 2,
-          "mandatory": false
+          "mandatory": true
         }
       ],
       "voided": false

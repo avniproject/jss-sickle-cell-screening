@@ -89,13 +89,13 @@ deploy_subjects:
 
 _deploy_refdata: deploy_subjects
 	$(call _curl,POST,concepts,@registration/registrationConcepts.json)
+	$(call _curl,POST,concepts,@sickleCellScreening/screeningConcepts.json)
 	$(call _curl,POST,forms,@registration/registrationForm.json)
 	$(call _curl,POST,programs,@programs.json)
 	$(call _curl,POST,encounterTypes,@encounterTypes.json)
 	$(call _curl,POST,operationalEncounterTypes,@operationalModules/operationalEncounterTypes.json)
 	$(call _curl,POST,operationalPrograms,@operationalModules/operationalPrograms.json)
 	$(call _curl,POST,forms,@sickleCellScreening/sickleCellScreeningProgramEnrolmentNullForm.json)
-	$(call _curl,POST,concepts,@sickleCellScreening/screeningConcepts.json)
 	$(call _curl,POST,forms,@sickleCellScreening/screeningForm.json)
 	$(call _curl,POST,formMappings,@formMappings.json)
 
