@@ -19,6 +19,17 @@
           "displayOrder": 1,
           "mandatory": false,
           "voided": true
+        },
+        {
+          "name": "Enrolment number",
+          "uuid": "fce77793-8243-4c31-a95b-a626e6d5d2f1",
+          "keyValues": [],
+          "concept": {
+            "name": "Enrolment number",
+            "uuid": "8f852186-ccf1-4898-b581-99b37bcae2f1"
+          },
+          "displayOrder": 2,
+          "mandatory": false
         }
       ],
       "voided": false

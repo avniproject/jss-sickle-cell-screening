@@ -29,7 +29,8 @@
             "uuid": "d695a22f-82b0-4f4f-9227-a4f3344d5dcf"
           },
           "displayOrder": 2,
-          "mandatory": false
+          "mandatory": false,
+          "voided": true
         },
         {
           "name": "Address",
