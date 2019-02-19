@@ -50,6 +50,15 @@ define _curl_as_openchs
 	@echo
 endef
 
+define _curl_for_form_query_export
+	@curl -X GET '$(server_url)/query/program/$(1)/encounter/$(2)'  \
+		-H "Content-Type: application/json"  \
+		-H "USER-NAME: $(org_admin_name)"  \
+		$(if $(token),-H "AUTH-TOKEN: $(token)",)
+	@echo
+	@echo
+endef
+
 create_org:
 	psql -U$(su) openchs < create_organisation.sql
 
@@ -148,6 +157,10 @@ create_admin_user_staging:
 create_admin_user_live:
 	make auth _create_admin_user_live poolId=$(OPENCHS_PROD_USER_POOL_ID) clientId=$(OPENCHS_PROD_APP_CLIENT_ID) server=https://server.openchs.org port=443 username=admin password=$(password)
 
+program=
+encounter-type=
+get_forms:
+	$(call _curl_for_form_query_export,$(program),$(encounter-type))
 
 
 # </deploy>
