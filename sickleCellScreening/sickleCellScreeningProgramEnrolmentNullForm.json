@@ -28,6 +28,10 @@
             "name": "Enrolment number",
             "uuid": "8f852186-ccf1-4898-b581-99b37bcae2f1"
           },
+          "validFormat": {
+            "regex": "^[A-Z]{2}[0-9]{5}$",
+            "descriptionKey": "Required 2 alphabets followed by 5 digits"
+          },
           "displayOrder": 2,
           "mandatory": true
         }
