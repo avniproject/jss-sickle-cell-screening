@@ -23,10 +23,8 @@ create or replace view jscs_villages_view as (
 
 set role none;
 
-SELECT grant_all_on_all(a.rolname)
-FROM pg_roles a
-WHERE pg_has_role('openchs', a.oid, 'member')
-  and a.rolsuper is false
-  and a.rolname not like 'pg%'
-  and a.rolname not like 'rds%'
-order by a.rolname;
+select grant_all_on_views(array [
+                            'jscs_lab_name_view',
+                            'jscs_block_view',
+                            'jscs_villages_view'
+                            ], 'jscs');
