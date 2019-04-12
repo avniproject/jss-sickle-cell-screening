@@ -36,6 +36,7 @@ class SickleCellScreeningProgramRuleJSS {
                 summaries.push({name: 'Electrophoresis result', value: electrophoresisResult.getValue()});
             }
         }
+        return summaries;
     }
 }
 
