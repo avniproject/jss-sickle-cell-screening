@@ -1,0 +1,15 @@
+[
+  {
+    "uuid": "6f15ad60-54a9-4b0f-a713-64973e0a7d69",
+    "name": "jscs-uat",
+    "password": "password",
+    "email": "openchssupport+jscs+test+1@samanvayfoundation.org",
+    "phoneNumber": "+919999999999",
+    "organisationUUID": "95021fc0-e414-4b29-b140-0b315dd23ca2",
+    "catchmentUUID": "52b40a21-4ff3-409f-9d78-b1c1b455cd4d",
+    "operatingIndividualScope": "ByCatchment",
+    "admin": false,
+    "orgAdmin": false,
+    "settings": {"idPrefix": "JS"}
+  }
+]

@@ -659,6 +659,6 @@
   {
     "name": "Enrolment number",
     "uuid": "8f852186-ccf1-4898-b581-99b37bcae2f1",
-    "dataType": "Text"
+    "dataType": "Id"
   }
 ]

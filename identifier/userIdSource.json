@@ -1,0 +1,72 @@
+[
+  {
+    "uuid": "c6da4931-c31c-443c-9c50-c8e815b798b4",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "453866e6-30b4-4faa-91fd-1a309575f6f4",
+    "identifierStart": "NT01500",
+    "identifierEnd": "NT99999"
+  },
+  {
+    "uuid": "12433156-4586-400e-8227-a098e2dea92f",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "13e9c15f-cbf2-44eb-a7eb-7afbd9a0edb1",
+    "identifierStart": "DS00800",
+    "identifierEnd": "DS99999"
+  },
+  {
+    "uuid": "dce814a3-7226-491a-a5df-6433158dd68b",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "7e362c60-074a-425c-84d2-63ca8a630342",
+    "identifierStart": "MS00001",
+    "identifierEnd": "MS99999"
+  },
+  {
+    "uuid": "335a8d80-8800-4d10-b08d-47707428244b",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "ee929c12-659b-45ca-89f2-1536c25a917c",
+    "identifierStart": "SJ00001",
+    "identifierEnd": "SJ05000"
+  },
+  {
+    "uuid": "60fd9cbb-291b-4911-b765-a3b3a4937fcd",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "ee929c12-659b-45ca-89f2-1536c25a917c",
+    "identifierStart": "SJ06421",
+    "identifierEnd": "SJ99999"
+  },
+  {
+    "uuid": "338b738a-f7a2-45e7-9d2e-665c0ab951d2",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "ee312981-8cb8-4e18-a3cb-cbaa77a5814d",
+    "identifierStart": "SM00001",
+    "identifierEnd": "SM99999"
+  },
+  {
+    "uuid": "ee1d8ccf-3f1b-4043-a467-41e4368f524d",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "6130d684-8810-4157-bd09-744e6e5fe2f4",
+    "identifierStart": "MD02000",
+    "identifierEnd": "MD99999"
+  },
+  {
+    "uuid": "677c7de4-7b3e-4fc6-bad1-8769a27c86dd",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "89cc37e3-07a7-4220-8ba4-e6abd93cd60a",
+    "identifierStart": "KJ02500",
+    "identifierEnd": "KJ99999"
+  },
+  {
+    "uuid": "9b3d6fe4-61dc-4ddf-b369-e50d62427f81",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "016bb32f-fd08-4227-8541-460f0fd9ea85",
+    "identifierStart": "SH03000",
+    "identifierEnd": "SH99999"
+  },
+  {
+    "uuid": "1983814b-e2be-4a58-a2bb-e674ec664a92",
+    "identifierSourceUUID": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "userUUID": "9ccb1f9f-9e46-4940-81fe-8eac17e9fe76",
+    "identifierStart": "LM00001",
+    "identifierEnd": "LM99999"
+  }
+]
