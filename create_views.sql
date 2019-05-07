@@ -22,9 +22,3 @@ create or replace view jscs_villages_view as (
 );
 
 set role none;
-
-select grant_all_on_views(array [
-                            'jscs_lab_name_view',
-                            'jscs_block_view',
-                            'jscs_villages_view'
-                            ], 'jscs');
