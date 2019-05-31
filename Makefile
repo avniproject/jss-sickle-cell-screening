@@ -67,7 +67,11 @@ create_views:
 
 deploy_checklists:
 
-# <deploy>
+deploy_locations_dev:
+	$(call _curl,POST,locations,@locations/districts.json)
+	$(call _curl,POST,locations,@locations/blocks.json)
+	$(call _curl,POST,locations,@locations/villages.json)
+
 deploy_org_data:
 	$(call _curl,POST,catchments,@catchments.json)
 
@@ -107,7 +111,7 @@ deploy_rules_live:
 
 deploy_refdata: deploy_org_data _deploy_refdata
 
-deploy: create_admin_user_dev deploy_refdata deploy_checklists deploy_rules create_users_dev##
+deploy: create_admin_user_dev deploy_locations_dev deploy_refdata deploy_checklists deploy_rules create_users_dev##
 
 _deploy_prod: deploy_refdata deploy_checklists deploy_rules
 

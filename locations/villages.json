@@ -4,7 +4,6 @@
     "name": "Payari",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -12,7 +11,6 @@
     "name": "Sarai (Near Tarang)",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -24,7 +22,6 @@
     "name": "Tarang",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -36,7 +33,6 @@
     "name": "Katurdona",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -48,7 +44,6 @@
     "name": "Khalebhanvar",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -56,7 +51,6 @@
     "name": "Khamroud Village",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -64,7 +58,6 @@
     "name": "Tankitola",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -72,7 +65,6 @@
     "name": "Chatua (Anuppur)",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "879922ce-d382-45d4-a488-6dcb97dcadd9"
@@ -84,7 +76,6 @@
     "name": "Piparaha (Near Chaura Dadar)",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -96,7 +87,6 @@
     "name": "Tarera",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -108,7 +98,6 @@
     "name": "Sital pani",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -116,7 +105,6 @@
     "name": "Mithu mahua",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -124,7 +112,6 @@
     "name": "Dona",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -136,7 +123,6 @@
     "name": "Daldali",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -148,7 +134,6 @@
     "name": "Khumni",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -156,7 +141,6 @@
     "name": "BulhuPani",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -164,7 +148,6 @@
     "name": "Dadra Silvari",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -172,7 +155,6 @@
     "name": "Neeche Silvari",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -180,7 +162,6 @@
     "name": "Kodar Village",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -188,7 +169,6 @@
     "name": "Khirni",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -200,7 +180,6 @@
     "name": "Tithi",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -208,7 +187,6 @@
     "name": "Jaithari",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "comment": "Jaithari",
@@ -221,7 +199,6 @@
     "name": "Sarfa",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -229,7 +206,6 @@
     "name": "Ahirgawan",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "comment": "Pushparajgarh",
@@ -242,7 +218,6 @@
     "name": "Badi Tumi",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -250,7 +225,6 @@
     "name": "Kharsol",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -262,7 +236,6 @@
     "name": "Chirpani",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -270,7 +243,6 @@
     "name": "Dabhaniya",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -278,7 +250,6 @@
     "name": "Majhauli",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "comment": "Kotma",
@@ -291,7 +262,6 @@
     "name": "Kui",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -303,7 +273,6 @@
     "name": "Padmania Village",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -311,7 +280,6 @@
     "name": "Gijri",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -319,7 +287,6 @@
     "name": "Amoda",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -327,7 +294,6 @@
     "name": "Batiya",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -335,7 +301,6 @@
     "name": "Bijora",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -343,7 +308,6 @@
     "name": "Thunguni",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -355,7 +319,6 @@
     "name": "Duradhar",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -363,7 +326,6 @@
     "name": "Khosurgod",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -371,7 +333,6 @@
     "name": "Chottibairagi",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -379,7 +340,6 @@
     "name": "Badibairagi",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -387,7 +347,6 @@
     "name": "Alwar Village",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -395,7 +354,6 @@
     "name": "Adwar",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -403,7 +361,6 @@
     "name": "Lamsarai (Near Ahirwar)",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -415,7 +372,6 @@
     "name": "Ghata",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -427,7 +383,6 @@
     "name": "Hathbandha",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": [
       {
         "uuid": "4af73b4f-c726-4e0b-8236-fe4168b60fe1"
@@ -439,7 +394,6 @@
     "name": "Jairhi",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
@@ -447,7 +401,6 @@
     "name": "Karoundi",
     "level": 1,
     "type": "Village",
-    "organisationUUID": "3539a906-dfae-4ec3-8fbb-1b08f35c3884",
     "parents": []
   },
   {
