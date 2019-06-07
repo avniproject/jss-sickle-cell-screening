@@ -583,6 +583,14 @@
     "name": "6 - 9 gm/dl"
   },
   {
+    "uuid": "a1ef27d0-3601-48a4-b631-acac2bfdbfa2",
+    "name": "Less than 7gm/dl"
+  },
+  {
+    "uuid": "91b97fb3-b537-4820-935d-bb49b3768de0",
+    "name": "7 - 9 gm/dl"
+  },
+  {
     "uuid": "13f9cac9-994e-4aea-9d66-c4a998a75c09",
     "name": "9 - 11 gm/dl"
   },
@@ -597,11 +605,21 @@
     "answers": [
       {
         "uuid": "0606518a-f735-45f2-a3fd-0222d1243d19",
-        "name": "Less than 6gm/dl"
+        "name": "Less than 6gm/dl",
+        "voided": true
       },
       {
         "uuid": "bba33e0a-83f6-4488-bfbc-e0b8ed65b110",
-        "name": "6 - 9 gm/dl"
+        "name": "6 - 9 gm/dl",
+        "voided": true
+      },
+      {
+        "uuid": "a1ef27d0-3601-48a4-b631-acac2bfdbfa2",
+        "name": "Less than 7gm/dl"
+      },
+      {
+        "uuid": "91b97fb3-b537-4820-935d-bb49b3768de0",
+        "name": "7 - 9 gm/dl"
       },
       {
         "uuid": "13f9cac9-994e-4aea-9d66-c4a998a75c09",
