@@ -16,8 +16,8 @@
     ]
   },
   "dependencies": {
-    "openchs-idi": "github:openchs/openchs-idi#2183a8ae0c0da645455fd9e5c9e430b36197df92",
-    "rules-config": "github:openchs/rules-config#68b0da32c98fb599d19b7266f78a2ec3eb10e29c",
+    "openchs-idi": "github:openchs/openchs-idi#7567e16a16ed7976580aa8189c037243e1de20c6",
+    "rules-config": "github:openchs/rules-config#e2d7baccda66c8d18e0f9cb6fff3d14f746e2fa4",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
     "webpack": "^4.12.0"
@@ -33,7 +33,6 @@
     "babel-preset-env": "^1.7.0",
     "jest": "^23.6.0",
     "openchs-health-modules": "0.0.2",
-    "openchs-models": "0.0.2",
-    "rules-config": "github:openchs/rules-config#30bc80c"
+    "openchs-models": "0.0.2"
   }
 }

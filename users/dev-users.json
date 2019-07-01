@@ -9,6 +9,9 @@
     "catchmentUUID": "52b40a21-4ff3-409f-9d78-b1c1b455cd4d",
     "operatingIndividualScope": "ByCatchment",
     "admin": false,
-    "orgAdmin": false
+    "orgAdmin": false,
+    "settings": {
+      "idPrefix": "NT"
+    }
   }
 ]

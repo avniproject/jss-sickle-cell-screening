@@ -1,13 +1,12 @@
 const rulesConfigInfra = require('rules-config/infra');
 const IDI = require('openchs-idi');
-const secrets = require('../secrets.json');
 
 module.exports = IDI.configure({
     "name": "jss",
     "chs-admin": "admin",
     "org-name": "JSS",
     "org-admin": "admin@jscs",
-    "secrets": secrets,
+    "secrets": "../secrets.json",
     "files": {
         "adminUsers": {
             // "prod": [],
@@ -35,6 +34,12 @@ module.exports = IDI.configure({
         "programs": [
             "./programs.json"
         ],
+        "identifierSource": {
+            "dev": ["./identifier/dev/idSource.json"]
+        },
+        "identifierUserAssignments": {
+            "dev": ["./identifier/dev/userIdSource.json"]
+        },
         "encounterTypes": ["./encounterTypes.json"],
         "operationalEncounterTypes": ["./operationalModules/operationalEncounterTypes.json"],
         "operationalPrograms": ["./operationalModules/operationalPrograms.json"],

@@ -1,0 +1,16 @@
+[
+  {
+    "uuid": "12e20f5c-cf7a-42e8-877e-c139c8baa938",
+    "batchGenerationSize": 100,
+    "catchmentUUID": null,
+    "minimumBalance": 20,
+    "name": "JSCS sample identifier source",
+    "options": {
+      "prefix": ""
+    },
+    "type": "userBasedIdentifierGenerator",
+    "minLength": 5,
+    "maxLength": 6,
+    "voided": false
+  }
+]
