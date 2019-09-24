@@ -29,7 +29,7 @@ module.exports = IDI.configure({
         "locations": [
             "./locations/districts.json",
             "./locations/blocks.json",
-             "./locations/villages.json",
+            "./locations/villages.json",
         ],
         "programs": [
             "./programs.json"
@@ -52,6 +52,11 @@ module.exports = IDI.configure({
         ],
         "organisationSql": [
             /* "create_organisation.sql"*/
+        ],
+        "organisationConfig": ["organisationConfig.json"],
+        "translations": [
+            "translations/en.json",
+            "translations/hi_IN.json",
         ]
     }
 }, rulesConfigInfra);
