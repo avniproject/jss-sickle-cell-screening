@@ -1,0 +1,261 @@
+{
+  "name" : "Lab Test Form",
+  "uuid" : "c4f600ae-a515-4ef5-aac7-205b54c7578b",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "af36b704-00f6-4cb4-8636-4b53dd62c434",
+    "name" : "General Information",
+    "displayOrder" : 1.0,
+    "display" : "General Information",
+    "formElements" : [ {
+      "name" : "Date of HB",
+      "uuid" : "09f5804c-fd79-4acb-bc64-163c615e02b3",
+      "keyValues" : [ {
+        "key" : "datePickerMode",
+        "value" : "Default"
+      } ],
+      "concept" : {
+        "name" : "Date of HB",
+        "uuid" : "e224ebe2-beb1-447e-962b-2ae537a9c466"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "HB",
+      "uuid" : "8ade1bf2-5695-4baf-86fa-793f7f4f7dc4",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Hb",
+        "uuid" : "f9ecabbc-2df2-4bfc-a6fa-aa417c50e11b"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Date of Creatinine",
+      "uuid" : "bb2e778e-717a-4e7a-b36e-1972a477ab5a",
+      "keyValues" : [ {
+        "key" : "datePickerMode",
+        "value" : "Default"
+      } ],
+      "concept" : {
+        "name" : "Date of Creatinine",
+        "uuid" : "8d8f2952-0adf-4a11-ad13-c36289323fc5"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Creatinine",
+      "uuid" : "136d626a-55ef-4343-9b93-169be8d0d473",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Creatinine",
+        "uuid" : "dd9d3dc9-93fa-4d3f-b4f2-601bc2d354a7"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Eye Examination",
+      "uuid" : "c764eb0a-932e-4c26-82df-bfc100d3e2f7",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Eye Examination",
+        "uuid" : "7690f0e2-eb7c-4a0a-9d37-c6f39a743fc7"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Specify Other",
+      "uuid" : "cc94159b-e6e0-4ead-9400-61708e3aa01d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Specify Other",
+        "uuid" : "104d3a2b-9683-430c-85c2-a38c9f2f27f8"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEnrolment('Eye Examination').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "75217a8c-75e8-4700-a5c4-b414e8328267",
+    "name" : "Complete Blood Count",
+    "displayOrder" : 2.0,
+    "display" : "Complete Blood Count\t",
+    "formElements" : [ {
+      "name" : "Date of CBC Test",
+      "uuid" : "41fcd5ae-1715-4443-9be7-7ee7e12ee56c",
+      "keyValues" : [ {
+        "key" : "datePickerMode",
+        "value" : "Default"
+      } ],
+      "concept" : {
+        "name" : "Date of CBC Test",
+        "uuid" : "5b70a06c-a081-4b6a-8725-7a952bf0e636"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "WBC count",
+      "uuid" : "bfbe884b-bc22-4ea8-bf8c-31df0748dd0c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "WBC count",
+        "uuid" : "99b56931-1b5a-46e0-8c21-351dab9daa32"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "WBC Difference",
+      "uuid" : "de9e47d6-66af-47d8-a4bd-be37d948bedb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "WBC Difference",
+        "uuid" : "635c0f65-9735-4424-b904-4a57829b2a85"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "RBC Count",
+      "uuid" : "a4c6e375-4869-4f5b-a87d-db5babf2a246",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "RBC Count",
+        "uuid" : "3254b860-d494-4404-8f55-1cb630c666b7"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Platelet count",
+      "uuid" : "16d9c1db-31a9-4857-a8d2-94df93d21beb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Platelet count",
+        "uuid" : "ee40e0ed-9202-407b-89dc-13873d63c54d"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "92d9be44-2ba8-4162-b6fe-0bcaefa4ceec",
+    "name" : "Liver Function Test",
+    "displayOrder" : 3.0,
+    "display" : "Liver Function Test",
+    "formElements" : [ {
+      "name" : "Date of Liver Function Test",
+      "uuid" : "59b10875-e641-4f4f-9922-00244a8a2545",
+      "keyValues" : [ {
+        "key" : "datePickerMode",
+        "value" : "Default"
+      } ],
+      "concept" : {
+        "name" : "Date of Liver Function Test",
+        "uuid" : "2780abda-1388-4edf-b5b2-696c40156d5e"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "S.Bilirubin",
+      "uuid" : "3b64062f-2630-4187-ae76-83fd04dce872",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "S.Bilirubin",
+        "uuid" : "51a63591-0503-4aec-a472-8edd2557d8a4"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "SGOT",
+      "uuid" : "c090d38a-4b78-4b5e-9f89-871cbd64150f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "SGOT",
+        "uuid" : "5831ed28-8c49-4b81-b136-6908b4bd8d9b"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "SGPT",
+      "uuid" : "d6027b59-5bcb-482f-b071-b758b7d252fb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "SGPT",
+        "uuid" : "6a4b42b2-b497-4033-966e-0ce6bfec8fc5"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Total Proteins",
+      "uuid" : "a4dff7b1-485e-43d6-ac03-715192594b60",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Total Proteins",
+        "uuid" : "4d211df5-ecf8-4782-ad63-5081d1436d96"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Alkaline Phosphate",
+      "uuid" : "a6250363-c2e2-4e12-baad-2a2ca6c8e0ee",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Alkaline Phosphate",
+        "uuid" : "0612a25d-5760-44ec-9150-191e78cdf789"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Albumin",
+      "uuid" : "dc0bf8d6-aba4-4cef-bb94-71a8fb2c81b6",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Albumin",
+        "uuid" : "adb810ff-776d-40fa-be78-c9b9f24968d8"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Globulin",
+      "uuid" : "94b67aa2-0dcf-48a2-9353-ecdd5029b7c9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Globulin",
+        "uuid" : "a5e52116-2bf5-4ed2-aadb-5107ceda9860"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "A. G. Ratio",
+      "uuid" : "c6c2bdc3-9473-4dc3-b6b6-0f0dab9a5c3a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "A. G. Ratio",
+        "uuid" : "bd5f075f-7de7-414d-adbd-2c355cecf6bf"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

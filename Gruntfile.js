@@ -16,6 +16,10 @@ module.exports = IDI.configure({
             "./registration/registrationForm.json",
             "./sickleCellScreening/sickleCellScreeningProgramEnrolmentNullForm.json",
             "./sickleCellScreening/screeningForm.json",
+            "./forms/Baseline Form.json",
+            "./forms/Check Up Form.json",
+            "./forms/Followup Form.json",
+            "./forms/Lab Test Form.json"
         ],
         "formMappings": ["./formMappings.json"],
         "formDeletions": [],
@@ -23,8 +27,9 @@ module.exports = IDI.configure({
         "catchments": ["./catchments.json"],
         "checklistDetails": [],
         "concepts": [
-            "./registration/registrationConcepts.json",
-            "./sickleCellScreening/screeningConcepts.json"
+            "./concepts.json"
+            // "./registration/registrationConcepts.json",
+            // "./sickleCellScreening/screeningConcepts.json"
         ],
         "locations": [
             "./locations/districts.json",

@@ -1,0 +1,199 @@
+{
+  "name" : "Check Up Form",
+  "uuid" : "110e05f4-781a-4b48-a450-e7fdf703bbab",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "ef3babb2-2c00-47c5-8acb-8cc59214d66a",
+    "name" : "Check-ups",
+    "displayOrder" : 1.0,
+    "display" : "Check-ups\t",
+    "formElements" : [ {
+      "name" : "Blood pressure done?",
+      "uuid" : "f07f5170-1113-4b3d-9490-b7ded0b85f21",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Blood pressure done?",
+        "uuid" : "4c00a3d1-1465-46f1-91e2-19834c6ecca8"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Blood Pressure - Sys",
+      "uuid" : "12d75627-0e5b-4fe3-ab46-cfdd2e011b1d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Systolic",
+        "uuid" : "2a04bf88-6346-4eda-a86c-8a2afc011b22"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Blood pressure done?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Blood Pressure - Dia",
+      "uuid" : "94bdc41a-3008-4993-bd98-7f06367b9429",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Diastolic",
+        "uuid" : "1e2d41a2-5b6a-4ad7-ab91-51d3cdf122bd"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Blood pressure done?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Respiratory done?",
+      "uuid" : "bf8f2468-da32-4c9d-b3fc-51375a8837b3",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Respiratory done?",
+        "uuid" : "b5949ef9-4a63-4d07-afed-99d1a30bb781"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Respiratory Rate",
+      "uuid" : "dc2af1f6-fa6a-4090-93f4-2cf20a84fa6f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Respiratory Rate",
+        "uuid" : "70d617f9-3c14-4ec2-8d0f-97c837f6ab37"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Respiratory done?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Temperature taken?",
+      "uuid" : "faad70a2-9ea1-47c8-9485-31c04c7c03fa",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Temperature taken?",
+        "uuid" : "5ce7fd35-a943-4dac-9b12-a069ba9dc549"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Temperature",
+      "uuid" : "3c348711-04fa-409b-8e9c-577ba67e874d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Temperature",
+        "uuid" : "e6edb61c-c3d9-44c8-abf7-4fd09fe39ec9"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Temperature taken?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : false
+    }, {
+      "name" : "Pulse",
+      "uuid" : "402e0ebe-2903-45ff-bea4-48620536665d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Pulse",
+        "uuid" : "2d3b8f90-6123-4dbf-b866-4f56ac7d24c8"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Pallor",
+      "uuid" : "ff67e636-cacd-42fa-8d2e-20b617b40ab3",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Pallor Status",
+        "uuid" : "1b2e64bf-3b9f-4f1b-b574-4f38c41f8de2"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Icterus",
+      "uuid" : "0125e613-ab94-48d4-9958-85f232b7bd76",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Icterus",
+        "uuid" : "2195842d-6a14-48e7-9dd6-bdc8129be8b3"
+      },
+      "displayOrder" : 10.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Pedal edema",
+      "uuid" : "80dc3d0c-760c-43a2-9e79-15a9ad710bb9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Pedal Edema Status",
+        "uuid" : "7602ff89-87ab-485b-930b-74f7bcae49e2"
+      },
+      "displayOrder" : 11.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Cardio Vascular System",
+      "uuid" : "7599d3a8-8033-4e1b-a808-65f30c0668e2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Cardio Vascular System",
+        "uuid" : "a45f4285-4905-4afa-8a7f-38d41a51a7c1"
+      },
+      "displayOrder" : 12.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Respiratory System",
+      "uuid" : "03f7bcd1-564b-4bd3-bc04-030d849e5bf3",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Respiratory System",
+        "uuid" : "e45f97aa-4da8-4941-ac9c-e99fde3e7ef7"
+      },
+      "displayOrder" : 13.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Abdominal examination",
+      "uuid" : "b1706213-4a0f-481d-9b08-9810b0f3d17f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Abdominal examination",
+        "uuid" : "ba29523f-b20b-44c9-b219-80d0bbd04a13"
+      },
+      "displayOrder" : 14.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Baseline Deformity examination",
+      "uuid" : "f297324c-a8a1-46ff-a1f4-128ea21f3ea5",
+      "keyValues" : [ {
+        "key" : "ExcludedAnswers",
+        "value" : [ "Deformity in face", "Deformity in shoulder", "Other", "Deformity in waist", "Deformity in back" ]
+      } ],
+      "concept" : {
+        "name" : "Baseline Deformity examination",
+        "uuid" : "21c9efba-b39a-4e84-88aa-37572bdfcf70"
+      },
+      "displayOrder" : 15.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
+      "name" : "Leg Ulcers?",
+      "uuid" : "5ef5a3a5-3e5b-4fd4-8d45-a5a433883c11",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Leg Ulcers?",
+        "uuid" : "568ed33d-c616-43ec-8c71-49bcacd5224b"
+      },
+      "displayOrder" : 16.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}

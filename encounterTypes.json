@@ -1,18 +1,25 @@
-[
-  {
-    "uuid": "f599f393-c50e-48d1-a89e-e73295e570ea",
-    "name": "Base screening"
-  },
-  {
-    "uuid": "a786ca25-c32d-4b8a-b8f1-9d5154cfbde3",
-    "name": "Sample shipment"
-  },
-  {
-    "uuid": "8166375f-c95f-435b-b103-d3d70e0af06f",
-    "name": "Lab results entry"
-  },
-  {
-    "uuid": "e99184ad-9082-43d0-9726-7644e37543dd",
-    "name": "HPLC sample collection"
-  }
-]
+[ {
+  "name" : "Base screening",
+  "uuid" : "f599f393-c50e-48d1-a89e-e73295e570ea"
+}, {
+  "name" : "Sample shipment",
+  "uuid" : "a786ca25-c32d-4b8a-b8f1-9d5154cfbde3"
+}, {
+  "name" : "Lab results entry",
+  "uuid" : "8166375f-c95f-435b-b103-d3d70e0af06f"
+}, {
+  "name" : "HPLC sample collection",
+  "uuid" : "e99184ad-9082-43d0-9726-7644e37543dd"
+}, {
+  "name" : "Baseline",
+  "uuid" : "fc3d6184-920b-42aa-8c83-379401241fea",
+  "encounterEligibilityCheckRule" : ""
+}, {
+  "name" : "Followup",
+  "uuid" : "e6ee694a-d70f-413c-b0f7-3520e7cdb6af",
+  "encounterEligibilityCheckRule" : ""
+}, {
+  "name" : "Check Up",
+  "uuid" : "1b09307d-e03e-4532-a12a-cdaef74b2dc3",
+  "encounterEligibilityCheckRule" : ""
+} ]

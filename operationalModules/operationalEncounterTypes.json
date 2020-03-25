@@ -1,37 +1,45 @@
 {
-  "organisationName": "JSCS",
-  "operationalEncounterTypes": [
-    {
-      "uuid": "95135ed2-51cc-48a8-b36d-e0be05a5f5d4",
-      "name": "Base screening",
-      "encounterType": {
-        "uuid": "f599f393-c50e-48d1-a89e-e73295e570ea",
-        "comment": "Base screening"
-      }
+  "operationalEncounterTypes" : [ {
+    "uuid" : "95135ed2-51cc-48a8-b36d-e0be05a5f5d4",
+    "encounterType" : {
+      "uuid" : "f599f393-c50e-48d1-a89e-e73295e570ea"
     },
-    {
-      "uuid": "f9bdc722-b00e-4e8e-818a-e019ffb2e51c",
-      "name": "Sample shipment",
-      "encounterType": {
-        "uuid": "a786ca25-c32d-4b8a-b8f1-9d5154cfbde3",
-        "comment": "Sample shipment"
-      }
+    "name" : "Base screening"
+  }, {
+    "uuid" : "f9bdc722-b00e-4e8e-818a-e019ffb2e51c",
+    "encounterType" : {
+      "uuid" : "a786ca25-c32d-4b8a-b8f1-9d5154cfbde3"
     },
-    {
-      "uuid": "b69aee56-2426-4bbf-9160-5839f092d453",
-      "name": "Lab results entry",
-      "encounterType": {
-        "uuid": "8166375f-c95f-435b-b103-d3d70e0af06f",
-        "comment": "Lab results entry"
-      }
+    "name" : "Sample shipment"
+  }, {
+    "uuid" : "b69aee56-2426-4bbf-9160-5839f092d453",
+    "encounterType" : {
+      "uuid" : "8166375f-c95f-435b-b103-d3d70e0af06f"
     },
-    {
-      "uuid": "f67504bf-d672-4ca9-a457-dc6988b5bd50",
-      "name": "HPLC sample collection",
-      "encounterType": {
-        "uuid": "e99184ad-9082-43d0-9726-7644e37543dd",
-        "comment": "HPLC sample collection"
-      }
-    }
-  ]
+    "name" : "Lab results entry"
+  }, {
+    "uuid" : "f67504bf-d672-4ca9-a457-dc6988b5bd50",
+    "encounterType" : {
+      "uuid" : "e99184ad-9082-43d0-9726-7644e37543dd"
+    },
+    "name" : "HPLC sample collection"
+  }, {
+    "uuid" : "ebc2480e-4db2-4861-8421-06985172beae",
+    "encounterType" : {
+      "uuid" : "fc3d6184-920b-42aa-8c83-379401241fea"
+    },
+    "name" : "Baseline"
+  }, {
+    "uuid" : "6f89d255-c0fb-4359-98ee-36d9c517dde5",
+    "encounterType" : {
+      "uuid" : "e6ee694a-d70f-413c-b0f7-3520e7cdb6af"
+    },
+    "name" : "Followup"
+  }, {
+    "uuid" : "3bf1df66-5743-4389-98c0-e379946923bf",
+    "encounterType" : {
+      "uuid" : "1b09307d-e03e-4532-a12a-cdaef74b2dc3"
+    },
+    "name" : "Check Up"
+  } ]
 }

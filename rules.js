@@ -5,4 +5,5 @@ module.exports = _.merge({},
     require('./sickleCellScreening/rules/enrolmentHandler'),
     require('./sickleCellScreening/rules/screeningFormHandler'),
     require('./sickleCellScreening/rules/visitSchedule'),
+    require('./visitScheduler.js')
 );

@@ -1,0 +1,527 @@
+{
+  "name" : "Followup Form",
+  "uuid" : "bd27afd2-58c1-4b78-be37-a085085eef61",
+  "formType" : "ProgramEncounter",
+  "formElementGroups" : [ {
+    "uuid" : "8a0c3ac4-7f50-4935-882e-6f798469c7a6",
+    "name" : "General Information",
+    "displayOrder" : 1.0,
+    "display" : "General Information",
+    "formElements" : [ {
+      "name" : "Weight",
+      "uuid" : "ee9d9488-aed4-4844-a92c-8bf4d6b83a37",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Weight",
+        "uuid" : "75b1656e-2777-4753-9612-ce03a766a5e1"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    } ]
+  }, {
+    "uuid" : "f92c03aa-82b1-42b1-818a-a225b542860d",
+    "name" : "Physical pain",
+    "displayOrder" : 2.0,
+    "display" : "Physical pain",
+    "formElements" : [ {
+      "name" : "Any Physical Pain in last one month?",
+      "uuid" : "4427faf2-5d1d-418a-bfe3-3422b5ee4728",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Any Physical Pain in last one month?",
+        "uuid" : "517cde03-41b7-476a-84d2-9a2c6e86ce0a"
+      },
+      "displayOrder" : 1.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "How many times you had headache in last one month?",
+      "uuid" : "de47b355-b29b-450d-a27f-e67d305f3dfa",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times you had headache in last one month?",
+        "uuid" : "e8ef8b92-3ee1-4dae-8159-e9ce4ab987f0"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Headache\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times you had Hand pain in last one month?",
+      "uuid" : "e60d0286-ec3e-498c-8718-f043e8d4db91",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times you had Hand pain in last one month?",
+        "uuid" : "a53cafb8-bed4-47d0-b590-76725d42efd9"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Hand Pain\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times you had leg pain in last one month?",
+      "uuid" : "2ad17bee-cf02-401d-9300-4627f5d75f9f",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times you had leg pain in last one month?",
+        "uuid" : "84d3900a-ee7d-4b4c-b5e2-b2631431a01b"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Leg pain\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times you had knee pain in last one month?",
+      "uuid" : "765bdf52-3534-419f-9fb1-da80884df2a2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times you had knee pain in last one month?",
+        "uuid" : "c0aa5c36-6863-41d1-bcaf-469a646045bc"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Knee Pain\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times joint pain in last one month?",
+      "uuid" : "4a94dc76-a654-4d71-b84b-0c9a34fbe2f6",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times joint pain in last one month?",
+        "uuid" : "f5c9f670-e19b-4a6b-afb4-765bc86cc7f7"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Joint Pain\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times you had chest pain in last one month?",
+      "uuid" : "4bcc57c5-0bf0-4ab1-9edc-ff478a66cf51",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times you had chest pain in last one month?",
+        "uuid" : "f37f152d-04ad-49fc-8f5b-aec4a08a33d7"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Chest pain\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times you had back ache in last one month?",
+      "uuid" : "4e26fa84-7365-47fc-a98e-345fcf31d78d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times you had back ache in last one month?",
+        "uuid" : "33944b8d-7d2b-4998-af5a-6d9bdfeebbd3"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Backache\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times you had hip bone pain in last one month?",
+      "uuid" : "d05b332e-e348-4827-8f65-d5598812fdbf",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times you had hip bone pain in last one month?",
+        "uuid" : "ff8ae690-8454-438c-abe2-eb7eb5cd9274"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Hip Bone\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times Abdominal pain in last one month?",
+      "uuid" : "882596f6-e7f8-46b4-96a1-eb8f3ec2e6e6",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times Abdominal pain in last one month?",
+        "uuid" : "efb9e5f1-57df-4c99-a38f-a0b588900e1f"
+      },
+      "displayOrder" : 10.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Abdominal pain\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times did you had chronic pain in last one month?",
+      "uuid" : "d7af98fa-62d9-4423-b07e-1a80b291169a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times did you had chronic pain in last one month?",
+        "uuid" : "6bd58e10-a006-45d4-949e-838ff8845205"
+      },
+      "displayOrder" : 11.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Chronic Pain\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Explain any other pain you had in last one month?",
+      "uuid" : "77c0c52e-2725-4f11-8870-7ebcca1372f3",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Explain any other pain you had in last one month?",
+        "uuid" : "f206674b-3fb3-4d88-bded-9592cea0ba4c"
+      },
+      "displayOrder" : 12.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Physical Pain in last one month?').containsAnswerConceptName(\"Any Other Physical Pain\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Any following Symptoms for last one month?",
+      "uuid" : "26d0defc-e5f8-4761-891f-494bd971af05",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Any following Symptoms for last one month?",
+        "uuid" : "c388f4d7-a754-4565-9d7c-983ccd2d6a65"
+      },
+      "displayOrder" : 13.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Specify other symptoms you had in last one month?",
+      "uuid" : "45bc4c23-3213-44bb-8382-ba3a8ff488b7",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Specify other symptoms you had in last one month?",
+        "uuid" : "0af23114-85c7-42af-a002-564aad10da65"
+      },
+      "displayOrder" : 14.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any following Symptoms for last one month?').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times fever in one month?",
+      "uuid" : "8cc246e9-e9f2-4de9-a41e-b1c62237fab6",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times fever in one month?",
+        "uuid" : "28c6eb57-ba46-4336-b609-3246530864ac"
+      },
+      "displayOrder" : 15.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any following Symptoms for last one month?').containsAnswerConceptName(\"Fever\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many times Shortness of breath in last one month?",
+      "uuid" : "bf27f437-6112-4546-9a7a-55d033a28d50",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many times Shortness of breath in last one month?",
+        "uuid" : "df710100-dfff-442e-9e83-372c15cc94a5"
+      },
+      "displayOrder" : 16.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any following Symptoms for last one month?').containsAnswerConceptName(\"Shortness of breath\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "How many time did you feel fatigue in last one month?",
+      "uuid" : "c53292dd-8073-4706-aa59-e897f9dee64c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "How many time did you feel fatigue in last one month?",
+        "uuid" : "08db4ec2-fbcd-47a2-8e37-22528d17f12c"
+      },
+      "displayOrder" : 17.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any following Symptoms for last one month?').containsAnswerConceptName(\"Fatigue\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "92507bc0-4f96-410d-bbaa-c97c0499f3b1",
+    "name" : "BT and Hospitalization",
+    "displayOrder" : 3.0,
+    "display" : "BT and Hospitalization",
+    "formElements" : [ {
+      "name" : "BT done in last month?",
+      "uuid" : "5a0e4886-6375-4fde-a6b6-d6b51c3a3ce2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "BT done in last month?",
+        "uuid" : "a1b0bb27-9996-4382-bdf4-95f3895f8ecf"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Number of Blood Transfusion in last month.",
+      "uuid" : "52339a60-ad68-448d-a969-fd8bb4d322f2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Number of Blood Transfusion in last month.",
+        "uuid" : "62418eac-1206-47d6-bb9c-163983e438b5"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('BT done in last month?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Hospitalisation in last months?",
+      "uuid" : "b43a7de0-6574-4786-9255-73a56a9bcd85",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Hospitalisation in last month?",
+        "uuid" : "ecc69980-3f7c-49d7-9b1d-7ce61b522c06"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Number of times hospitalised in last month",
+      "uuid" : "0e12bd46-aa19-406b-9149-a1ffd9fdac87",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Number of times hospitalised in last month",
+        "uuid" : "4cfa2fb4-5f1c-493e-89fb-dc6c355e080b"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Hospitalisation in last months?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Number of days hospitalised in last month",
+      "uuid" : "4440b768-7c86-4280-8946-b512410e8edb",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Number of days hospitalised in last month",
+        "uuid" : "030e0eef-e076-4472-b4e0-cc4412e92533"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Hospitalisation in last months?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "bae06d13-a715-470c-832e-b37c042e1e07",
+    "name" : "Problems",
+    "displayOrder" : 4.0,
+    "display" : "Problems",
+    "formElements" : [ {
+      "name" : "Inner Organ Problem",
+      "uuid" : "8500d798-bf67-41d1-81f7-c68a0a1b3196",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Inner Organ Problem",
+        "uuid" : "2419fb34-ab65-467b-86fe-1e43be3f6214"
+      },
+      "displayOrder" : 1.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Specify the other inner organ problem",
+      "uuid" : "da9b3e68-dcad-4613-a977-83e49504a4dd",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Specify the other inner organ problem",
+        "uuid" : "59716f58-4ced-4680-986a-93ca863d539c"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Inner Organ Problem').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Outer Organ Problem",
+      "uuid" : "03b3427b-ee57-4d89-b9f0-f7e6735c309d",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Outer Organ Problem",
+        "uuid" : "a0fa025b-3e94-47da-839b-894bdaec1128"
+      },
+      "displayOrder" : 3.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Specify the other outer problem",
+      "uuid" : "3ac313e6-2804-4557-b32b-a1d50ebf5f76",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Specify the other outer problem",
+        "uuid" : "22c87475-4ac1-4199-ab6d-40eae8d7746f"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Outer Organ Problem').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Any Problem",
+      "uuid" : "07d09b6d-c30a-4b90-bc1e-a382b75fa528",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Any Problem",
+        "uuid" : "b8338b7a-655a-4141-8b38-49c9278e05a8"
+      },
+      "displayOrder" : 5.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Specify the other problem",
+      "uuid" : "d92905fb-5128-455b-9768-b36b76bd7783",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Specify the other problem",
+        "uuid" : "2c60d737-2c36-4dbc-8c3f-89dbfafc2863"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any Problem').containsAnswerConceptName(\"Any Other Physical problem\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "2decfb54-58b5-4548-ac92-d8f582978c01",
+    "name" : "Medicines and Dosage",
+    "displayOrder" : 5.0,
+    "display" : "Medicines and Dosage",
+    "formElements" : [ {
+      "name" : "What medications you are taking?",
+      "uuid" : "bf765c95-5f59-4fee-9929-7cef55e63f8a",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "What medications you are taking?",
+        "uuid" : "7c9f8185-acc8-4d17-9829-ab439f7d9c1f"
+      },
+      "displayOrder" : 1.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Date of starting of Hydroxyurea",
+      "uuid" : "053ada92-08f9-42a4-bbbd-76b0bbef253c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Date of starting of Hydroxyurea",
+        "uuid" : "a6239740-f7dc-40c7-a6e8-47412c1feeba"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Daily dose for Hydroxyurea",
+      "uuid" : "18ebdaf1-f842-4bb1-8bf9-8a300c19eca0",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Daily dose for Hydroxyurea",
+        "uuid" : "b75851ae-6b48-4ca4-8486-beef8caa598e"
+      },
+      "displayOrder" : 3.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Hydroxyurea\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Daily dose for Folic Acid",
+      "uuid" : "cecc0e1c-84e4-4ee9-bddf-ea8ccf3f4768",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Daily dose for Folic Acid",
+        "uuid" : "69bc545b-1685-476a-a138-df226172fef5"
+      },
+      "displayOrder" : 4.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Folic Acid\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Daily dose for Tramadol",
+      "uuid" : "34fcc472-4059-43f6-855f-b683d4c5f738",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Daily dose for Tramadol",
+        "uuid" : "6b674f22-4996-44a7-bf21-2604b1e92240"
+      },
+      "displayOrder" : 5.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Tramadol\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Daily dose for Paracetamol",
+      "uuid" : "1d04892a-f682-4547-87b3-e58901d7c7b2",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Daily dose for Paracetamol",
+        "uuid" : "630bd382-1d94-46de-bc3d-d72489ad3c82"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Paracetamol\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Daily dose for Brufen/ Ibuprofen",
+      "uuid" : "019dccd7-7126-471d-b3ec-1d82f4b6247e",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Daily dose for Brufen/ Ibuprofen",
+        "uuid" : "b070f2a5-4177-408d-b95e-03a104997c74"
+      },
+      "displayOrder" : 7.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Brufen/ Ibuprofen\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Daily dose for Diclofenac",
+      "uuid" : "c506e976-3c00-49e5-8a6e-d09a8314074c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Daily dose for Diclofenac",
+        "uuid" : "cef61bb1-203d-4bbc-98b0-4b7576741210"
+      },
+      "displayOrder" : 8.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Diclofenac\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Name of Other Medicine",
+      "uuid" : "d77a13d8-d1d5-4097-a903-def6d0a2634b",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Name of Other Medicine",
+        "uuid" : "cd67c3b5-8274-4d41-b941-31a5aaddc151"
+      },
+      "displayOrder" : 9.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    }, {
+      "name" : "Daily dose of Other Medicine",
+      "uuid" : "978f2630-b27e-4451-8d97-2df275f472ee",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Daily dose of Other Medicine",
+        "uuid" : "1e4a48b2-efb0-43cd-bfe2-064d3119189c"
+      },
+      "displayOrder" : 10.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    } ]
+  }, {
+    "uuid" : "005db663-6985-4b1b-9b1b-141d075d1e21",
+    "name" : "Support Group",
+    "displayOrder" : 6.0,
+    "display" : "Support Group",
+    "formElements" : [ {
+      "name" : "Do you come for Support group Meeting?",
+      "uuid" : "bc1200c9-9977-4ed4-beb5-77c421631398",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Do you come for Support group Meeting?",
+        "uuid" : "52b46828-f80b-4544-8fe1-5bcf741aecac"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : true
+    }, {
+      "name" : "Why did you stop coming for support group meeting?",
+      "uuid" : "87ef0041-b713-41b3-9def-2f610ac6689c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Why did you stop coming for support group meeting?",
+        "uuid" : "57343855-871a-40d2-b2a6-ffecbc3ecc20"
+      },
+      "displayOrder" : 2.0,
+      "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Do you come for Support group Meeting?').containsAnswerConceptName(\"No\");\n  return statusBuilder.build();\n};",
+      "mandatory" : true
+    } ]
+  } ],
+  "decisionRule" : "",
+  "visitScheduleRule" : "",
+  "validationRule" : "",
+  "checklistsRule" : ""
+}
