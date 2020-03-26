@@ -1,0 +1,1 @@
+module.exports = require('rules-config/rules').lib();

@@ -22,4 +22,8 @@
   "name" : "Check Up",
   "uuid" : "1b09307d-e03e-4532-a12a-cdaef74b2dc3",
   "encounterEligibilityCheckRule" : ""
+}, {
+  "name" : "Lab test",
+  "uuid" : "f2e5f0b7-1b42-4b37-8e9a-d19e588a101c",
+  "encounterEligibilityCheckRule" : ""
 } ]

@@ -41,5 +41,11 @@
       "uuid" : "1b09307d-e03e-4532-a12a-cdaef74b2dc3"
     },
     "name" : "Check Up"
+  }, {
+    "uuid" : "4935aeaa-45d5-4fc2-8476-d91e4437e6a5",
+    "encounterType" : {
+      "uuid" : "f2e5f0b7-1b42-4b37-8e9a-d19e588a101c"
+    },
+    "name" : "Lab test"
   } ]
 }
