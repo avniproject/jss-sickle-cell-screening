@@ -1,4 +1,9 @@
-[ {
+[  {
+  "name" : "Date of Eye examination",
+  "uuid" : "c4913e83-2a3b-4064-a43e-3998db4abbbb",
+  "dataType" : "Date"
+}, 
+  {
   "name" : "HB Test Status",
   "uuid" : "91c502b9-80a9-44e4-a844-995acd0ff980",
   "dataType" : "NA"
@@ -16,6 +21,16 @@
 {
   "name" : "Creatinine Schedule",
   "uuid" : "352f9c00-177d-4e45-bc46-0d47581291da",
+  "dataType" : "NA"
+},
+{
+  "name" : "Eye Examination Status",
+  "uuid" : "8e413edf-c165-4fb5-9e89-93abb2912b92",
+  "dataType" : "NA"
+}, 
+{
+  "name" : "Eye Examination Schedule",
+  "uuid" : "bd172bbf-0d3b-4a8b-8c52-1138373506fa",
   "dataType" : "NA"
 }, 
 {
@@ -53,9 +68,7 @@
 }, {
   "name" : "A. G. Ratio",
   "uuid" : "bd5f075f-7de7-414d-adbd-2c355cecf6bf",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Abdominal examination",
   "uuid" : "ba29523f-b20b-44c9-b219-80d0bbd04a13",
@@ -64,8 +77,7 @@
 }, {
   "name" : "Abdominal Pain",
   "uuid" : "da047d68-ca98-459d-93be-c3c579965ecf",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Age above 35 or below 17 years",
   "uuid" : "51fe3e9e-3147-4e35-9c8f-9fa3cba279f8",
@@ -73,15 +85,11 @@
 }, {
   "name" : "Albumin",
   "uuid" : "adb810ff-776d-40fa-be78-c9b9f24968d8",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Alkaline Phosphate",
   "uuid" : "0612a25d-5760-44ec-9150-191e78cdf789",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Anemia",
   "uuid" : "268fa632-288e-44ad-ab52-774bbd7a2700",
@@ -204,6 +212,7 @@
   }, {
     "name" : "None",
     "uuid" : "ebda5e05-a995-43ca-ad1a-30af3b937539",
+    "unique" : true,
     "order" : 4.0
   } ],
   "keyValues" : [ ]
@@ -328,6 +337,7 @@
   }, {
     "name" : "None",
     "uuid" : "ebda5e05-a995-43ca-ad1a-30af3b937539",
+    "unique" : true,
     "order" : 11.0
   } ],
   "keyValues" : [ ]
@@ -594,8 +604,7 @@
 }, {
   "name" : "Creatinine",
   "uuid" : "dd9d3dc9-93fa-4d3f-b4f2-601bc2d354a7",
-  "dataType" : "Numeric",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Creatinine done?",
   "uuid" : "18c88d4a-e706-40db-8f02-0353592ff806",
@@ -618,49 +627,35 @@
 }, {
   "name" : "Daily dose for Brufen/ Ibuprofen",
   "uuid" : "b070f2a5-4177-408d-b95e-03a104997c74",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Daily dose for Diclofenac",
   "uuid" : "cef61bb1-203d-4bbc-98b0-4b7576741210",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Daily dose for Folic Acid",
   "uuid" : "69bc545b-1685-476a-a138-df226172fef5",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Daily dose for Hydroxyurea",
   "uuid" : "b75851ae-6b48-4ca4-8486-beef8caa598e",
-  "dataType" : "Numeric",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Daily dose for Paracetamol",
   "uuid" : "630bd382-1d94-46de-bc3d-d72489ad3c82",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Daily dose for Tramadol",
   "uuid" : "6b674f22-4996-44a7-bf21-2604b1e92240",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Daily dose of Other Medicine",
   "uuid" : "1e4a48b2-efb0-43cd-bfe2-064d3119189c",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Dal-Rice",
   "uuid" : "1fcc4c5c-9d7b-4c8b-afb0-8bf0324f6992",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Danger signs in current pregnancy",
   "uuid" : "ae2fd3ca-1305-4b7d-ac1d-32f59af3e30a",
@@ -947,9 +942,7 @@
 }, {
   "name" : "Globulin",
   "uuid" : "a5e52116-2bf5-4ed2-aadb-5107ceda9860",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Greater than 11gm/dl",
   "uuid" : "15126cb3-3d33-4061-a9b9-e509f45bcef2",
@@ -1115,206 +1108,133 @@
 }, {
   "name" : "How many time did you feel fatigue in last 3 months?",
   "uuid" : "b769fd0d-ec53-4357-9f46-6d2d54258a5d",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many time did you feel fatigue in last one month?",
   "uuid" : "08db4ec2-fbcd-47a2-8e37-22528d17f12c",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times Abdominal pain in last 3 months ?",
   "uuid" : "3c9499dc-1378-4277-beab-6da1a8221450",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times Abdominal pain in last one month?",
   "uuid" : "efb9e5f1-57df-4c99-a38f-a0b588900e1f",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times BT was done in last 3 months?",
   "uuid" : "cbf489e0-f454-4ed4-9f76-b68e1607118e",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 40.0,
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 40.0
 }, {
   "name" : "How many times BT was happening in a year before getting treatment in JSS / meeting?",
   "uuid" : "28c78278-d86a-422a-b85f-d1eff4576853",
   "dataType" : "Numeric",
-  "lowNormal" : 0.0,
-  "highNormal" : 40.0,
-  "keyValues" : [ ]
+  "highAbsolute" : 40.0
 }, {
   "name" : "How many times did you had chronic pain in last one month?",
   "uuid" : "6bd58e10-a006-45d4-949e-838ff8845205",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times fever in 3 months?",
   "uuid" : "138f7fd1-edb8-473f-8442-f8d014663b43",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times fever in one month?",
   "uuid" : "28c6eb57-ba46-4336-b609-3246530864ac",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times joint pain in last one month?",
   "uuid" : "f5c9f670-e19b-4a6b-afb4-765bc86cc7f7",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times Shortness of breath in last 3 months?",
   "uuid" : "8565e363-380b-4a99-987d-fde2da3f6e61",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times Shortness of breath in last one month?",
   "uuid" : "df710100-dfff-442e-9e83-372c15cc94a5",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had back ache in last 3 months?",
   "uuid" : "0c85c82b-a5bc-42e0-8e22-eb036b448521",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had back ache in last one month?",
   "uuid" : "33944b8d-7d2b-4998-af5a-6d9bdfeebbd3",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had chest pain in last 3 months?",
   "uuid" : "25e63997-6e13-4ae6-b1df-d88024892ccc",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had chest pain in last one month?",
   "uuid" : "f37f152d-04ad-49fc-8f5b-aec4a08a33d7",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had Hand pain in last 3 months?",
   "uuid" : "1163a5bc-4368-4489-ae2d-999dd950582c",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had Hand pain in last one month?",
   "uuid" : "a53cafb8-bed4-47d0-b590-76725d42efd9",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had headache in last 3 months?",
   "uuid" : "4b587e0e-1028-4ba2-8cd1-9fa52140184f",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had headache in last one month?",
   "uuid" : "e8ef8b92-3ee1-4dae-8159-e9ce4ab987f0",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had hip bone pain in last 3 months?",
   "uuid" : "13bad77a-ff4d-4b96-b2dd-c1deea325df6",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had hip bone pain in last one month?",
   "uuid" : "ff8ae690-8454-438c-abe2-eb7eb5cd9274",
-  "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric",   
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had knee pain in last 3 months?",
   "uuid" : "7c1c5c39-0787-465c-ba53-2a828915cbf9",
   "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had knee pain in last one month?",
   "uuid" : "c0aa5c36-6863-41d1-bcaf-469a646045bc",
   "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had leg pain in last 3 months?",
   "uuid" : "2f30eabb-c766-4c2e-9ca7-a5e5fa7b67a8",
   "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "highAbsolute" : 90.0
 }, {
   "name" : "How many times you had leg pain in last one month?",
   "uuid" : "84d3900a-ee7d-4b4c-b5e2-b2631431a01b",
   "dataType" : "Numeric",
-  "lowAbsolute" : 0.0,
-  "highAbsolute" : 90.0,
-  "unit" : "",
-  "keyValues" : [ ]
+  "highAbsolute" : 90.0
 }, {
   "name" : "HPLC",
   "uuid" : "0765e9dd-8104-42aa-8f5c-2bb1e4a61d9f",
@@ -1571,39 +1491,31 @@
 }, {
   "name" : "Non-Veg Food",
   "uuid" : "68d3ef85-c026-44f8-b3d7-9810de2c07f3",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Nose",
   "uuid" : "ef35d82b-86de-4d41-85af-5838aa101633",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Number of Blood Transfusion in last month.",
   "uuid" : "62418eac-1206-47d6-bb9c-163983e438b5",
-  "dataType" : "Numeric",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Number of days hospitalised in last month",
   "uuid" : "030e0eef-e076-4472-b4e0-cc4412e92533",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Number of Hospitalisation in last month",
   "uuid" : "c44e1445-9099-4d93-b86f-53ae12eddd8d",
-  "dataType" : "Numeric",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Number of times hospitalised in last month",
   "uuid" : "4cfa2fb4-5f1c-493e-89fb-dc6c355e080b",
-  "dataType" : "Numeric",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Oily food",
   "uuid" : "dce33aed-eece-4490-953c-afc649fb376f",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Other (HPLC)",
   "uuid" : "7472ce22-441c-4f07-9049-d53c943308e0",
@@ -1752,29 +1664,23 @@
 }, {
   "name" : "Piquant",
   "uuid" : "d264ec39-d2c9-4633-a381-a17186e55c15",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Platelet count",
   "uuid" : "ee40e0ed-9202-407b-89dc-13873d63c54d",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Pomegranate",
   "uuid" : "f288d838-57ec-4404-aa3f-4082312d8bae",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Pumpkin",
   "uuid" : "8a939f26-879e-4720-b597-c40123e8ab56",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "RBC Count",
   "uuid" : "3254b860-d494-4404-8f55-1cb630c666b7",
-  "dataType" : "Numeric",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Registration number",
   "uuid" : "d695a22f-82b0-4f4f-9227-a4f3344d5dcf",
@@ -1859,19 +1765,15 @@
 }, {
   "name" : "S-Beta thal",
   "uuid" : "75ea50bb-e64d-4734-af99-38d6945242af",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "S-Beta thal - trait",
   "uuid" : "e71107e7-56ed-4dcb-9915-5276e8a2df9e",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "S.Bilirubin",
   "uuid" : "51a63591-0503-4aec-a472-8edd2557d8a4",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Sample collected for",
   "uuid" : "92e5fc81-5c6f-473a-8d13-415cf45720e2",
@@ -1927,25 +1829,19 @@
 }, {
   "name" : "SGOT",
   "uuid" : "5831ed28-8c49-4b81-b136-6908b4bd8d9b",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "SGPT",
   "uuid" : "6a4b42b2-b497-4033-966e-0ce6bfec8fc5",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Shortness of breath",
   "uuid" : "d2a53632-b778-4757-9573-1dc51a8f66dc",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Shoulder",
   "uuid" : "5e9329b1-f477-49de-bf0c-1d6a40cfa948",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Smelly Blood flow",
   "uuid" : "679f6b4e-0c19-4599-81fb-510e503c2bf7",
@@ -1953,8 +1849,7 @@
 }, {
   "name" : "Smoking Tobacco",
   "uuid" : "b1df63fc-5963-4cfd-b420-857cd17ed03a",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Solubility",
   "uuid" : "2ea592b9-19dd-4215-a354-d3cd4263e0d9",
@@ -2077,14 +1972,11 @@
 }, {
   "name" : "Total Proteins",
   "uuid" : "4d211df5-ecf8-4782-ad63-5081d1436d96",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Tramadol",
   "uuid" : "721338bd-f8cf-4ad0-9b1e-ed0111451f4c",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "Unconfirmed (Electrophoresis)",
   "uuid" : "4dafecda-4c47-4962-a276-32e9da36515d",
@@ -2092,25 +1984,19 @@
 }, {
   "name" : "Urad Dal",
   "uuid" : "85e298e4-ec3a-4cb2-acf3-93e36808392a",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "WBC count",
   "uuid" : "99b56931-1b5a-46e0-8c21-351dab9daa32",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "WBC Difference",
   "uuid" : "635c0f65-9735-4424-b904-4a57829b2a85",
-  "dataType" : "Numeric",
-  "unit" : "",
-  "keyValues" : [ ]
+  "dataType" : "Numeric"
 }, {
   "name" : "Weed",
   "uuid" : "8e79ffdc-0d5e-476a-956f-a6d95b533792",
-  "dataType" : "NA",
-  "keyValues" : [ ]
+  "dataType" : "NA"
 }, {
   "name" : "What kind of food does the patient want to eat?",
   "uuid" : "9142daaf-219e-43ce-b5f0-72149e2cf43b",
@@ -2210,6 +2096,7 @@
   }, {
     "name" : "None",
     "uuid" : "ebda5e05-a995-43ca-ad1a-30af3b937539",
+    "unique" : true,
     "order" : 7.0
   } ],
   "keyValues" : [ ]

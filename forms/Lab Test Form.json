@@ -1,15 +1,15 @@
 {
   "name" : "Lab Test Form",
-  "uuid" : "c4f600ae-a515-4ef5-aac7-205b54c7578b",
+  "uuid" : "d2ae6f61-3ba9-463d-89e3-9c541cf372b0",
   "formType" : "ProgramEncounter",
   "formElementGroups" : [ {
-    "uuid" : "af36b704-00f6-4cb4-8636-4b53dd62c434",
+    "uuid" : "fd886ebb-a489-4a6c-b05e-e9fec78a2f27",
     "name" : "General Information",
     "displayOrder" : 1.0,
     "display" : "General Information",
     "formElements" : [ {
       "name" : "Date of HB",
-      "uuid" : "09f5804c-fd79-4acb-bc64-163c615e02b3",
+      "uuid" : "30bfe937-aebb-4a8d-9ac8-432cc89604bd",
       "keyValues" : [ {
         "key" : "datePickerMode",
         "value" : "Default"
@@ -23,7 +23,7 @@
       "mandatory" : false
     }, {
       "name" : "HB",
-      "uuid" : "8ade1bf2-5695-4baf-86fa-793f7f4f7dc4",
+      "uuid" : "56670162-1696-403d-8e1e-9a7cada86e4c",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Hb",
@@ -34,7 +34,7 @@
       "mandatory" : false
     }, {
       "name" : "Date of Creatinine",
-      "uuid" : "bb2e778e-717a-4e7a-b36e-1972a477ab5a",
+      "uuid" : "8817fb61-8075-4866-9141-8837c1757200",
       "keyValues" : [ {
         "key" : "datePickerMode",
         "value" : "Default"
@@ -48,7 +48,7 @@
       "mandatory" : false
     }, {
       "name" : "Creatinine",
-      "uuid" : "136d626a-55ef-4343-9b93-169be8d0d473",
+      "uuid" : "6cb380ff-4658-4579-82c4-1fa9737655bd",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Creatinine",
@@ -58,37 +58,48 @@
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
-      "name" : "Eye Examination",
-      "uuid" : "c764eb0a-932e-4c26-82df-bfc100d3e2f7",
+      "name" : "Date of Eye examination",
+      "uuid" : "b116dc5a-5d5f-40ca-aab8-4a63bb2cce32",
       "keyValues" : [ ],
       "concept" : {
-        "name" : "Eye Examination",
-        "uuid" : "7690f0e2-eb7c-4a0a-9d37-c6f39a743fc7"
+        "name" : "Date of Eye examination",
+        "uuid" : "c4913e83-2a3b-4064-a43e-3998db4abbbb"
       },
       "displayOrder" : 5.0,
       "type" : "SingleSelect",
       "mandatory" : false
     }, {
+      "name" : "Eye Examination",
+      "uuid" : "f533ee90-f47e-4d31-bbf8-0bd829ee5ff9",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Eye Examination",
+        "uuid" : "7690f0e2-eb7c-4a0a-9d37-c6f39a743fc7"
+      },
+      "displayOrder" : 6.0,
+      "type" : "SingleSelect",
+      "mandatory" : false
+    }, {
       "name" : "Specify Other",
-      "uuid" : "cc94159b-e6e0-4ead-9400-61708e3aa01d",
+      "uuid" : "976ca37d-6ba7-4096-9f6f-b036c8caf6cb",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Specify Other",
         "uuid" : "104d3a2b-9683-430c-85c2-a38c9f2f27f8"
       },
-      "displayOrder" : 6.0,
+      "displayOrder" : 7.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEnrolment('Eye Examination').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
       "mandatory" : false
     } ]
   }, {
-    "uuid" : "75217a8c-75e8-4700-a5c4-b414e8328267",
+    "uuid" : "d6a5fdd6-3a58-4212-b42a-8bc5048ca90f",
     "name" : "Complete Blood Count",
     "displayOrder" : 2.0,
     "display" : "Complete Blood Count\t",
     "formElements" : [ {
       "name" : "Date of CBC Test",
-      "uuid" : "41fcd5ae-1715-4443-9be7-7ee7e12ee56c",
+      "uuid" : "dd1e06b8-a6c7-4d29-8ad9-0bddd252333c",
       "keyValues" : [ {
         "key" : "datePickerMode",
         "value" : "Default"
@@ -102,7 +113,7 @@
       "mandatory" : false
     }, {
       "name" : "WBC count",
-      "uuid" : "bfbe884b-bc22-4ea8-bf8c-31df0748dd0c",
+      "uuid" : "d4ec9819-e527-4752-b516-c036f3ad7f63",
       "keyValues" : [ ],
       "concept" : {
         "name" : "WBC count",
@@ -113,7 +124,7 @@
       "mandatory" : false
     }, {
       "name" : "WBC Difference",
-      "uuid" : "de9e47d6-66af-47d8-a4bd-be37d948bedb",
+      "uuid" : "0e8a6a2d-3592-4878-a10e-5d96b9287f46",
       "keyValues" : [ ],
       "concept" : {
         "name" : "WBC Difference",
@@ -124,7 +135,7 @@
       "mandatory" : false
     }, {
       "name" : "RBC Count",
-      "uuid" : "a4c6e375-4869-4f5b-a87d-db5babf2a246",
+      "uuid" : "c5110740-c1ea-4105-a5e6-585ea3aff9bd",
       "keyValues" : [ ],
       "concept" : {
         "name" : "RBC Count",
@@ -135,7 +146,7 @@
       "mandatory" : false
     }, {
       "name" : "Platelet count",
-      "uuid" : "16d9c1db-31a9-4857-a8d2-94df93d21beb",
+      "uuid" : "f01a990c-5df5-4fe9-b5a6-26c50a76ae35",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Platelet count",
@@ -146,13 +157,13 @@
       "mandatory" : false
     } ]
   }, {
-    "uuid" : "92d9be44-2ba8-4162-b6fe-0bcaefa4ceec",
+    "uuid" : "0ad19ebf-6c5e-4cf2-94ca-ab12de6b451e",
     "name" : "Liver Function Test",
     "displayOrder" : 3.0,
     "display" : "Liver Function Test",
     "formElements" : [ {
       "name" : "Date of Liver Function Test",
-      "uuid" : "59b10875-e641-4f4f-9922-00244a8a2545",
+      "uuid" : "27f924cc-8429-4bfd-9138-9684962da2e6",
       "keyValues" : [ {
         "key" : "datePickerMode",
         "value" : "Default"
@@ -166,7 +177,7 @@
       "mandatory" : false
     }, {
       "name" : "S.Bilirubin",
-      "uuid" : "3b64062f-2630-4187-ae76-83fd04dce872",
+      "uuid" : "d30ecac1-95d9-42ea-b238-6c53c1982c1a",
       "keyValues" : [ ],
       "concept" : {
         "name" : "S.Bilirubin",
@@ -177,7 +188,7 @@
       "mandatory" : false
     }, {
       "name" : "SGOT",
-      "uuid" : "c090d38a-4b78-4b5e-9f89-871cbd64150f",
+      "uuid" : "1d89602b-af75-4411-8d9f-cadac15f3117",
       "keyValues" : [ ],
       "concept" : {
         "name" : "SGOT",
@@ -188,7 +199,7 @@
       "mandatory" : false
     }, {
       "name" : "SGPT",
-      "uuid" : "d6027b59-5bcb-482f-b071-b758b7d252fb",
+      "uuid" : "a84107ee-0572-4251-b833-9181d51826f1",
       "keyValues" : [ ],
       "concept" : {
         "name" : "SGPT",
@@ -199,7 +210,7 @@
       "mandatory" : false
     }, {
       "name" : "Total Proteins",
-      "uuid" : "a4dff7b1-485e-43d6-ac03-715192594b60",
+      "uuid" : "58d5f71e-34b2-4fc5-a9b6-1e1deed35609",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Total Proteins",
@@ -210,7 +221,7 @@
       "mandatory" : false
     }, {
       "name" : "Alkaline Phosphate",
-      "uuid" : "a6250363-c2e2-4e12-baad-2a2ca6c8e0ee",
+      "uuid" : "da351c68-8386-4087-9f6f-d25f1e180509",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Alkaline Phosphate",
@@ -221,7 +232,7 @@
       "mandatory" : false
     }, {
       "name" : "Albumin",
-      "uuid" : "dc0bf8d6-aba4-4cef-bb94-71a8fb2c81b6",
+      "uuid" : "ee56b19e-fc83-425a-95f7-210cc1eb9d61",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Albumin",
@@ -232,7 +243,7 @@
       "mandatory" : false
     }, {
       "name" : "Globulin",
-      "uuid" : "94b67aa2-0dcf-48a2-9353-ecdd5029b7c9",
+      "uuid" : "ded8508d-04ed-4ecc-9af9-601e779e1d8f",
       "keyValues" : [ ],
       "concept" : {
         "name" : "Globulin",
@@ -243,7 +254,7 @@
       "mandatory" : false
     }, {
       "name" : "A. G. Ratio",
-      "uuid" : "c6c2bdc3-9473-4dc3-b6b6-0f0dab9a5c3a",
+      "uuid" : "5666d835-533a-4d5d-ad3d-883514bef12f",
       "keyValues" : [ ],
       "concept" : {
         "name" : "A. G. Ratio",

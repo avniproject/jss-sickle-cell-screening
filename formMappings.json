@@ -1,86 +1,50 @@
-[ {
-  "uuid" : "529805e8-5e57-47b8-abc7-1fea4c21d681",
-  "id" : 126,
-  "formUUID" : "d8e956f9-c34b-4e38-a50a-786d4ab08737",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "b35a3338-5f47-4305-b497-2afef869caca",
-  "id" : 82,
-  "formUUID" : "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "encounterTypeUUID" : "f599f393-c50e-48d1-a89e-e73295e570ea",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "c6a7ea87-46d5-4dcc-9a3d-5b08c99a4cec",
-  "id" : 83,
-  "formUUID" : "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "encounterTypeUUID" : "a786ca25-c32d-4b8a-b8f1-9d5154cfbde3",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "c0a33115-9449-4b40-86c9-9d0777c9fe31",
-  "id" : 84,
-  "formUUID" : "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "encounterTypeUUID" : "8166375f-c95f-435b-b103-d3d70e0af06f",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "65706495-0625-4159-9614-1439842afa5b",
-  "id" : 85,
-  "formUUID" : "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "encounterTypeUUID" : "e99184ad-9082-43d0-9726-7644e37543dd",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "008828e5-119e-409b-ace8-031bf83fe1b2",
-  "id" : 86,
-  "formUUID" : "da35a2b3-0d8f-4f12-b6a3-64cf1353284e",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "8b2312e7-3138-4112-b4c4-b6c570e82e3e",
-  "id" : 87,
-  "formUUID" : "1d9501a3-40f3-41dc-81da-2d13fabc5898",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "1b02ca4a-6b91-4e8b-b055-0620b3952665",
-  "id" : 88,
-  "formUUID" : "d8e956f9-c34b-4e38-a50a-786d4ab08737",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "b67f3eb4-123a-49c9-a8b1-a46927215dd8",
-  "id" : 547,
-  "formUUID" : "87e54064-428e-4b6e-8d8f-018e7a824450",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "encounterTypeUUID" : "fc3d6184-920b-42aa-8c83-379401241fea",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "70df01b8-9f12-46d5-9780-e6ecbac76684",
-  "id" : 548,
-  "formUUID" : "bd27afd2-58c1-4b78-be37-a085085eef61",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "encounterTypeUUID" : "e6ee694a-d70f-413c-b0f7-3520e7cdb6af",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "73748f50-b409-4cb8-bdaa-b1323e1357d7",
-  "id" : 551,
-  "formUUID" : "c4f600ae-a515-4ef5-aac7-205b54c7578b",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "encounterTypeUUID" : "8166375f-c95f-435b-b103-d3d70e0af06f",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "b8fc0ee0-2f14-4175-a594-2efeede6d5a2",
-  "id" : 552,
-  "formUUID" : "110e05f4-781a-4b48-a450-e7fdf703bbab",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "encounterTypeUUID" : "1b09307d-e03e-4532-a12a-cdaef74b2dc3",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-}, {
-  "uuid" : "d036e38f-b17c-4504-bb76-9537fe95729a",
-  "id" : 553,
-  "formUUID" : "c4f600ae-a515-4ef5-aac7-205b54c7578b",
-  "programUUID" : "e93303fa-f465-4db7-a945-d4fd6295f2b9",
-  "encounterTypeUUID" : "f2e5f0b7-1b42-4b37-8e9a-d19e588a101c",
-  "subjectTypeUUID" : "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3"
-} ]
+[
+  {
+  "uuid": "65706495-0625-4159-9614-1439842afa5b",
+  "formUUID": "0723fd75-dc66-4aae-a3c9-31a09c9c4c7a",
+  "encounterTypeUUID": "e99184ad-9082-43d0-9726-7644e37543dd",
+  "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+  "comment": "Sickle cell HPLC sample collection"
+  },
+  {
+  "uuid": "008828e5-119e-409b-ace8-031bf83fe1b2",
+  "formUUID": "da35a2b3-0d8f-4f12-b6a3-64cf1353284e",
+  "encounterTypeUUID": null,
+  "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+  "comment": "JSS sickle cell screening enrolment"
+  },
+  {
+  "uuid": "529805e8-5e57-47b8-abc7-1fea4c21d681",
+  "formUUID": "d8e956f9-c34b-4e38-a50a-786d4ab08737",
+  "subjectTypeUUID": "9f2af1f9-e150-4f8e-aad3-40bb7eb05aa3",
+  "comment": "Individual Registration"
+  },
+  {
+  "uuid": "b67f3eb4-123a-49c9-a8b1-a46927215dd8",
+  "formUUID": "87e54064-428e-4b6e-8d8f-018e7a824450",
+  "encounterTypeUUID": "fc3d6184-920b-42aa-8c83-379401241fea",
+  "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+  "comment": "Baseline Form"
+  },
+  {
+  "uuid": "70df01b8-9f12-46d5-9780-e6ecbac76684",
+  "formUUID": "bd27afd2-58c1-4b78-be37-a085085eef61",
+  "encounterTypeUUID": "e6ee694a-d70f-413c-b0f7-3520e7cdb6af",
+  "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+  "comment": "Followup Form"
+  },
+  {
+  "uuid": "d036e38f-b17c-4504-bb76-9537fe95729a",
+  "formUUID": "d2ae6f61-3ba9-463d-89e3-9c541cf372b0",
+  "encounterTypeUUID": "f2e5f0b7-1b42-4b37-8e9a-d19e588a101c",
+  "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+  "comment": "Lab Test Form"
+  },
+  {
+  "uuid": "b8fc0ee0-2f14-4175-a594-2efeede6d5a2",
+  "formUUID": "110e05f4-781a-4b48-a450-e7fdf703bbab",
+  "encounterTypeUUID": "1b09307d-e03e-4532-a12a-cdaef74b2dc3",
+  "programUUID": "e93303fa-f465-4db7-a945-d4fd6295f2b9",
+  "comment": "Check Up Form"
+  }
+  ]

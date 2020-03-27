@@ -42,38 +42,68 @@ class SickleCellScreeningProgramRuleJSS {
             }
         }
 
+        const hydroxyureaDate = programEnrolment.findLatestObservationFromEncounters('Date of starting of Hydroxyurea');
+
         const hBDate = programEnrolment.findLatestObservationFromEncounters('Date of HB');
-            if(!_.isNil(hBDate) ){
-                let scheduleDate = lib.C.addMonths(hBDate.getValue(), 1);
+            if(!_.isNil(hBDate) || !_.isNil(hydroxyureaDate)){
+                var scheduleDate;
+                if(!_.isNil(hBDate))
+                 scheduleDate = lib.C.addMonths(hBDate.getValue(), 1);
+                else  scheduleDate = lib.C.addMonths(hydroxyureaDate.getValue(), 1);
+
                if(moment().isSameOrBefore(scheduleDate))
                  summaries.push({name:'HB Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });
                 else
                  summaries.push({name:'HB Test Status',value:'Overdue'});
-            }  
+            }
             
         const creatinineDate = programEnrolment.findLatestObservationFromEncounters('Date of Creatinine');
-            if(!_.isNil(creatinineDate)){
-                    let scheduleDate = lib.C.addMonths(creatinineDate.getValue(), 12);
+            if(!_.isNil(creatinineDate)|| !_.isNil(hydroxyureaDate)){
+                var scheduleDate;
+                if(!_.isNil(creatinineDate))
+                 scheduleDate = lib.C.addMonths(creatinineDate.getValue(), 12);
+                else  scheduleDate = lib.C.addMonths(hydroxyureaDate.getValue(), 12);
+
                    if(moment().isSameOrBefore(scheduleDate))
                      summaries.push({name:'Creatinine Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });
                     else
                      summaries.push({name:'Creatinine Test Status',value:'Overdue'});
             }  
-           
+
+            const eyeExaminationDate = programEnrolment.findLatestObservationFromEncounters('Date of Eye examination');
+            if(!_.isNil(eyeExaminationDate) || !_.isNil(hydroxyureaDate)){
+                var scheduleDate;
+                if(!_.isNil(eyeExaminationDate))
+                 scheduleDate = lib.C.addMonths(eyeExaminationDate.getValue(), 12);
+                else  scheduleDate = lib.C.addMonths(hydroxyureaDate.getValue(), 12);
+            
+                   if(moment().isSameOrBefore(scheduleDate))
+                     summaries.push({name:'Eye Examination Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });
+                    else
+                     summaries.push({name:'Eye Examination Status',value:'Overdue'});
+            } 
 
         const cbcDate = programEnrolment.findLatestObservationFromEncounters('Date of CBC Test');
-            if(!_.isNil(cbcDate)){
-                         let scheduleDate = lib.C.addMonths(cbcDate.getValue(), 3);
-                           if(moment().isSameOrBefore(scheduleDate))
+            if(!_.isNil(cbcDate) || !_.isNil(hydroxyureaDate)){
+                var scheduleDate;
+                if(!_.isNil(cbcDate))
+                 scheduleDate = lib.C.addMonths(cbcDate.getValue(), 3);
+                else  scheduleDate = lib.C.addMonths(hydroxyureaDate.getValue(), 3);
+
+                          if(moment().isSameOrBefore(scheduleDate))
                              summaries.push({name:'CBC Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });
                             else
                              summaries.push({name:'CBC Test Status',value:'Overdue'});
                     }  
 
             const lftDate = programEnrolment.findLatestObservationFromEncounters('Date of Liver Function Test');
-                 if(!_.isNil(lftDate) ){
-                        let scheduleDate = lib.C.addMonths(lftDate.getValue(), 12);
-                       if(moment().isSameOrBefore(scheduleDate))
+                 if(!_.isNil(lftDate) || !_.isNil(hydroxyureaDate)){
+                    var scheduleDate;
+                    if(!_.isNil(lftDate))
+                     scheduleDate = lib.C.addMonths(lftDate.getValue(), 12);
+                    else  scheduleDate = lib.C.addMonths(hydroxyureaDate.getValue(), 12);
+
+                        if(moment().isSameOrBefore(scheduleDate))
                          summaries.push({name:'Liver Function Test Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });
                         else
                          summaries.push({name:'Liver Function Test Status',value:'Overdue'});
