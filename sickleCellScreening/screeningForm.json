@@ -110,7 +110,7 @@
           "mandatory": true
         },
         {
-          "name": "HPLC Other result details",
+          "name": "HPLC Other result detail",
           "uuid": "fa1be24a-f1f7-4b8c-ba18-633065768bed",
           "keyValues": [],
           "concept": {

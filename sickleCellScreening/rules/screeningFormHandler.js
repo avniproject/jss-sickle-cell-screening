@@ -78,8 +78,12 @@ class SickleCellScreeningHandlerJSS {
     
     @WithStatusBuilder
     hplcOtherResultDetails([], statusBuilder) {
-        statusBuilder.show().when.valueInEncounter("Result from old sickle cell test report").containsAnswerConceptName("Other (HPLC)")
-            .or.valueInEncounter("HPLC result").containsAnswerConceptName("Other");
+        statusBuilder.show().when.valueInEncounter("Result from old sickle cell test report").containsAnswerConceptName("Other (HPLC)");
+    }
+
+    @WithStatusBuilder
+    hplcOtherResultDetail([], statusBuilder) {
+        statusBuilder.show().when.valueInEncounter("HPLC result").containsAnswerConceptName("Other");
     }
 
     @WithStatusBuilder
