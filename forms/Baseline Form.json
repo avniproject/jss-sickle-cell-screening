@@ -544,7 +544,7 @@
       },
       "displayOrder" : 6.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Which food the patient is problem with?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Which food the patient is problem with?').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "What kind of Problem?",

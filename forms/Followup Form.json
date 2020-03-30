@@ -392,7 +392,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.latestValueInPreviousEncounters(\"Hydroxyurea\").is.notDefined.and\n  .valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Hydroxyurea\");\n  return statusBuilder.build();\n};",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.latestValueInPreviousEncounters(\"Date of starting of Hydroxyurea\").is.notDefined.and.valueInEncounter('What medications you are taking?').containsAnswerConceptName(\"Hydroxyurea\");\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "Daily dose for Hydroxyurea",
