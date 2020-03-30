@@ -7,7 +7,19 @@
     "name" : "General Information",
     "displayOrder" : 1.0,
     "display" : "General Information",
-    "formElements" : [  {
+    "formElements" : [ {
+      "name" : "New Contact of Patient",
+      "uuid" : "81833a6e-6647-42b4-a299-a952534c5a40",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "New Contact of Patient",
+        "uuid" : "1c611e16-00d0-4d45-ad42-c5250418ac16"
+      },
+      "displayOrder" : 1.0,
+      "type" : "SingleSelect",
+      "mandatory" : false,
+      "voided" : true
+    }, {
       "name" : "Weight",
       "uuid" : "ed9e4552-185b-4a57-bb7b-5fa8d5494a45",
       "keyValues" : [ ],
@@ -487,6 +499,7 @@
       },
       "displayOrder" : 2.0,
       "type" : "SingleSelect",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Any doctor, vaid, nurse, fake doctor or compounder forbids eating anything?').containsAnswerConceptName(\"Other\");\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "What kind of food does the patient want to eat?",
@@ -511,6 +524,17 @@
       "type" : "SingleSelect",
       "mandatory" : true
     }, {
+      "name" : "Which food the patient is problem with?",
+      "uuid" : "6292bc5c-88bc-4034-b527-abcb34c5465c",
+      "keyValues" : [ ],
+      "concept" : {
+        "name" : "Which food the patient is problem with?",
+        "uuid" : "f16fc2c0-a0df-4483-930d-091a7d93e5a0"
+      },
+      "displayOrder" : 5.0,
+      "type" : "MultiSelect",
+      "mandatory" : true
+    }, {
       "name" : "Other food the patient has problem with?",
       "uuid" : "ba89c5de-efd6-42a0-88de-c2624af37e61",
       "keyValues" : [ ],
@@ -518,9 +542,9 @@
         "name" : "Other food the patient has problem with?",
         "uuid" : "3ad39fca-5793-44e8-a831-2852e6b65df7"
       },
-      "displayOrder" : 5.0,
+      "displayOrder" : 6.0,
       "type" : "SingleSelect",
-      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Does Patient has any problem with any food?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
+      "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Which food the patient is problem with?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
       "mandatory" : true
     }, {
       "name" : "What kind of Problem?",
@@ -530,7 +554,7 @@
         "name" : "What kind of Problem?",
         "uuid" : "6e7743a0-a0c5-456c-9fc0-a737fb332b81"
       },
-      "displayOrder" : 6.0,
+      "displayOrder" : 7.0,
       "type" : "SingleSelect",
       "rule" : "'use strict';\n({params, imports}) => {\n  const programEncounter = params.entity;\n  const formElement = params.formElement;\n  const statusBuilder = new   \n  imports.rulesConfig.FormElementStatusBuilder({programEncounter, formElement});\n  statusBuilder.show().when.valueInEncounter('Does Patient has any problem with any food?').containsAnswerConceptName(\"Yes\");\n  return statusBuilder.build();\n};",
       "mandatory" : true
