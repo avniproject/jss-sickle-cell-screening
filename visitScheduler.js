@@ -10,10 +10,10 @@ class ScheduleVisitsDuringScreening {
         let scheduleBuilder = RuleHelper.createProgramEncounterVisitScheduleBuilder(programEncounter, visitSchedule);
         let visitDate = programEncounter.earliestVisitDateTime;
         var hplc = programEncounter.getObservationReadableValue('Result from old sickle cell test report')
-         || programEncounter.getObservationReadableValue('HPLC result');
+         || programEncounter.getObservationReadableValue('HPLC result')
+        || programEncounter.getObservationReadableValue('Electrophoresis result') ;
          var values = ['SS', 'Beta Thal','S-Beta thal'];
-        //  console.log('hplc',hplc);
-        //  console.log('hplc',_.includes(values,hplc));
+        //  console.log('Hemoglobin genotype',programEncounter.getObservationReadableValue('Hemoglobin genotype'));
         if(_.includes(values,hplc))
         scheduleBuilder
         .add({
