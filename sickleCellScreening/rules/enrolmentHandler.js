@@ -46,6 +46,7 @@ class SickleCellScreeningProgramRuleJSS {
         
         const encounters = programEnrolment.encounters;
         let followup = _.filter(encounters, e => e.encounterType.uuid === 'e6ee694a-d70f-413c-b0f7-3520e7cdb6af' )
+        if(!_.isNil(followup))
         const followUpEncounterDate = followup[0].encounterDateTime;
          
 
@@ -60,9 +61,11 @@ class SickleCellScreeningProgramRuleJSS {
                     summaries.push({name:'HB Test Status',value:'Overdue'});          
                 }            
                 else {
+                    if(!_.isNil(followUpEncounterDate)){
                     scheduleDate = followUpEncounterDate;
                     summaries.push({name:'HB Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });
-                    } 
+                    }
+                } 
         }
             
         const creatinineDate = programEnrolment.findLatestObservationFromEncounters('Date of Creatinine');
@@ -77,8 +80,10 @@ class SickleCellScreeningProgramRuleJSS {
  
                 }
                 else { 
+                    if(!_.isNil(followUpEncounterDate)){
                     scheduleDate = followUpEncounterDate;
                     summaries.push({name:'Creatinine Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });               
+                    }
                 }
             }  
 
@@ -94,9 +99,10 @@ class SickleCellScreeningProgramRuleJSS {
   
                 }
                 else  {
+                    if(!_.isNil(followUpEncounterDate)){
                     scheduleDate = followUpEncounterDate;
                     summaries.push({name:'Eye Examination Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });
-               
+                    }
                 }
             
                              } 
@@ -113,8 +119,10 @@ class SickleCellScreeningProgramRuleJSS {
                              summaries.push({name:'CBC Test Status',value:'Overdue'});
               }
                 else  {
+                    if(!_.isNil(followUpEncounterDate)){
                     scheduleDate = followUpEncounterDate;
                     summaries.push({name:'CBC Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });
+                    }
                 }
                                 }  
 
@@ -130,8 +138,11 @@ class SickleCellScreeningProgramRuleJSS {
        
                     }
                      
-                    else  {scheduleDate = followUpEncounterDate;
+                    else  {
+                        if(!_.isNil(followUpEncounterDate)){
+                        scheduleDate = followUpEncounterDate;
                         summaries.push({name:'Liver Function Test Schedule',value: moment(scheduleDate).format("DD/MMM/YYYY") });
+                        }                    
                     }
 
                                 }  
