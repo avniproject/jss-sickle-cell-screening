@@ -43,11 +43,12 @@ class SickleCellScreeningProgramRuleJSS {
         }
 
         const hydroxyureaDate = programEnrolment.findLatestObservationFromEncounters('Date of starting of Hydroxyurea');
-        
+        let followUpEncounterDate;
         const encounters = programEnrolment.encounters;
         let followup = _.filter(encounters, e => e.encounterType.uuid === 'e6ee694a-d70f-413c-b0f7-3520e7cdb6af' )
-        if(!_.isNil(followup))
-        const followUpEncounterDate = followup[0].encounterDateTime;
+        if(!_.isNil(followup)){
+         followUpEncounterDate = followup[0].encounterDateTime;
+        }
          
 
         const hBDate = programEnrolment.findLatestObservationFromEncounters('Date of HB');
