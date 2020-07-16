@@ -18,7 +18,7 @@
   "dependencies": {
     "openchs-idi": "github:openchs/openchs-idi#950376ac50ad66b4d2559226bda1eea3ed8da3ed",
     "rules-config": "github:openchs/rules-config#e2d7baccda66c8d18e0f9cb6fff3d14f746e2fa4",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.19",
     "moment": "^2.23.0",
     "webpack": "^4.12.0"
   },
