@@ -10,10 +10,14 @@
 
 -- Update first_name to full name only when last_name is not NA and last_name is not
 -- caste(some users have filled caste here and have left "Caste (Free Text)" question empty)
-update individual set first_name = concat(first_name, ' ', last_name)
-where last_name not ilike 'NA'
+update individual
+set first_name = concat(first_name, ' ', last_name)
+where subject_type_id = (select id from subject_type where name = 'Individual')
+  and last_name not ilike 'NA'
   and observations ->> '60c44aa2-3635-487d-8962-43000e77d382' notnull;
 
 -- Move caste to last name
-update individual set last_name = observations ->> '60c44aa2-3635-487d-8962-43000e77d382'
-where observations ->> '60c44aa2-3635-487d-8962-43000e77d382' notnull;
+update individual
+set last_name = observations ->> '60c44aa2-3635-487d-8962-43000e77d382'
+where observations ->> '60c44aa2-3635-487d-8962-43000e77d382' notnull
+  and subject_type_id = (select id from subject_type where name = 'Individual');
