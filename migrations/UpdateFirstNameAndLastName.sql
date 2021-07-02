@@ -7,6 +7,7 @@
 -- Form element "Caste (Free Text)" will be voided.
 --
 
+set role jscs;
 
 -- Update first_name to full name only when last_name is not NA and last_name is not
 -- caste(some users have filled caste here and have left "Caste (Free Text)" question empty)
