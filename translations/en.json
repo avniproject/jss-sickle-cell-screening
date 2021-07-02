@@ -221,7 +221,7 @@
     "MaleEnrolmentToPregnancyNotAllowed": "Male Enrolment to Pregnancy not allowed",
     "REG_ENROL_DISPLAY-Lactating mother": "Lactating mother",
     "REG_ENROL_DISPLAY-Pregnant Woman": "Pregnant woman",
-    "First Name": "Full Name",
-    "Last Name": "Caste"
+    "firstName": "Full Name",
+    "lastName": "Caste"
   }
 }
