@@ -52,7 +52,8 @@
             "uuid": "60c44aa2-3635-487d-8962-43000e77d382"
           },
           "displayOrder": 3.5,
-          "mandatory": false
+          "mandatory": false,
+          "voided": true
         },
         {
           "name": "Socio Economic Status",

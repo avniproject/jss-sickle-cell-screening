@@ -220,6 +220,8 @@
     "MaleEnrolmentToECNotAllowed": "Male Enrolment to Eligible Couple not allowed",
     "MaleEnrolmentToPregnancyNotAllowed": "Male Enrolment to Pregnancy not allowed",
     "REG_ENROL_DISPLAY-Lactating mother": "Lactating mother",
-    "REG_ENROL_DISPLAY-Pregnant Woman": "Pregnant woman"
+    "REG_ENROL_DISPLAY-Pregnant Woman": "Pregnant woman",
+    "First Name": "Full Name",
+    "Last Name": "Caste"
   }
 }
