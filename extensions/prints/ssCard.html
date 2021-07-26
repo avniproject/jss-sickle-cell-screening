@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Mukta' rel='stylesheet'>
+    <style>
+        @media screen {
+            .container {
+                margin-top: 10px;
+                margin-left: 25%;
+                margin-right: 25%;
+            }
+
+            #spinner:not([hidden]) {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #spinner::after {
+                content: "";
+                width: 100px;
+                height: 100px;
+                border: 10px solid #f3f3f3;
+                border-top: 10px solid #f25a41;
+                border-radius: 100%;
+                will-change: transform;
+                animation: spin 1s infinite linear
+            }
+
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+
+        @media print {
+            .container {
+
+            }
+
+            .card {
+                background-color: #fdf23a;
+                border: 2px solid rgba(52, 52, 52, 0.91);
+                width: 32.8%;
+                margin-bottom: 1px;
+                height: 362px;
+            }
+
+            /*this enables background graphics automatically, works only in chrome*/
+            * {
+                -webkit-print-color-adjust: exact;
+            }
+
+            @page {
+                margin: 0;
+            }
+
+            .back {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                page-break-before: always !important;
+            }
+        }
+
+        @media all {
+            body {
+                font-family: 'Mukta';
+                font-size: 12px;
+            }
+
+            .card {
+                background-color: #fdf23a;
+                border: 2px solid rgba(52, 52, 52, 0.91);
+                width: 32.8%;
+                margin-bottom: 1px;
+                height: 362px;
+            }
+
+            .header {
+                display: flex;
+                flex-direction: row;
+                -webkit-align-content: space-between;
+                justify-content: space-between;
+                align-items: center;
+                padding: 5px;
+                margin: 1px 1px 1px;
+                border: 1px solid rgba(52, 52, 52, 0.91);
+            }
+
+            .color-text {
+                font-size: 14px;
+                font-weight: bold;
+                color: rgb(13, 104, 128);
+            }
+
+            .content {
+                padding: 5px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+                flex-flow: row wrap;
+                -webkit-align-content: space-between;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .red {
+                color: red;
+            }
+
+            .bold {
+                font-weight: bold;
+            }
+
+            .center {
+                align-self: center !important;
+            }
+
+            .front {
+                display: flex;
+                flex-direction: row;
+                -webkit-align-content: space-between;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .back {
+                display: flex;
+                flex-direction: row;
+                -webkit-align-content: space-between;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-top: 4px;
+            }
+        }
+
+    </style>
+    <title>SS Card</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="front" id="front-data"></div>
+    <div class="back" id="back-data"></div>
+    <div hidden id="spinner"></div>
+</div>
+</body>
+
+<script>
+    const spinner = document.getElementById("spinner");
+
+    function getBackHTMLString() {
+        return `<div class="card">
+                        <div class="content" style="font-size: 11px">
+                            <div class="color-text center">सिकल सेल एनीमिया नियंत्रण मिशन</div>
+                            <div>&#9679; सिकल सेल वाहक होने पर सामान्यता इस बीमारी से संबंधित इलाज की जरूरत नही रहती है|</div>
+                            <div>&#9679; चूँकि यह एक अनुवांशिक बीमारी है इसलिए यदि दो वाहक आपस मे विवाह करते है, तो उनके बच्चो को सिकल
+                                रोग
+                                होने की संभावना बढ़ जाती है इसलिए दो वाहको को आपस मे विवाह करने से पूर्व अपने होने वाले जीवन साथी का
+                                सिकल जाँच करा लेना चाहिए|
+                            </div>
+                            <div>&#9679; वाहक महिला को गर्भावस्था की स्थिती मे प्री-नेटल टेस्ट करा लेना चाहिए|</div>
+                            <div>&#9679; यह बीमारी ख़ान-पान या कुपोषण के कारण नही होती है|</div>
+                            <div>&#9679; यह रोग शारीरिक संबंध से नही फैलता है क्योंकि इस रोग की उत्पत्ति विषाणु या जीवाणु से नही होती
+                                है|
+                            </div>
+                            <div>&#9679; सिकल सेल बीमारी में कुछ भी पौष्टिक खाने का परहेज नहीं होता है|</div>
+                            <div>
+                                <span class="red bold">Note for Doctor:</span>
+                                <span class="bold">Person having this card is a sickle cell anemia patients so further diagnosis is not required for treatment</span>
+                            </div>
+                            <div class="space"></div>
+                            <div class="color-text center">सिकल सेल सहायता नंबर 9617240924</div>
+                        </div>
+                    </div>`;
+    }
+
+    function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime) {
+        return `<div class="card">
+                <div class="header">
+                    <div class="color-text">सिकल सेल एनीमिया नियंत्रण मिशन, अनूपपुर , मध्य प्रदेश</div>
+                    <img src="https://staging.avniproject.org/extension/serve/JSCSImage.png" width="130px" height="50px" alt="Logo">
+                </div>
+                <div class="content">
+                    <div class="color-text center">संस्था: जन स्वास्थ्य सहयोग,सृजन, जिला स्वास्थ्य समिति अनुपपुर</div>
+                    <table style="width:100%">
+                        <tr style="line-height: 22px">
+                            <td>नाम : <span class="bold">${subjectObs['First name']} ${subjectObs['Last name'] || ""}</span></td>
+                            <td style="white-space:nowrap;">पंजीयन संख्या : <span class="bold">${enrolmentObs['Enrolment number']}</span></td>
+                        </tr>
+                        <tr style="line-height: 22px">
+                            <td>पिता/ पति : <span class="bold">${subjectObs['Father/Husband']}</span></td>
+                            <td>दिनांक : <span class="bold">${enrolmentDateTime}</span></td>
+                        </tr>
+                        <tr style="line-height: 22px">
+                            <td>पता : <span class="bold">${subjectObs['Address'] || "Not available"}</span>
+                            </td>
+                            <td>जन्म तिथि : <span class="bold">${new Date(subjectObs['Date of birth']).toLocaleDateString()}</span></td>
+                        </tr>
+                        <tr style="line-height: 22px">
+                            <td>लिंग : <span class="bold">${subjectObs['Gender']}</span></td>
+                            <td class="red">ब्लड ग्रूप : <span class="bold">${bloodGroup}</span></td>
+                        </tr>
+                    </table>
+                    <br>
+                        <div class="bold">इलेक्ट्रॉफोरेसिस रिज़ल्ट :</div>
+                        <div class="row" style="align-items: flex-end">
+                            <div class="bold red">
+                                <div>
+                                    SS (रोगी)
+                                </div>
+                                <div>
+                                    ${enrolmentObs['Enrolment number']}
+                                </div>
+                            </div>
+                            <div style="font-size: 11px">
+                                मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी अनूपपुर
+                            </div>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    async function fetchSubjects() {
+        spinner.removeAttribute('hidden');
+        const url = new URL(window.location.href);
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'user-name': url.searchParams.get("user-name"),
+                'AUTH-TOKEN': url.searchParams.get("AUTH-TOKEN"),
+                'user-name': 'admin@jscs',
+            },
+        };
+        const subjectUUIDs = url.searchParams.get("subjectUUIDs");
+        const allSubjects = [];
+        const enrolments = [];
+        const eligibleSubjectUUIDs = [];
+        const fetchAll = subjectUUIDs.split(",")
+            .map(uuid => fetch(`/api/subject/${uuid}`, options)
+                .then(res => res.json())
+                .then(subject => {
+                    allSubjects.push(subject);
+                    return fetch(`/api/programEnrolments?program=Sickle Cell&subject=${subject['ID']}`, options)
+                })
+                .then(res => res.json())
+                .then(data => data.content)
+                .then(enls => {
+                    if (enls.length > 0) {
+                        const enrolment = enls[0];
+                        enrolments.push(enrolment);
+                        return fetch(`/api/programEncounters?programEnrolmentId=${enrolment['ID']}&size=100&page=0`, options)
+                    }
+                    return null;
+                })
+                .then(res => _.isNil(res) ? res : res.json())
+                .then(data => {
+                    if (_.isNil(data)) return undefined;
+                    const ssEncounter = _.find(data.content, ({observations}) => observations['Hb Electrophoresis'] === 'SS' || observations['Result from old sickle cell test report'] === 'SS' || observations['Electrophoresis result'] === 'SS' || observations['Hemoglobin genotype'] === 'SS' || observations['HPLC result'] === 'SS');
+                    if (_.isEmpty(ssEncounter)) {
+                        console.log("no SS encounter found =>>", data.content);
+                        return undefined;
+                    }
+                    console.log("SS encounter found =>>>");
+                    const subjectUUID = _.get(ssEncounter, ['Subject ID']);
+                    eligibleSubjectUUIDs.push(subjectUUID);
+                    const bloodGroup = _.get(_.find(data.content, ({observations}) => !_.isEmpty(observations['Blood group'])), ['observations', 'Blood group'], 'Not available');
+                    return {subjectUUID, bloodGroup};
+                })
+            );
+        const encounters = await Promise.all(fetchAll)
+            .catch(error => alert(`Error occurred while generating print \n ${error.message}`));
+        if(_.isEmpty(eligibleSubjectUUIDs)){
+            alert("No SS patient present in the batch. Please choose only SS patients to generate SS cards.")
+        }
+        var frontHTMLString = "";
+        eligibleSubjectUUIDs.forEach((subjectUUID, index) => {
+            const subjectObs = _.find(allSubjects, sub => sub['ID'] === subjectUUID).observations;
+            const enrolment = _.find(enrolments, (enl) => enl['Subject ID'] === subjectUUID);
+            const enrolmentObs = enrolment.observations;
+            const bloodGroup = _.find(encounters, (enc) => enc.subjectUUID === subjectUUID).bloodGroup;
+            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, new Date(enrolment['Enrolment datetime']).toLocaleDateString());
+            if (index > 0 && (index + 1) % 9 === 0) {
+                if (eligibleSubjectUUIDs.length <= 9) {
+                    frontHTMLString += '<div style="margin: 6px; width: 100%"></div>'
+                } else {
+                    frontHTMLString += '<div style="margin: 12px; width: 100%"></div>'
+                }
+            }
+        });
+        document.getElementById("front-data").innerHTML = frontHTMLString;
+        spinner.setAttribute('hidden', '');
+        var backHTMLString = '<div style="margin: 4px; width: 100%"></div>';
+        for (let i = 0; i < eligibleSubjectUUIDs.length; i++) {
+            backHTMLString += getBackHTMLString();
+
+            if (i > 0 && (i + 1) % 9 === 0) {
+                if (eligibleSubjectUUIDs.length <= 9) {
+                    backHTMLString += '<div style="margin: 6px; width: 100%"></div>'
+                } else {
+                    backHTMLString += '<div style="margin: 12px; width: 100%"></div>'
+                }
+            }
+        }
+        document.getElementById("back-data").innerHTML = backHTMLString;
+    }
+
+    fetchSubjects();
+</script>
+
