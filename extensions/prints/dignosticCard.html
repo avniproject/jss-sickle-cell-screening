@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8"/>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Mukta' rel='stylesheet'>
+    <style>
+        @media screen {
+            .container {
+                margin-top: 10px;
+                margin-left: 25%;
+                margin-right: 25%;
+            }
+
+            #spinner:not([hidden]) {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #spinner::after {
+                content: "";
+                width: 100px;
+                height: 100px;
+                border: 10px solid #f3f3f3;
+                border-top: 10px solid #f25a41;
+                border-radius: 100%;
+                will-change: transform;
+                animation: spin 1s infinite linear
+            }
+
+            @keyframes spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+        }
+
+        @media print {
+            .container {
+
+            }
+
+            /*this enables background graphics automatically, works only in chrome*/
+            * {
+                -webkit-print-color-adjust: exact;
+            }
+
+            @page {
+                margin: 0;
+            }
+
+            .back {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                page-break-before: always !important;
+                margin-bottom: 5px;
+                padding: 10px;
+            }
+        }
+
+        @media all {
+            body {
+                font-family: 'Mukta';
+                font-size: 16px;
+            }
+
+            .card {
+                border: 1px solid rgba(52, 52, 52, 0.91);
+                width: 100%;
+                margin-bottom: 1px;
+                height: 530px;
+            }
+
+            .front {
+                display: flex;
+                flex-direction: row;
+                -webkit-align-content: space-between;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-bottom: 5px;
+            }
+
+            .back {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-bottom: 5px;
+            }
+
+            .header {
+                display: flex;
+                flex-direction: row;
+                padding: 10px;
+                border-bottom: 1px solid rgba(52, 52, 52, 0.91);
+                -webkit-align-content: space-between;
+                justify-content: space-between;
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .red {
+                color: #980000;
+            }
+
+            .blue {
+                color: #3d85c6;
+            }
+
+            .heading {
+                font-size: 22px;
+                font-weight: bold;
+            }
+
+            .sub-heading {
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 1.2;
+            }
+
+            .center {
+                display: flex;
+                align-self: center !important;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .footer {
+                position: absolute;
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .green {
+                color: #38761d;
+            }
+
+            .dark-blue {
+                color: #0000ff;
+            }
+
+            .bold {
+                font-weight: bold;
+            }
+
+            .small-font {
+                font-size: 16px;
+            }
+
+            .padding {
+                padding: 10px;
+            }
+
+            .padding-left {
+                padding-left: 15px;
+            }
+
+        }
+
+    </style>
+    <title>SS Card</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="front" id="front-data"></div>
+    <div class="back small-font" id="back-data"></div>
+    <div hidden id="spinner"></div>
+</div>
+</body>
+
+<script>
+    const spinner = document.getElementById("spinner");
+
+    function getSSString() {
+        return `<div class="card padding">
+            <div class="green bold">सिकल सेल बीमारी (SS) होने पर क्या करें :-</div>
+            आपको बिलकुल भी डरने की ज़रूरत नही है की आपको सिकल सेल एनेमिया बीमारी से ग्रस्त है लेकिन आपको अपनी तबियत का
+            विशेष ध्यान रखना होगा, इसलिए निम्न बिंदुओं पर ध्यान दें -
+            <div class="dark-blue bold">सावधानियाँ :</div>
+            <div>&#9679; सिकल रोगी को ज्यादा मात्रा में पानी पीना चाहिए <span class="bold">(5-6 लीटर रोज)</span>|</div>
+            <div>&#9679; हमेशा पोष्टिक खाना खाए जैसे - हरी पत्तेदार सब्जियां, मौसमी फल, दूध, मुनगा, अंडा, मांस, मछली,
+                सेव, अनार, कोदो) आदि खा सकते हैं|
+            </div>
+            <div>&#9679; खाने में किसी प्रकार का परहेज नही करना है लेकिन फ़ास्ट फ़ूड कम खाए ये अपने पाचन तंत्र को
+                नुक़सान पहुँचाते है|
+            </div>
+            <div>&#9679; सिकल सेल रोगी को अत्यधिक गर्मी, ठंडी और बरसात के मौसम में अपना ज्यादा ख्याल रखना चाहिए|</div>
+            <div>&#9679; सिकल रोगी को ज्यादा भारी या थका देने वाला काम जिसमें साँस फूलने लगे या शरीर में दर्द होने लगे
+                वह काम नहीं करना चाहिए |
+            </div>
+            <div class="dark-blue bold">ईलाज:</div>
+            <div>&#9679; सिकल सेल बीमारी की दो मुख्य दवाइयाँ आपको रोज लेना जरूरी है जिनकी डोज़ डॉक्टर के कहे अनुसार ले
+                :
+            </div>
+            <div class="padding-left">1. हाइड्रोक्सीयूरिया - <span class="bold">500 mg</span></div>
+            <div class="padding-left">2. प्लेन फोलिक एसिड - <span class="bold">2.5 mg</span></div>
+            <div>&#9679; अगर शरीर में कही भी दर्द हो रहा है तो घर पर दर्दनिवारक दवाई ले सकते है जैसे की <span class="bold">Paracetamol,
+                Brufen, Tramadol</span> लेकिन कैसे व कब लेनी है इसके लिए डॉक्टर से पहले ही सलाह लें|
+            </div>
+            <div>&#9679; जन स्वास्थ्य सहयोग संस्था द्वारा सिकल सेल रोगियों के लिए मासिक बैठक का आयोजन किया जाता है, उसमे
+                सभी रोगियों की नियमित जांच, परामर्श और दवाइयाँ जैसी सेवाएँ दी जाती है, कृपया बैठक में आ कर समुचित इलाज
+                और जानकारी प्राप्त करे |
+            </div>
+            <div class="green">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
+                हुई कोई समस्या पर होने सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
+            </div>
+        </div>`;
+    }
+
+
+    function getASString() {
+        return `<div class="card padding">
+            <span class="green bold">सिकल सेल एनेमिया वाहक (AS) क्या है :-</span>
+            अगर आप सिकल सेल की जांच में सिकल सेल वाहक पाए गए है तो चिंता करने की कोई जरुरत नहीं है इससे आपको कोई तकलीफ़ नहीं होगी|
+            सिकल सेल वाहक सिकल सेल जीन का एक प्रकार है, सिकल सेल वाहक सामान्य व्यक्ति की तरह ही होते है,
+            जब तक जाँच ना हो इन्हें स्वयं भी मालूम नहीं होता की वे अपने रक्त में सिकल जीन धारण करते है|
+            <br>
+            सिकल सेल वाहक होने से ऐसे इंसान को खुद को कोई नुकसान नहीं होता है, लेकिन जब अनजाने में दूसरे सिकल रोगी या सिकल सेल वाहक से शादी करते है तो उस जोड़े से सिकल सेल पीड़ित संतान पैदा होने की सम्भावना बढ़ जाती है|
+            <br>
+            सिकल सेल बीमारी के प्रसार की रोकथाम के अभियान में इनका विशेष महत्त्व है|
+            <span class="green bold">सिकल सेल वाहक (AS) होने पर क्या करें :- </span>
+            <div><span class="bold padding-left">1.</span> सिकल सेल वाहक होने पर आप सामान्य व्यक्ति की तरह जीवन व्यतीत कर सकते है |</div>
+            <div><span class="bold padding-left">2.</span> सिकल सेल वाहक को किसी प्रकार की इलाज की जरुरत नहीं होती है |</div>
+            <div><span class="bold padding-left">3.</span> सिकल सेल वाहक व्यक्ति को विवाह से पूर्व होने वाले जीवनसाथी की सिकल सेल जाँच अवश्य करा लेनी चाहिए ताकि, उनके होने वाले बच्चे को सिकल सेल रोग होने की संभावना ना रहे |</div>
+            <div><span class="bold padding-left">4.</span> जिस परिवार में सिकल सेल रोगी या सिकल सेल वाहक है, उस परिवार के सभी सदस्यों को अपनी सिकल सेल जांच अवश्य करा लेनी चाहिए |</div>
+            <div class="green">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
+                हुई कोई समस्या पर होने सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
+            </div>
+        </div>`;
+    }
+
+    function getBackHTMLString(electrophoresisResult) {
+        return electrophoresisResult === 'SS' ? getSSString() : getASString();
+    }
+
+    function getFrontHTMLString() {
+        return `<div class="card" style="position: relative; height: 550px;">
+            <div class="header">
+                <img src="dignostic-left.png" width="100px" height="100px" alt="logo">
+                <div class="column">
+                    <div class="heading">District Hospital, Anuppur, Madhya Pradesh</div>
+                    <div class="blue sub-heading">Project: Sickle Cell Anemia Control Mission, Anuppur</div>
+                    <div class="sub-heading">National Health Mission, Madhya Pradesh</div>
+                    <div class="sub-heading">Implemented by : Jan Swasthya Sahyog, Ganiyari, Bilaspur</div>
+                </div>
+                <img src="dignostic-right.png" width="100px" height="100px" alt="logo">
+            </div>
+            <div class="content">
+                <div class="red sub-heading center">Sickle Cell Diagnosis Report:</div>
+                <div>Personal Details :</div>
+            </div>
+            <div class="footer">Signature & Seal</div>
+        </div>`;
+    }
+
+    async function createPrint() {
+        spinner.removeAttribute('hidden');
+        const url = new URL(window.location.href);
+        const options = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'user-name': url.searchParams.get("user-name"),
+                'AUTH-TOKEN': url.searchParams.get("AUTH-TOKEN"),
+                'user-name': 'admin@jscs',
+            },
+        };
+        const subjectUUIDs = url.searchParams.get("subjectUUIDs");
+        const eligibleSubjectUUIDs = [];
+        const fetchAll = subjectUUIDs.split(",")
+            .map(uuid => fetch(`/api/subject/${uuid}`, options)
+                .then(res => res.json())
+                .then(subject => {
+                    return fetch(`/api/programEnrolments?program=Sickle Cell&subject=${subject['ID']}`, options)
+                })
+                .then(res => res.json())
+                .then(data => data.content)
+                .then(enls => {
+                    if (enls.length > 0) {
+                        const enrolment = enls[0];
+                        return fetch(`/api/programEncounters?programEnrolmentId=${enrolment['ID']}&size=100&page=0`, options)
+                    }
+                    return null;
+                })
+                .then(res => _.isNil(res) ? res : res.json())
+                .then(data => {
+                    if (_.isNil(data)) return undefined;
+                    const ssEncounter = _.find(data.content, ({observations}) => _.includes(['AS', "SS"], observations['Hb Electrophoresis']) || _.includes(['AS', "SS"], observations['Result from old sickle cell test report']) || _.includes(['AS', "SS"], observations['Electrophoresis result']) || _.includes(['AS', "SS"], observations['Hemoglobin genotype']) || _.includes(['AS', "SS"], observations['HPLC result']));
+                    if (_.isEmpty(ssEncounter)) {
+                        console.log("no AS/SS encounter found =>>", data.content);
+                        return undefined;
+                    }
+                    console.log("AS/SS encounter found =>>>");
+                    const subjectUUID = _.get(ssEncounter, ['Subject ID']);
+                    const observations = _.get(ssEncounter, ['observations']);
+                    const electrophoresisResult = observations['Hb Electrophoresis'] || observations['Result from old sickle cell test report'] || observations['Electrophoresis result'] || observations['Hemoglobin genotype'] || observations['HPLC result'];
+                    eligibleSubjectUUIDs.push(subjectUUID);
+                    return {subjectUUID, electrophoresisResult};
+                })
+            );
+        const encounters = await Promise.all(fetchAll)
+            .catch(error => alert(`Error occurred while generating print \n ${error.message}`));
+        if (_.isEmpty(eligibleSubjectUUIDs)) {
+            alert("No AS/SS patient present in the batch. Please choose only AS/SS patients to generate Diagnostic report.")
+        }
+        var frontHTMLString = "";
+        var backHTMLString = '';
+        eligibleSubjectUUIDs.forEach((uuid, index) => {
+            frontHTMLString += getFrontHTMLString();
+            backHTMLString += getBackHTMLString(_.find(encounters, (enc) => enc.subjectUUID === uuid).electrophoresisResult);
+            if (index > 0 && (index + 1) % 2 === 0 && (index + 1) !== eligibleSubjectUUIDs.length) {
+                frontHTMLString += '<div style="margin: 8px; width: 100%"></div>';
+                backHTMLString += '<div style="margin: 8px; width: 100%"></div>';
+            }
+        });
+        document.getElementById("front-data").innerHTML = frontHTMLString;
+        document.getElementById("back-data").innerHTML = backHTMLString;
+        spinner.setAttribute('hidden', '');
+    }
+
+    createPrint();
+
+
+</script>
