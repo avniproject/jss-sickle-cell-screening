@@ -121,7 +121,8 @@ from all_data a
 
 
 
---TODO: need to fix this update according to above select query before executig
+--TODO: 1. need to fix this update according to above select query before executing.
+--TODO: 2. run the fixed rule migration along with this migration.
 
 -- - go through all relationship (Person A <> Person B)
 -- - check if Person A is a pregnant woman
