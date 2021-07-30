@@ -53,7 +53,7 @@
                 border: 2px solid rgba(52, 52, 52, 0.91);
                 width: 32.8%;
                 margin-bottom: 1px;
-                height: 362px;
+                height: 260px!important;
             }
 
             /*this enables background graphics automatically, works only in chrome*/
@@ -63,6 +63,7 @@
 
             @page {
                 margin: 0;
+                size: landscape;
             }
 
             .back {
@@ -191,11 +192,11 @@
                     </div>`;
     }
 
-    function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime) {
+    function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location) {
         return `<div class="card">
                 <div class="header">
                     <div class="color-text">सिकल सेल एनीमिया नियंत्रण मिशन, अनूपपुर , मध्य प्रदेश</div>
-                    <img src="https://staging.avniproject.org/extension/serve/JSCSImage.png" width="130px" height="50px" alt="Logo">
+                    <img src="JSCSImage.png" width="130px" height="50px" alt="Logo">
                 </div>
                 <div class="content">
                     <div class="color-text center">संस्था: जन स्वास्थ्य सहयोग,सृजन, जिला स्वास्थ्य समिति अनुपपुर</div>
@@ -209,7 +210,7 @@
                             <td>दिनांक : <span class="bold">${enrolmentDateTime}</span></td>
                         </tr>
                         <tr style="line-height: 22px">
-                            <td>पता : <span class="bold">${subjectObs['Address'] || "Not available"}</span>
+                            <td>पता : <span class="bold">${location}</span>
                             </td>
                             <td>जन्म तिथि : <span class="bold">${new Date(subjectObs['Date of birth']).toLocaleDateString()}</span></td>
                         </tr>
@@ -218,7 +219,6 @@
                             <td class="red">ब्लड ग्रूप : <span class="bold">${bloodGroup}</span></td>
                         </tr>
                     </table>
-                    <br>
                         <div class="bold">इलेक्ट्रॉफोरेसिस रिज़ल्ट :</div>
                         <div class="row" style="align-items: flex-end">
                             <div class="bold red">
@@ -292,11 +292,12 @@
         }
         var frontHTMLString = "";
         eligibleSubjectUUIDs.forEach((subjectUUID, index) => {
-            const subjectObs = _.find(allSubjects, sub => sub['ID'] === subjectUUID).observations;
+            const subject = _.find(allSubjects, sub => sub['ID'] === subjectUUID);
+            const subjectObs = subject.observations;
             const enrolment = _.find(enrolments, (enl) => enl['Subject ID'] === subjectUUID);
             const enrolmentObs = enrolment.observations;
-            const bloodGroup = _.find(encounters, (enc) => enc.subjectUUID === subjectUUID).bloodGroup;
-            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, new Date(enrolment['Enrolment datetime']).toLocaleDateString());
+            const bloodGroup = _.get(_.find(encounters, (enc) => enc.subjectUUID === subjectUUID), 'bloodGroup', 'Not available');
+            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, new Date(enrolment['Enrolment datetime']).toLocaleDateString(), subject.location.District);
             if (index > 0 && (index + 1) % 9 === 0) {
                 if (eligibleSubjectUUIDs.length <= 9) {
                     frontHTMLString += '<div style="margin: 6px; width: 100%"></div>'
