@@ -41,6 +41,11 @@
                     transform: rotate(360deg);
                 }
             }
+            .print {
+                margin-bottom: 10px;
+                padding: 3px;
+                font-size: 18px;
+            }
 
         }
 
@@ -66,6 +71,10 @@
                 page-break-before: always !important;
                 margin-bottom: 5px;
                 padding: 10px;
+            }
+
+            #print {
+                display: none !important;
             }
         }
 
@@ -173,15 +182,23 @@
                 padding-left: 15px;
             }
 
+            .no-space {
+                line-height: 1.2;
+            }
+
         }
 
     </style>
     <title>SS Card</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 </head>
 <body>
 <div class="container">
+    <div class="print" id="print">
+        <button onclick="window.print()">Print / Save</button>
+    </div>
     <div class="front" id="front-data"></div>
     <div class="back small-font" id="back-data"></div>
     <div hidden id="spinner"></div>
@@ -190,6 +207,7 @@
 
 <script>
     const spinner = document.getElementById("spinner");
+    const print = document.getElementById('print');
 
     function getSSString() {
         return `<div class="card padding">
@@ -253,7 +271,32 @@
         return electrophoresisResult === 'SS' ? getSSString() : getASString();
     }
 
-    function getFrontHTMLString() {
+    function getSSInterpretation() {
+        return `After all the diagnosis the person is found that the Genotype is <span class="bold">"SS"</span> which means the person is Sickle Cell Patient/सिकल सेल रोगी & Need the treatment prescribed by a doctor. He/She also need the proper regular checkup & Follow-up.`
+    }
+
+    function getASInterpretation() {
+        return `After all the diagnosis the person is found that the Genotype is <span class="bold">"AS"</span> which means the person is Sickle Cell trait/सिकल सेल वाहक & does not require any treatment regarding sickle cell disease.`
+    }
+
+    function getInterpretation(electrophoresisResult) {
+        return electrophoresisResult === 'SS' ? getSSInterpretation() : getASInterpretation();
+    }
+
+    function properValue(value) {
+        return Math.max(0, value)
+    }
+
+    function getAge(enrolmentDateTime) {
+        const now = moment();
+        const years = now.diff(enrolmentDateTime, 'year');
+        enrolmentDateTime.add(years, 'years');
+        const months = now.diff(enrolmentDateTime, 'months');
+        return `${properValue(years)} Years, ${properValue(months)} Months`;
+    }
+
+    function getFrontHTMLString(subjectObs, enrolmentObs, encounter, enrolmentDate, location) {
+        const address = `${subjectObs['Address'] || ''} ${location.Village}, ${location.Block}, ${location.District}`;
         return `<div class="card" style="position: relative; height: 550px;">
             <div class="header">
                 <img src="dignostic-left.png" width="100px" height="100px" alt="logo">
@@ -263,11 +306,53 @@
                     <div class="sub-heading">National Health Mission, Madhya Pradesh</div>
                     <div class="sub-heading">Implemented by : Jan Swasthya Sahyog, Ganiyari, Bilaspur</div>
                 </div>
-                <img src="dignostic-right.png" width="100px" height="100px" alt="logo">
+                <img src="dignostic-right.jpg" width="100px" height="100px" alt="logo">
             </div>
             <div class="content">
                 <div class="red sub-heading center">Sickle Cell Diagnosis Report:</div>
-                <div>Personal Details :</div>
+                <div class="bold">Personal Details :</div>
+                <div class="padding-left">
+                    <table style="width:100%">
+                        <tr style="line-height: 22px">
+                            <td>Registration Number : ${enrolmentObs['Enrolment number']}</td>
+                            <td>Date : ${enrolmentDate}</td>
+                        </tr>
+                        <tr style="line-height: 22px">
+                            <td>Name : ${subjectObs['First name']} ${subjectObs['Last name'] || ""}</td>
+                            <td>Father/Husband Name : ${subjectObs['Father/Husband'] || ''}</td>
+                        </tr>
+                        <tr style="line-height: 22px">
+                            <td>Age : ${getAge(moment(subjectObs['Date of birth']))}</td>
+                            <td>Sex : ${subjectObs['Gender']}</td>
+                        </tr>
+                        <tr style="line-height: 22px">
+                            <td>Address : ${address}</td>
+                            <td>Phone Number : ${subjectObs['Contact Number'] || subjectObs['Alternative contact number'] || ''}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="bold">Lab Reports :</div>
+                <div class="padding-left">
+                    <table style="width:100%">
+                        <tr style="line-height: 22px">
+                            <td>Hb : ${encounter.hb}</td>
+                            <td>Blood Group : ${encounter.bloodGroup}</td>
+                        </tr>
+                        <tr style="line-height: 22px">
+                            <td>Sickle Solubility Test Result : ${encounter.solubility}</td>
+                        </tr>
+                        <tr style="line-height: 22px">
+                            <td>Hb Electrophoresis Test Result : <span class="bold">${encounter.electrophoresisResult}</span></td>
+                        </tr>
+                        <tr style="line-height: 22px">
+                           <td>HPLC Test Result : ${encounter.hplc}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="bold">Interpretation :</div>
+                <div class="padding-left no-space">
+                    ${getInterpretation(encounter.electrophoresisResult)}
+                </div>
             </div>
             <div class="footer">Signature & Seal</div>
         </div>`;
@@ -275,22 +360,26 @@
 
     async function createPrint() {
         spinner.removeAttribute('hidden');
+        print.style.display = 'none';
         const url = new URL(window.location.href);
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                // 'user-name': url.searchParams.get("user-name"),
+                'user-name': url.searchParams.get("user-name"),
                 'AUTH-TOKEN': url.searchParams.get("AUTH-TOKEN"),
-                'user-name': 'admin@jscs',
+                // 'user-name': 'admin@jscs',
             },
         };
         const subjectUUIDs = url.searchParams.get("subjectUUIDs");
+        const allSubjects = [];
+        const enrolments = [];
         const eligibleSubjectUUIDs = [];
         const fetchAll = subjectUUIDs.split(",")
             .map(uuid => fetch(`/api/subject/${uuid}`, options)
                 .then(res => res.json())
                 .then(subject => {
+                    allSubjects.push(subject);
                     return fetch(`/api/programEnrolments?program=Sickle Cell&subject=${subject['ID']}`, options)
                 })
                 .then(res => res.json())
@@ -298,6 +387,7 @@
                 .then(enls => {
                     if (enls.length > 0) {
                         const enrolment = enls[0];
+                        enrolments.push(enrolment);
                         return fetch(`/api/programEncounters?programEnrolmentId=${enrolment['ID']}&size=100&page=0`, options)
                     }
                     return null;
@@ -314,8 +404,12 @@
                     const subjectUUID = _.get(ssEncounter, ['Subject ID']);
                     const observations = _.get(ssEncounter, ['observations']);
                     const electrophoresisResult = observations['Hb Electrophoresis'] || observations['Result from old sickle cell test report'] || observations['Electrophoresis result'] || observations['Hemoglobin genotype'] || observations['HPLC result'];
+                    const bloodGroup = _.get(_.find(data.content, ({observations}) => observations['Blood group']), ['observations', 'Blood group'], '');
+                    const hb = _.get(_.find(data.content, ({observations}) => observations['Hb range (Copper Sulphate method)']), ['observations', 'Hb range (Copper Sulphate method)'], '');
+                    const solubility = _.get(_.find(data.content, ({observations}) => observations['Solubility result']), ['observations', 'Solubility result'], '');
+                    const hplc = _.get(_.find(data.content, ({observations}) => observations['HPLC result']), ['observations', 'HPLC result'], 'Not Required');
                     eligibleSubjectUUIDs.push(subjectUUID);
-                    return {subjectUUID, electrophoresisResult};
+                    return {subjectUUID, electrophoresisResult, bloodGroup, hb, solubility, hplc};
                 })
             );
         const encounters = await Promise.all(fetchAll)
@@ -325,9 +419,15 @@
         }
         var frontHTMLString = "";
         var backHTMLString = '';
+        const filteredEncounters = encounters.filter(Boolean);
         eligibleSubjectUUIDs.forEach((uuid, index) => {
-            frontHTMLString += getFrontHTMLString();
-            backHTMLString += getBackHTMLString(_.find(encounters, (enc) => enc.subjectUUID === uuid).electrophoresisResult);
+            const subject = _.find(allSubjects, sub => sub['ID'] === uuid);
+            const subjectObs = subject.observations;
+            const enrolment = _.find(enrolments, (enl) => enl['Subject ID'] === uuid);
+            const enrolmentObs = enrolment.observations;
+            const encounter = _.find(filteredEncounters, (enc) => enc.subjectUUID === uuid);
+            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, encounter, new Date(enrolment['Enrolment datetime']).toLocaleDateString(), subject.location);
+            backHTMLString += getBackHTMLString(_.get(encounter, 'electrophoresisResult', ''));
             if (index > 0 && (index + 1) % 2 === 0 && (index + 1) !== eligibleSubjectUUIDs.length) {
                 frontHTMLString += '<div style="margin: 8px; width: 100%"></div>';
                 backHTMLString += '<div style="margin: 8px; width: 100%"></div>';
@@ -336,6 +436,8 @@
         document.getElementById("front-data").innerHTML = frontHTMLString;
         document.getElementById("back-data").innerHTML = backHTMLString;
         spinner.setAttribute('hidden', '');
+        setTimeout(() => window.print(), 500);
+        print.style.display = 'block';
     }
 
     createPrint();

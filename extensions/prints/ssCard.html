@@ -41,6 +41,11 @@
                     transform: rotate(360deg);
                 }
             }
+            .print {
+                margin-bottom: 10px;
+                padding: 3px;
+                font-size: 18px;
+            }
         }
 
         @media print {
@@ -53,7 +58,7 @@
                 border: 2px solid rgba(52, 52, 52, 0.91);
                 width: 32.8%;
                 margin-bottom: 1px;
-                height: 260px!important;
+                height: 260px !important;
             }
 
             /*this enables background graphics automatically, works only in chrome*/
@@ -71,6 +76,10 @@
                 flex-direction: row;
                 flex-wrap: wrap;
                 page-break-before: always !important;
+            }
+
+            #print {
+                display: none!important;
             }
         }
 
@@ -151,12 +160,15 @@
         }
 
     </style>
-    <title>SS Card</title>
+    <title>Diagnosis Report</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 
 </head>
 <body>
 <div class="container">
+    <div class="print" id="print">
+        <button onclick="window.print()">Print/Save</button>
+    </div>
     <div class="front" id="front-data"></div>
     <div class="back" id="back-data"></div>
     <div hidden id="spinner"></div>
@@ -165,6 +177,7 @@
 
 <script>
     const spinner = document.getElementById("spinner");
+    const print = document.getElementById('print');
 
     function getBackHTMLString() {
         return `<div class="card">
@@ -196,7 +209,11 @@
         return `<div class="card">
                 <div class="header">
                     <div class="color-text">सिकल सेल एनीमिया नियंत्रण मिशन, अनूपपुर , मध्य प्रदेश</div>
-                    <img src="JSCSImage.png" width="130px" height="50px" alt="Logo">
+                    <div style="display: flex; flex-direction: row;">
+                        <img src="dignostic-left.png" width="60px" height="50px" alt="Logo">
+                        <div style="width: 2px"></div>
+                        <img src="dignostic-right.jpg" width="60px" height="50px" alt="Logo">
+                    </div>
                 </div>
                 <div class="content">
                     <div class="color-text center">संस्था: जन स्वास्थ्य सहयोग,सृजन, जिला स्वास्थ्य समिति अनुपपुर</div>
@@ -239,14 +256,15 @@
 
     async function fetchSubjects() {
         spinner.removeAttribute('hidden');
+        print.style.display = 'none';
         const url = new URL(window.location.href);
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                // 'user-name': url.searchParams.get("user-name"),
+                'user-name': url.searchParams.get("user-name"),
                 'AUTH-TOKEN': url.searchParams.get("AUTH-TOKEN"),
-                'user-name': 'admin@jscs',
+                // 'user-name': 'admin@jscs',
             },
         };
         const subjectUUIDs = url.searchParams.get("subjectUUIDs");
@@ -281,22 +299,23 @@
                     console.log("SS encounter found =>>>");
                     const subjectUUID = _.get(ssEncounter, ['Subject ID']);
                     eligibleSubjectUUIDs.push(subjectUUID);
-                    const bloodGroup = _.get(_.find(data.content, ({observations}) => !_.isEmpty(observations['Blood group'])), ['observations', 'Blood group'], 'Not available');
+                    const bloodGroup = _.get(_.find(data.content, ({observations}) => observations['Blood group']), ['observations', 'Blood group'], 'Not available');
                     return {subjectUUID, bloodGroup};
                 })
             );
         const encounters = await Promise.all(fetchAll)
             .catch(error => alert(`Error occurred while generating print \n ${error.message}`));
-        if(_.isEmpty(eligibleSubjectUUIDs)){
+        if (_.isEmpty(eligibleSubjectUUIDs)) {
             alert("No SS patient present in the batch. Please choose only SS patients to generate SS cards.")
         }
         var frontHTMLString = "";
+        const filteredEncounters = encounters.filter(Boolean);
         eligibleSubjectUUIDs.forEach((subjectUUID, index) => {
             const subject = _.find(allSubjects, sub => sub['ID'] === subjectUUID);
             const subjectObs = subject.observations;
             const enrolment = _.find(enrolments, (enl) => enl['Subject ID'] === subjectUUID);
             const enrolmentObs = enrolment.observations;
-            const bloodGroup = _.get(_.find(encounters, (enc) => enc.subjectUUID === subjectUUID), 'bloodGroup', 'Not available');
+            const bloodGroup = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'bloodGroup', 'Not available');
             frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, new Date(enrolment['Enrolment datetime']).toLocaleDateString(), subject.location.District);
             if (index > 0 && (index + 1) % 9 === 0) {
                 if (eligibleSubjectUUIDs.length <= 9) {
@@ -321,6 +340,8 @@
             }
         }
         document.getElementById("back-data").innerHTML = backHTMLString;
+        setTimeout(() => window.print(), 500);
+        print.style.display = 'block';
     }
 
     fetchSubjects();
