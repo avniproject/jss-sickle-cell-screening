@@ -100,8 +100,8 @@
             .header {
                 display: flex;
                 flex-direction: row;
-                -webkit-align-content: space-between;
-                justify-content: space-between;
+                -webkit-align-content: space-around;
+                justify-content: space-around;
                 align-items: center;
                 padding: 5px;
                 margin: 1px 1px 1px;
@@ -109,7 +109,7 @@
             }
 
             .color-text {
-                font-size: 14px;
+                font-size: 13px;
                 font-weight: bold;
                 color: rgb(13, 104, 128);
             }
@@ -205,22 +205,26 @@
                     </div>`;
     }
 
-    function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location) {
+    function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location, district) {
+        const districtHindiMap = {Dindori: 'डिंडोरी', Anuppur: 'अनूपपुर'};
         return `<div class="card">
                 <div class="header">
-                    <div class="color-text">सिकल सेल एनीमिया नियंत्रण मिशन, अनूपपुर , मध्य प्रदेश</div>
+                    <div>
+                        <div class="color-text">सिकल सेल एनीमिया नियंत्रण मिशन,</div>
+                        <div class="color-text">${districtHindiMap[district]} , मध्य प्रदेश</div>
+                    </div>
                     <div style="display: flex; flex-direction: row;">
-                        <img src="dignostic-left.png" width="60px" height="50px" alt="Logo">
+                        <img src="dignostic-left.png" width="50px" height="40px" alt="Logo">
                         <div style="width: 2px"></div>
-                        <img src="dignostic-right.jpg" width="60px" height="50px" alt="Logo">
+                        <img src="dignostic-right.jpg" width="50px" height="40px" alt="Logo">
                     </div>
                 </div>
                 <div class="content">
-                    <div class="color-text center">संस्था: जन स्वास्थ्य सहयोग,सृजन, जिला स्वास्थ्य समिति अनुपपुर</div>
+                    <div class="color-text center">संस्था: जन स्वास्थ्य सहयोग, जिला स्वास्थ्य समिति ${districtHindiMap[district]}</div>
                     <table style="width:100%">
                         <tr style="line-height: 22px">
                             <td>नाम : <span class="bold">${subjectObs['First name']} ${subjectObs['Last name'] || ""}</span></td>
-                            <td style="white-space:nowrap;">पंजीयन संख्या : <span class="bold">${enrolmentObs['Enrolment number']}</span></td>
+                            <td style="white-space:nowrap;">पंजीयन संख्या : </td>
                         </tr>
                         <tr style="line-height: 22px">
                             <td>पिता/ पति : <span class="bold">${subjectObs['Father/Husband']}</span></td>
@@ -296,7 +300,6 @@
                         console.log("no SS encounter found =>>", data.content);
                         return undefined;
                     }
-                    console.log("SS encounter found =>>>");
                     const subjectUUID = _.get(ssEncounter, ['Subject ID']);
                     eligibleSubjectUUIDs.push(subjectUUID);
                     const bloodGroup = _.get(_.find(data.content, ({observations}) => observations['Blood group']), ['observations', 'Blood group'], 'Not available');
@@ -316,7 +319,9 @@
             const enrolment = _.find(enrolments, (enl) => enl['Subject ID'] === subjectUUID);
             const enrolmentObs = enrolment.observations;
             const bloodGroup = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'bloodGroup', 'Not available');
-            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, new Date(enrolment['Enrolment datetime']).toLocaleDateString(), subject.location.District);
+            const {Village, Block, District} = subject.location;
+            const location = `${Village}, ${Block}, ${District}`;
+            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, new Date(enrolment['Enrolment datetime']).toLocaleDateString(), location, District);
             if (index > 0 && (index + 1) % 9 === 0) {
                 if (eligibleSubjectUUIDs.length <= 9) {
                     frontHTMLString += '<div style="margin: 6px; width: 100%"></div>'
