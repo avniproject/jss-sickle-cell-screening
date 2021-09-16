@@ -110,9 +110,9 @@ select distinct on (a.id) first_name                                            
                           pe.enrolment_date_time::date                               as      "Enrolment Date",
                           pe.observations ->> '8f852186-ccf1-4898-b581-99b37bcae2f1' as      "Enrolment Number",
                           single_select_coded(
-                                      a.observations ->> 'e2c7cacd-03f7-4228-b0ce-4ddb2e220974') "Whether registration for pregnant woman (Old)",
+                                  a.observations ->> 'e2c7cacd-03f7-4228-b0ce-4ddb2e220974') "Whether registration for pregnant woman (Old)",
                           single_select_coded(
-                                      a.observations ->> 'c254e204-3a7c-4e13-bac2-abfca94c9528') "Type of person screened (New)"
+                                  a.observations ->> 'c254e204-3a7c-4e13-bac2-abfca94c9528') "Type of person screened (New)"
 from all_data a
          join gender g on g.id = a.gender_id
          join address_level village on village.id = a.address_id
@@ -196,12 +196,12 @@ with relation_data as (
                                     '"05ea583c-51d2-412d-ad00-06c432ffe538"') --Other
                      end
              where
-                         observations ->> 'c254e204-3a7c-4e13-bac2-abfca94c9528' isnull -- "Type of person screened" is still null
+                     observations ->> 'c254e204-3a7c-4e13-bac2-abfca94c9528' isnull -- "Type of person screened" is still null
                      and subject_type_id = (select id from subject_type where name = 'Individual')
              returning audit_id
      )
 update audit
-set last_modified_date_time = current_timestamp + ((id/1000) * interval '1 millisecond')
+set last_modified_date_time = current_timestamp + ((id / 1000) * interval '1 millisecond')
 where id in (
     select audit_id
     from a_audits
@@ -12442,4 +12442,21 @@ where i.id = enl.individual_id
         'KJ08229',
         'SM01798',
         'SM02492')
+
+
+--check the distinct value
+select distinct observations ->> '522ce489-a2d2-4be4-9e79-7dd172149f34'
+from program_encounter
+where observations -> '522ce489-a2d2-4be4-9e79-7dd172149f34' notnull;
+
+with audits as (
+    update program_encounter set observations = (observations - '522ce489-a2d2-4be4-9e79-7dd172149f34') ||
+                                                jsonb_build_object('92e5fc81-5c6f-473a-8d13-415cf45720e2',
+                                                                   ARRAY ['2ea592b9-19dd-4215-a354-d3cd4263e0d9','6201104e-3360-4a55-b87e-22f84ec1eec2'])
+        where observations -> '522ce489-a2d2-4be4-9e79-7dd172149f34' notnull
+        returning audit_id
+)
+update audit
+set last_modified_date_time = current_timestamp + ((id / 1000) * interval '1 millisecond')
+where id in (select audit_id from audits)
 
