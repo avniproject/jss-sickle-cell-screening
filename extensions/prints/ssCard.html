@@ -162,6 +162,7 @@
     </style>
     <title>SS Card</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 </head>
 <body>
@@ -197,7 +198,7 @@
                             <div>&#9679; सिकल सेल बीमारी में कुछ भी पौष्टिक खाने का परहेज नहीं होता है|</div>
                             <div>
                                 <span class="red bold">Note for Doctor:</span>
-                                <span class="bold">Person having this card is a sickle cell anemia patients so further diagnosis is not required for treatment</span>
+                                <span class="bold">Person having this card is a sickle cell anemia patient so further diagnosis is not required for treatment</span>
                             </div>
                             <div class="space"></div>
                             <div class="color-text center">सिकल सेल सहायता नंबर 9617240924</div>
@@ -211,7 +212,7 @@
                 <div class="header">
                     <div>
                         <div class="color-text">सिकल सेल एनीमिया नियंत्रण मिशन,</div>
-                        <div class="color-text">${districtHindiMap[district]} , मध्य प्रदेश</div>
+                        <div class="color-text" style="text-align: -webkit-center;">${districtHindiMap[district]} , मध्य प्रदेश</div>
                     </div>
                     <div style="display: flex; flex-direction: row;">
                         <img src="dignostic-left.png" width="50px" height="40px" alt="Logo">
@@ -233,7 +234,7 @@
                         <tr style="line-height: 22px">
                             <td>पता : <span class="bold">${location}</span>
                             </td>
-                            <td>जन्म तिथि : <span class="bold">${new Date(subjectObs['Date of birth']).toLocaleDateString()}</span></td>
+                            <td>उम्र : <span class="bold">${moment().diff(subjectObs['Date of birth'], 'years')} साल</span></td>
                         </tr>
                         <tr style="line-height: 22px">
                             <td>लिंग : <span class="bold">${subjectObs['Gender']}</span></td>
@@ -242,7 +243,7 @@
                     </table>
                         <div class="bold">इलेक्ट्रॉफोरेसिस रिज़ल्ट :</div>
                         <div class="row" style="align-items: flex-end">
-                            <div class="bold red">
+                            <div class="bold red" style="margin-left: 20px;">
                                 <div>
                                     SS (रोगी)
                                 </div>
@@ -251,7 +252,7 @@
                                 </div>
                             </div>
                             <div style="font-size: 11px">
-                                मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी अनूपपुर
+                                मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी ${districtHindiMap[district]}
                             </div>
                     </div>
                 </div>
@@ -307,9 +308,13 @@
                 })
             );
         const encounters = await Promise.all(fetchAll)
-            .catch(error => alert(`Error occurred while generating print \n ${error.message}`));
+            .catch(error => {
+                alert(`Error occurred while generating print \n ${error.message}`);
+                window.close();
+            });
         if (_.isEmpty(eligibleSubjectUUIDs)) {
-            alert("No SS patient present in the batch. Please choose only SS patients to generate SS cards.")
+            alert("No SS patient present in the batch. Please choose only SS patients to generate SS cards.");
+            window.close();
         }
         var frontHTMLString = "";
         const filteredEncounters = encounters.filter(Boolean);

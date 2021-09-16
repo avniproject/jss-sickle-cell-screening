@@ -6,7 +6,6 @@
     <style>
         @media screen {
             .container {
-                margin-top: 10px;
                 margin-left: 25%;
                 margin-right: 25%;
             }
@@ -59,21 +58,26 @@
                 -webkit-print-color-adjust: exact;
             }
 
+            /*applied to first page only default is 8px*/
+            body {
+                margin-top: 4px !important;
+            }
+
             @page {
                 margin: 0;
                 size: A4;
             }
 
-            .back {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                page-break-before: always !important;
-                margin-bottom: 5px;
-                padding: 10px;
+            .card {
+                margin-top: 2px;
+                border: 1px solid rgba(52, 52, 52, 0.91);
+                height: 530px;
+                page-break-after: always !important;
+                break-inside: avoid;
             }
 
             #print {
+                margin-bottom: 0;
                 display: none !important;
             }
         }
@@ -86,25 +90,7 @@
 
             .card {
                 border: 1px solid rgba(52, 52, 52, 0.91);
-                width: 100%;
-                margin-bottom: 1px;
                 height: 530px;
-            }
-
-            .front {
-                display: flex;
-                flex-direction: row;
-                -webkit-align-content: space-between;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                margin-bottom: 5px;
-            }
-
-            .back {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                margin-bottom: 5px;
             }
 
             .header {
@@ -171,7 +157,7 @@
             }
 
             .small-font {
-                font-size: 13px;
+                font-size: 15px;
             }
 
             .padding {
@@ -199,8 +185,8 @@
     <div class="print" id="print">
         <button onclick="window.print()">Print / Save</button>
     </div>
-    <div class="front" id="front-data"></div>
-    <div class="back small-font" id="back-data"></div>
+    <div id="front-data"></div>
+    <div class="small-font" id="back-data"></div>
     <div hidden id="spinner"></div>
 </div>
 </body>
@@ -212,39 +198,28 @@
     function getSSString() {
         return `<div class="card padding">
             <div class="green bold">सिकल सेल बीमारी (SS) होने पर क्या करें :-</div>
-            आपको बिलकुल भी डरने की ज़रूरत नही है की आपको सिकल सेल एनेमिया बीमारी से ग्रस्त है लेकिन आपको अपनी तबियत का
-            विशेष ध्यान रखना होगा, इसलिए निम्न बिंदुओं पर ध्यान दें -
+            आपको बिलकुल भी डरने की ज़रूरत नही है की आप सिकल सेल एनेमिया बीमारी से ग्रस्त है लेकिन आपको अपनी तबियत का विशेष ध्यान रखना होगा, इसलिए निम्न बिंदुओं पर ध्यान दें -
             <div class="dark-blue bold">सावधानियाँ :</div>
             <div style="margin-left: 15px">
                 <div>&#9679; सिकल रोगी को ज्यादा मात्रा में पानी पीना चाहिए <span class="bold">(5-6 लीटर रोज)</span>|</div>
-                <div>&#9679; हमेशा पोष्टिक खाना खाए जैसे - हरी पत्तेदार सब्जियां, मौसमी फल, दूध, मुनगा, अंडा, मांस, मछली,
-                    सेव, अनार, कोदो) आदि खा सकते हैं|
-                </div>
-                <div>&#9679; खाने में किसी प्रकार का परहेज नही करना है लेकिन फ़ास्ट फ़ूड कम खाए ये अपने पाचन तंत्र को
-                    नुक़सान पहुँचाते है|
-                </div>
+                <div>&#9679; हमेशा पोष्टिक खाना खाए जैसे - हरी पत्तेदार सब्जियां, मौसमी फल, दूध, मुनगा, अंडा, मांस, मछली, सेव, अनार, कोदो आदि खा सकते हैं|</div>
+                <div>&#9679; खाने में किसी प्रकार का परहेज नही करना है लेकिन फ़ास्ट फ़ूड कम खाए ये अपने पाचन तंत्र को नुक़सान पहुँचाते है|</div>
                 <div>&#9679; सिकल सेल रोगी को अत्यधिक गर्मी, ठंडी और बरसात के मौसम में अपना ज्यादा ख्याल रखना चाहिए|</div>
-                <div>&#9679; सिकल रोगी को ज्यादा भारी या थका देने वाला काम जिसमें साँस फूलने लगे या शरीर में दर्द होने लगे
-                    वह काम नहीं करना चाहिए |
-                </div>
+                <div>&#9679; सिकल रोगी अगर कोई भारी या थका देने वाला कार्य करते समय अगर साँस फूलने लगे या शरीर में दर्द होने लगे तो उसे ज्यादा नहीं करना चाहिए|</div>
             </div>
             <div class="dark-blue bold">ईलाज:</div>
             <div style="margin-left: 15px">
-                <div>&#9679; सिकल सेल बीमारी की दो मुख्य दवाइयाँ आपको रोज लेना जरूरी है जिनकी डोज़ डॉक्टर के कहे अनुसार ले
-                    :
-                </div>
+                <div>&#9679; सिकल सेल बीमारी की दो मुख्य दवाइयाँ आपको रोज लेना जरूरी है जिनकी डोज़ डॉक्टर के कहे अनुसार ले :</div>
                 <div class="padding-left">1. हाइड्रोक्सीयूरिया</div>
                 <div class="padding-left">2. प्लेन फोलिक एसिड</div>
                 <div class="padding-left">3. अगर शरीर में कही भी दर्द हो रहा है तो घर पर दर्दनिवारक दवाई ले सकते है जैसे की <span class="bold">Paracetamol,
                     Brufen, Tramadol</span> लेकिन कैसे व कब लेनी है इसके लिए डॉक्टर से पहले ही सलाह लें|
                 </div>
-                <div class="padding-left">4. जन स्वास्थ्य सहयोग संस्था द्वारा सिकल सेल रोगियों के लिए मासिक बैठक का आयोजन किया जाता है, उसमे
-                    सभी रोगियों की नियमित जांच, परामर्श और दवाइयाँ जैसी सेवाएँ दी जाती है, कृपया बैठक में आ कर समुचित इलाज
-                    और जानकारी प्राप्त करे |
+                <div class="padding-left">4. जन स्वास्थ्य सहयोग संस्था द्वारा सिकल सेल रोगियों के लिए एक समय अन्तराल के बाद रोगी सहता समूह बैठक का आयोजन किया जाता है, उसमे सभी रोगियों की नियमित जांच, परामर्श और दवाइयाँ जैसी सेवाएँ दी जाती है, कृपया बैठक में आ कर समुचित जांच, इलाज और जानकारी प्राप्त करे |
                 </div>
             </div>
             <div class="green">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
-                हुई कोई समस्या पर होने सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
+                हुई कोई समस्या होने पर सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
             </div>
         </div>`;
     }
@@ -276,7 +251,7 @@
     }
 
     function getSSInterpretation() {
-        return `After all the diagnosis the person is found that the Genotype is <span class="bold">"SS"</span> which means the person is Sickle Cell Patient/सिकल सेल रोगी & Need the treatment prescribed by a doctor. He/She also need the proper regular checkup & Follow-up.`
+        return  'After all the diagnosis the Genotype of the person is found <span class="bold">"SS"</span> which means the person is Sickle Cell Patient/सिकल सेल रोगी & Need the treatment prescribed by a doctor. He/She also need the proper regular checkup & Follow-up.'
     }
 
     function getASInterpretation() {
@@ -305,8 +280,8 @@
             <div class="header">
                 <img src="dignostic-left.png" width="100px" height="100px" alt="logo">
                 <div class="column">
-                    <div class="heading">District Hospital, Anuppur, Madhya Pradesh</div>
-                    <div class="blue sub-heading">Project: Sickle Cell Anemia Control Mission, Anuppur</div>
+                    <div class="heading">District Hospital, ${location.Block}, Madhya Pradesh</div>
+                    <div class="blue sub-heading">Project: Sickle Cell Anemia Control Mission, ${location.Block}</div>
                     <div class="sub-heading">National Health Mission, Madhya Pradesh</div>
                     <div class="sub-heading">Implemented by : Jan Swasthya Sahyog, Ganiyari, Bilaspur</div>
                 </div>
@@ -344,8 +319,6 @@
                         </tr>
                         <tr style="line-height: 22px">
                             <td>Sickle Solubility Test Result : ${encounter.solubility}</td>
-                        </tr>
-                        <tr style="line-height: 22px">
                             <td>Hb Electrophoresis Test Result : <span class="bold">${encounter.electrophoresisResult}</span></td>
                         </tr>
                         <tr style="line-height: 22px">
@@ -417,9 +390,13 @@
                 })
             );
         const encounters = await Promise.all(fetchAll)
-            .catch(error => alert(`Error occurred while generating print \n ${error.message}`));
+            .catch(error => {
+                alert(`Error occurred while generating print \n ${error.message}`);
+                window.close();
+            });
         if (_.isEmpty(eligibleSubjectUUIDs)) {
-            alert("No AS/SS patient present in the batch. Please choose only AS/SS patients to generate Diagnostic report.")
+            alert("No AS/SS patient present in the batch. Please choose only AS/SS patients to generate Diagnostic report.");
+            window.close();
         }
         var frontHTMLString = "";
         var backHTMLString = '';
