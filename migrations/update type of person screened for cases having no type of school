@@ -7,7 +7,7 @@ set observations = i.observations ||
                    jsonb_build_object('c254e204-3a7c-4e13-bac2-abfca94c9528', '4abc45d9-23b2-4388-b6b5-ac5cedafec6b',
                                       'b4aef414-6830-4967-8bd1-1cf708c3969e', '52910fb2-ec05-4943-8c71-6504d50e9b40'
                        ),
-    last_modified_date_time = current_timestamp + ((id % 1000) * interval '1 millisecond'),
+    last_modified_date_time = current_timestamp + ((i.id % 4000) * interval '1 millisecond'),
     last_modified_by_id = (select id from users where username = 'nupoork@jscs')
 from program_enrolment enl
 where i.id = enl.individual_id
@@ -1158,7 +1158,7 @@ set observations = i.observations ||
                    jsonb_build_object('c254e204-3a7c-4e13-bac2-abfca94c9528', '4abc45d9-23b2-4388-b6b5-ac5cedafec6b',
                                       'b4aef414-6830-4967-8bd1-1cf708c3969e', '52910fb2-ec05-4943-8c71-6504d50e9b40'
                        ),
-    last_modified_date_time = current_timestamp + ((id % 1000) * interval '1 millisecond'),
+    last_modified_date_time = current_timestamp + ((i.id % 4000) * interval '1 millisecond'),
     last_modified_by_id = (select id from users where username = 'nupoork@jscs')
 from program_enrolment enl
 where i.id = enl.individual_id
@@ -2310,7 +2310,7 @@ set observations = i.observations ||
                    jsonb_build_object('c254e204-3a7c-4e13-bac2-abfca94c9528', '4abc45d9-23b2-4388-b6b5-ac5cedafec6b',
                                       'b4aef414-6830-4967-8bd1-1cf708c3969e', '52910fb2-ec05-4943-8c71-6504d50e9b40'
                        ),
-    last_modified_date_time = current_timestamp + ((id % 1000) * interval '1 millisecond'),
+    last_modified_date_time = current_timestamp + ((i.id % 4000) * interval '1 millisecond'),
     last_modified_by_id = (select id from users where username = 'nupoork@jscs') from  program_enrolment enl
 where i.id = enl.individual_id
   and enl.observations ->> '8f852186-ccf1-4898-b581-99b37bcae2f1'
@@ -3460,7 +3460,7 @@ set observations = i.observations ||
                    jsonb_build_object('c254e204-3a7c-4e13-bac2-abfca94c9528', '4abc45d9-23b2-4388-b6b5-ac5cedafec6b',
                                       'b4aef414-6830-4967-8bd1-1cf708c3969e', '52910fb2-ec05-4943-8c71-6504d50e9b40'
                        ),
-    last_modified_date_time = current_timestamp + ((id % 1000) * interval '1 millisecond'),
+    last_modified_date_time = current_timestamp + ((i.id % 4000) * interval '1 millisecond'),
     last_modified_by_id = (select id from users where username = 'nupoork@jscs')
  from  program_enrolment enl
 where i.id = enl.individual_id
