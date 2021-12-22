@@ -1,4 +1,3 @@
-
 set role jscs;
 insert into program_encounter(observations,
                               earliest_visit_date_time,
@@ -27,8 +26,8 @@ select '{}'::jsonb,
        create_audit((select id from users where username = 'dataimporter@jscs')),
        83,
        83,
-       current_timestamp,
-       current_timestamp
+       current_timestamp + ((i.id % 4000) * interval '1 millisecond'), ,
+       current_timestamp + ((i.id % 4000) * interval '1 millisecond'),
 from program_encounter enc
          left join program_enrolment pe on enc.program_enrolment_id = pe.id
 where enc.encounter_type_id = 45
