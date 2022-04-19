@@ -100,8 +100,8 @@
             .header {
                 display: flex;
                 flex-direction: row;
-                -webkit-align-content: space-around;
-                justify-content: space-around;
+                -webkit-align-content: space-between;
+                justify-content: space-between;
                 align-items: center;
                 padding: 5px;
                 margin: 1px 1px 1px;
@@ -180,10 +180,19 @@
     const spinner = document.getElementById("spinner");
     const print = document.getElementById('print');
 
+    function getOrDefault(observations, path1, defaultPath) {
+        return _.defaultTo(_.get(observations, path1), _.get(observations, defaultPath));
+    }
+
+    function getFullName(observations) {
+        const hindiName = observations['Full name in hindi'];
+        return _.isEmpty(hindiName) ? `${observations['First name']} ${observations['Last name']}` || "" : hindiName;
+    }
+
     function getBackHTMLString() {
         return `<div class="card">
                         <div class="content" style="font-size: 11px">
-                            <div class="color-text center">सिकल सेल एनीमिया नियंत्रण मिशन</div>
+                            <div class="color-text center">सिकल सेल एनीमिया नियंत्रण अभियान</div>
                             <div>&#9679; सिकल सेल वाहक होने पर सामान्यता इस बीमारी से संबंधित इलाज की जरूरत नही रहती है|</div>
                             <div>&#9679; चूँकि यह एक अनुवांशिक बीमारी है इसलिए यदि दो वाहक आपस मे विवाह करते है, तो उनके बच्चो को सिकल
                                 रोग
@@ -206,41 +215,36 @@
                     </div>`;
     }
 
-    function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location, district) {
+    function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location, district, registrationNumber) {
         const districtHindiMap = {Dindori: 'डिंडोरी', Anuppur: 'अनूपपुर'};
+        const genderMap = {Male: 'पुस्र्ष', Female: 'महिला', Other:'अन्य'};
+        const gender = genderMap[subjectObs['Gender']];
         return `<div class="card">
                 <div class="header">
-                    <div>
-                        <div class="color-text">सिकल सेल एनीमिया नियंत्रण मिशन,</div>
-                        <div class="color-text" style="text-align: -webkit-center;">${districtHindiMap[district]} , मध्य प्रदेश</div>
-                    </div>
-                    <div style="display: flex; flex-direction: row;">
                         <img src="dignostic-left.png" width="50px" height="40px" alt="Logo">
-                        <div style="width: 2px"></div>
-                        <img src="dignostic-right.jpg" width="50px" height="40px" alt="Logo">
-                    </div>
+                        <div>
+                            <div class="color-text">सिकल सेल एनीमिया नियंत्रण अभियान,</div>
+                            <div class="color-text" style="text-align: -webkit-center;">${districtHindiMap[district]} , मध्य प्रदेश</div>
+                        </div>
+                        <img src="dignostic-right.png" width="50px" height="40px" alt="Logo">
                 </div>
                 <div class="content">
-                    <div class="color-text center">संस्था: जन स्वास्थ्य सहयोग, जिला स्वास्थ्य समिति ${districtHindiMap[district]}</div>
-                    <table style="width:100%">
-                        <tr style="line-height: 22px">
-                            <td>नाम : <span class="bold">${subjectObs['First name']} ${subjectObs['Last name'] || ""}</span></td>
-                            <td style="white-space:nowrap;">पंजीयन संख्या : </td>
-                        </tr>
-                        <tr style="line-height: 22px">
-                            <td>पिता/ पति : <span class="bold">${subjectObs['Father/Husband']}</span></td>
-                            <td>दिनांक : <span class="bold">${enrolmentDateTime}</span></td>
-                        </tr>
-                        <tr style="line-height: 22px">
-                            <td>पता : <span class="bold">${location}</span>
-                            </td>
-                            <td>उम्र : <span class="bold">${moment().diff(subjectObs['Date of birth'], 'years')} साल</span></td>
-                        </tr>
-                        <tr style="line-height: 22px">
-                            <td>लिंग : <span class="bold">${subjectObs['Gender']}</span></td>
-                            <td class="red">ब्लड ग्रूप : <span class="bold">${bloodGroup}</span></td>
-                        </tr>
-                    </table>
+                    <div class="color-text center">संस्था – जिला स्वास्थ्य समिति एवं जन स्वास्थ्य सहयोग ${districtHindiMap[district]}</div>
+                    <div style="display: flex; flex-direction: row">
+                        <div style="display: flex; flex-direction: column; flex: 2">
+                            <div>नाम : <span class="bold">${getFullName(subjectObs)}</span></div>
+                            <div>पिता/ पति : <span class="bold">${getOrDefault(subjectObs, 'Father/Husband name in hindi', 'Father/Husband')}</span></div>
+                            <div>पता : <span class="bold">${location}</span></div>
+                            <div>लिंग : <span class="bold">${gender}</span></div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; flex: 1">
+                            <div>पंजीयन संख्या : <span>${registrationNumber}</span></div>
+                            <div>दिनांक : <span class="bold">${moment(enrolmentDateTime, 'YYYY-MM-DD[T]HH:mm:ss.000Z').format('L')}</span></div>
+                            <div>उम्र : <span class="bold">${moment().diff(subjectObs['Date of birth'], 'years')} साल</span></div>
+                            <div class="red">ब्लड ग्रूप : <span class="bold">${bloodGroup}</span></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px">
                         <div class="bold">इलेक्ट्रॉफोरेसिस रिज़ल्ट :</div>
                         <div class="row" style="align-items: flex-end">
                             <div class="bold red" style="margin-left: 20px;">
@@ -254,6 +258,7 @@
                             <div style="font-size: 11px">
                                 मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी ${districtHindiMap[district]}
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>`;
@@ -303,8 +308,9 @@
                     }
                     const subjectUUID = _.get(ssEncounter, ['Subject ID']);
                     eligibleSubjectUUIDs.push(subjectUUID);
-                    const bloodGroup = _.get(_.find(data.content, ({observations}) => observations['Blood group']), ['observations', 'Blood group'], 'Not available');
-                    return {subjectUUID, bloodGroup};
+                    const bloodGroup = _.get(_.find(data.content, ({observations}) => observations['Blood group']), ['observations', 'Blood group'], '');
+                    const registrationNumber = _.get(_.find(data.content, ({observations}) => observations['Registration number']), ['observations', 'Registration number'], '');
+                    return {subjectUUID, bloodGroup, registrationNumber};
                 })
             );
         const encounters = await Promise.all(fetchAll)
@@ -323,10 +329,11 @@
             const subjectObs = subject.observations;
             const enrolment = _.find(enrolments, (enl) => enl['Subject ID'] === subjectUUID);
             const enrolmentObs = enrolment.observations;
-            const bloodGroup = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'bloodGroup', 'Not available');
+            const bloodGroup = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'bloodGroup', '');
+            const registrationNumber = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'registrationNumber', '');
             const {Village, Block, District} = subject.location;
             const location = `${Village}, ${Block}, ${District}`;
-            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, new Date(enrolment['Enrolment datetime']).toLocaleDateString(), location, District);
+            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, new Date(enrolment['Enrolment datetime']).toLocaleDateString(), location, District, registrationNumber);
             if (index > 0 && (index + 1) % 9 === 0) {
                 if (eligibleSubjectUUIDs.length <= 9) {
                     frontHTMLString += '<div style="margin: 6px; width: 100%"></div>'
