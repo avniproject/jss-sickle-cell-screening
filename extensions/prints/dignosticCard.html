@@ -84,7 +84,6 @@
 
         @media all {
             body {
-                font-family: 'Mukta';
                 font-size: 16px;
             }
 
@@ -96,10 +95,10 @@
             .header {
                 display: flex;
                 flex-direction: row;
-                padding: 10px;
                 border-bottom: 1px solid rgba(52, 52, 52, 0.91);
                 -webkit-align-content: space-between;
                 justify-content: space-between;
+                padding: 10px 10px 0;
             }
 
             .column {
@@ -168,8 +167,21 @@
                 padding-left: 15px;
             }
 
+            .padding-top {
+                padding-top: 20px;
+            }
+
             .no-space {
                 line-height: 1.2;
+            }
+
+            @font-face {
+                font-family:Cambria;
+                src: local('Cambria'), url('Cambria.ttf');
+            }
+
+            .cambria {
+                font-family: Cambria,serif;
             }
 
         }
@@ -199,7 +211,7 @@
         return `<div class="card padding">
             <div class="green bold">सिकल सेल बीमारी (SS) होने पर क्या करें :-</div>
             आपको बिलकुल भी डरने की ज़रूरत नही है की आप सिकल सेल एनेमिया बीमारी से ग्रस्त है लेकिन आपको अपनी तबियत का विशेष ध्यान रखना होगा, इसलिए निम्न बिंदुओं पर ध्यान दें -
-            <div class="dark-blue bold">सावधानियाँ :</div>
+            <div class="dark-blue bold padding-top">सावधानियाँ :</div>
             <div style="margin-left: 15px">
                 <div>&#9679; सिकल रोगी को ज्यादा मात्रा में पानी पीना चाहिए <span class="bold">(5-6 लीटर रोज)</span>|</div>
                 <div>&#9679; हमेशा पोष्टिक खाना खाए जैसे - हरी पत्तेदार सब्जियां, मौसमी फल, दूध, मुनगा, अंडा, मांस, मछली, सेव, अनार, कोदो आदि खा सकते हैं|</div>
@@ -207,7 +219,7 @@
                 <div>&#9679; सिकल सेल रोगी को अत्यधिक गर्मी, ठंडी और बरसात के मौसम में अपना ज्यादा ख्याल रखना चाहिए|</div>
                 <div>&#9679; सिकल रोगी अगर कोई भारी या थका देने वाला कार्य करते समय अगर साँस फूलने लगे या शरीर में दर्द होने लगे तो उसे ज्यादा नहीं करना चाहिए|</div>
             </div>
-            <div class="dark-blue bold">ईलाज:</div>
+            <div class="dark-blue bold padding-top">ईलाज:</div>
             <div style="margin-left: 15px">
                 <div>&#9679; सिकल सेल बीमारी की दो मुख्य दवाइयाँ आपको रोज लेना जरूरी है जिनकी डोज़ डॉक्टर के कहे अनुसार ले :</div>
                 <div class="padding-left">1. हाइड्रोक्सीयूरिया</div>
@@ -215,10 +227,10 @@
                 <div class="padding-left">3. अगर शरीर में कही भी दर्द हो रहा है तो घर पर दर्दनिवारक दवाई ले सकते है जैसे की <span class="bold">Paracetamol,
                     Brufen, Tramadol</span> लेकिन कैसे व कब लेनी है इसके लिए डॉक्टर से पहले ही सलाह लें|
                 </div>
-                <div class="padding-left">4. जन स्वास्थ्य सहयोग संस्था द्वारा सिकल सेल रोगियों के लिए एक समय अन्तराल के बाद रोगी सहता समूह बैठक का आयोजन किया जाता है, उसमे सभी रोगियों की नियमित जांच, परामर्श और दवाइयाँ जैसी सेवाएँ दी जाती है, कृपया बैठक में आ कर समुचित जांच, इलाज और जानकारी प्राप्त करे |
+                <div class="padding-left">4. जन स्वास्थ्य सहयोग संस्था द्वारा सिकल सेल रोगियों के लिए एक समय अन्तराल के बाद रोगी स्व-सहायता समूह बैठक का आयोजन किया जाता है, उसमे सभी रोगियों की नियमित जांच, परामर्श और दवाइयाँ जैसी सेवाएँ दी जाती है, कृपया बैठक में आ कर समुचित जांच, इलाज और जानकारी प्राप्त करे |
                 </div>
             </div>
-            <div class="green">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
+            <div class="green padding-top">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
                 हुई कोई समस्या होने पर सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
             </div>
         </div>`;
@@ -227,7 +239,7 @@
 
     function getASString() {
         return `<div class="card padding">
-            <span class="green bold">सिकल सेल एनेमिया वाहक (AS) क्या है :-</span>
+            <span class="green bold padding-top">सिकल सेल एनेमिया वाहक (AS) क्या है :-</span>
             अगर आप सिकल सेल की जांच में सिकल सेल वाहक पाए गए है तो चिंता करने की कोई जरुरत नहीं है इससे आपको कोई तकलीफ़ नहीं होगी|
             सिकल सेल वाहक सिकल सेल जीन का एक प्रकार है, सिकल सेल वाहक सामान्य व्यक्ति की तरह ही होते है,
             जब तक जाँच ना हो इन्हें स्वयं भी मालूम नहीं होता की वे अपने रक्त में सिकल जीन धारण करते है|
@@ -235,12 +247,12 @@
             सिकल सेल वाहक होने से ऐसे इंसान को खुद को कोई नुकसान नहीं होता है, लेकिन जब अनजाने में दूसरे सिकल रोगी या सिकल सेल वाहक से शादी करते है तो उस जोड़े से सिकल सेल पीड़ित संतान पैदा होने की सम्भावना बढ़ जाती है|
             <br>
             सिकल सेल बीमारी के प्रसार की रोकथाम के अभियान में इनका विशेष महत्त्व है|
-            <span class="green bold">सिकल सेल वाहक (AS) होने पर क्या करें :- </span>
+            <span class="green bold padding-top">सिकल सेल वाहक (AS) होने पर क्या करें :- </span>
             <div><span class="bold padding-left">1.</span> सिकल सेल वाहक होने पर आप सामान्य व्यक्ति की तरह जीवन व्यतीत कर सकते है |</div>
             <div><span class="bold padding-left">2.</span> सिकल सेल वाहक को किसी प्रकार की इलाज की जरुरत नहीं होती है |</div>
             <div><span class="bold padding-left">3.</span> सिकल सेल वाहक व्यक्ति को विवाह से पूर्व होने वाले जीवनसाथी की सिकल सेल जाँच अवश्य करा लेनी चाहिए ताकि, उनके होने वाले बच्चे को सिकल सेल रोग होने की संभावना ना रहे |</div>
             <div><span class="bold padding-left">4.</span> जिस परिवार में सिकल सेल रोगी या सिकल सेल वाहक है, उस परिवार के सभी सदस्यों को अपनी सिकल सेल जांच अवश्य करा लेनी चाहिए |</div>
-            <div class="green">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
+            <div class="green padding-top">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
                 हुई कोई समस्या पर होने सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
             </div>
         </div>`;
@@ -276,62 +288,62 @@
 
     function getFrontHTMLString(subjectObs, enrolmentObs, encounter, enrolmentDate, location) {
         const address = `${subjectObs['Address'] || ''} ${location.Village}, ${location.Block}, ${location.District}`;
-        return `<div class="card" style="position: relative; height: 550px;">
+        return `<div class="card" style="position: relative; height: 490px;">
             <div class="header">
-                <img src="dignostic-left.png" width="100px" height="100px" alt="logo">
+                <img src="dignostic-left.png" width="80px" height="70px" alt="logo">
                 <div class="column">
-                    <div class="heading">District Hospital, ${location.Block}, Madhya Pradesh</div>
-                    <div class="blue sub-heading">Project: Sickle Cell Anemia Control Mission, ${location.Block}</div>
+                    <div class="heading">District Hospital, ${location.District}, Madhya Pradesh</div>
+                    <div class="blue sub-heading">Project: Sickle Cell Anemia Control Mission, ${location.District}</div>
                     <div class="sub-heading">National Health Mission, Madhya Pradesh</div>
                     <div class="sub-heading">Implemented by : Jan Swasthya Sahyog, Ganiyari, Bilaspur</div>
                 </div>
-                <img src="dignostic-right.png" width="100px" height="100px" alt="logo">
+                <img src="JSS-logo.png" width="80px" height="80px" alt="logo">
             </div>
             <div class="content">
                 <div class="red sub-heading center">Sickle Cell Diagnosis Report:</div>
                 <div class="bold">Personal Details :</div>
                 <div class="padding-left">
-                    <table style="width:100%">
-                        <tr style="line-height: 22px">
-                            <td>Registration Number : ${enrolmentObs['Enrolment number']}</td>
-                            <td>Date : ${enrolmentDate}</td>
-                        </tr>
-                        <tr style="line-height: 22px">
-                            <td>Name : ${subjectObs['First name']} ${subjectObs['Last name'] || ""}</td>
-                            <td>Father/Husband Name : ${subjectObs['Father/Husband'] || ''}</td>
-                        </tr>
-                        <tr style="line-height: 22px">
-                            <td>Age : ${getAge(moment(subjectObs['Date of birth']))}</td>
-                            <td>Sex : ${subjectObs['Gender']}</td>
-                        </tr>
-                        <tr style="line-height: 22px">
-                            <td>Address : ${address}</td>
-                            <td>Phone Number : ${subjectObs['Contact Number'] || subjectObs['Alternative contact number'] || ''}</td>
-                        </tr>
-                    </table>
+                <div style="display: flex; flex-direction: row">
+                        <div style="display: flex; flex-direction: column; flex: 1">
+                            <div>Registration Number : ${enrolmentObs['Enrolment number']}</div>
+                            <div>Name : ${subjectObs['First name']} ${subjectObs['Last name'] || ""}</div>
+                            <div style="display: flex; flex-direction: row">
+                                <div>Age : ${getAge(moment(subjectObs['Date of birth']))}</div>
+                                <div style="width: 60px"></div>
+                                <div>Sex : ${subjectObs['Gender']}</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; flex: 1">
+                            <div>Date : ${enrolmentDate}</div>
+                            <div>Father/Husband Name : ${subjectObs['Father/Husband'] || ''}</div>
+                            <div>Phone Number : ${subjectObs['Contact Number'] || subjectObs['Alternative contact number'] || ''}</div>
+                        </div>
                 </div>
-                <div class="bold">Lab Reports :</div>
+                <div>Address : ${address}</div>
+                </div>
+                <div class="bold padding-top">Lab Reports :</div>
                 <div class="padding-left">
-                    <table style="width:100%">
-                        <tr style="line-height: 22px">
-                            <td>Hb : ${encounter.hb}</td>
-                            <td>Blood Group : ${encounter.bloodGroup}</td>
-                        </tr>
-                        <tr style="line-height: 22px">
-                            <td>Sickle Solubility Test Result : ${encounter.solubility}</td>
-                            <td>Hb Electrophoresis Test Result : <span class="bold">${encounter.electrophoresisResult}</span></td>
-                        </tr>
-                        <tr style="line-height: 22px">
-                           <td>HPLC Test Result : ${encounter.hplc}</td>
-                        </tr>
-                    </table>
+                    <div style="display: flex; flex-direction: row">
+                            <div style="display: flex; flex-direction: column; flex: 1">
+                                <div>Hb : ${encounter.hb}</div>
+                                <div>Sickle Solubility Test Result : ${encounter.solubility}</div>
+                                <div>HPLC Test Result : ${encounter.hplc}</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; flex: 1">
+                                <div>Blood Group : ${encounter.bloodGroup}</div>
+                                <div>Hb Electrophoresis Test Result : <span class="bold">${encounter.electrophoresisResult}</span></div>
+                            </div>
+                    </div>
                 </div>
-                <div class="bold">Interpretation :</div>
-                <div class="padding-left no-space">
+                <div class="bold padding-top">Interpretation :</div>
+                <div class="padding-left no-space cambria">
                     ${getInterpretation(encounter.electrophoresisResult)}
                 </div>
             </div>
-            <div class="footer">Signature & Seal</div>
+            <div class="footer">
+                <img src="Dr-Sneha.jpg" width="50px" height="50px" alt="logo">
+                <div>Signature & Seal</div>
+            </div>
         </div>`;
     }
 

@@ -215,7 +215,7 @@
                     </div>`;
     }
 
-    function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location, district, registrationNumber, isBetaThal) {
+    function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location, district, registrationNumber, genotype) {
         const districtHindiMap = {Dindori: 'डिंडोरी', Anuppur: 'अनूपपुर'};
         const genderMap = {Male: 'पुस्र्ष', Female: 'महिला', Other:'अन्य'};
         const gender = genderMap[subjectObs['Gender']];
@@ -249,7 +249,7 @@
                         <div class="row" style="align-items: flex-end">
                             <div class="bold red" style="margin-left: 20px;">
                                 <div>
-                                    ${isBetaThal ? 'Sickle Beta Thal trait' : 'SS'} (रोगी)
+                                    ${genotype} (रोगी)
                                 </div>
                                 <div>
                                     ${enrolmentObs['Enrolment number']}
@@ -264,12 +264,8 @@
             </div>`;
     }
 
-    function isBetaThalOrSS(value) {
-        return _.includes(['S-Beta thal - trait', 'SS'], value);
-    }
-
-    function isBetaThal(value) {
-        return _.includes(['S-Beta thal - trait'], value);
+    function isApplicable(value) {
+        return _.includes('Beta Thal', value) || _.includes('S-Beta thal', value) || _.includes('SS', value);
     }
 
     async function fetchSubjects() {
@@ -309,7 +305,7 @@
                 .then(res => _.isNil(res) ? res : res.json())
                 .then(data => {
                     if (_.isNil(data)) return undefined;
-                    const applicableEncounters = _.find(data.content, ({observations}) => isBetaThalOrSS(observations['Hb Electrophoresis']) || isBetaThalOrSS(observations['Result from old sickle cell test report']) || isBetaThalOrSS(observations['Electrophoresis result']) || isBetaThalOrSS(observations['Hemoglobin genotype']) || isBetaThalOrSS(observations['Hemoglobin genotype']));
+                    const applicableEncounters = _.find(data.content, ({observations}) => isApplicable(observations['Hemoglobin genotype']));
                     if (_.isEmpty(applicableEncounters)) {
                         console.log("no SS or S-Beta thal - trait encounter found =>>", data.content);
                         return undefined;
@@ -318,8 +314,8 @@
                     eligibleSubjectUUIDs.push(subjectUUID);
                     const bloodGroup = _.get(_.find(data.content, ({observations}) => observations['Blood group']), ['observations', 'Blood group'], '');
                     const registrationNumber = _.get(_.find(data.content, ({observations}) => observations['Registration number']), ['observations', 'Registration number'], '');
-                    const betaThal = _.find(data.content, ({observations}) => isBetaThal(observations['Hb Electrophoresis']) || isBetaThal(observations['Result from old sickle cell test report']) || isBetaThal(observations['Electrophoresis result']) || isBetaThal(observations['Hemoglobin genotype']) || isBetaThal(observations['Hemoglobin genotype']));
-                    return {subjectUUID, bloodGroup, registrationNumber, isBetaThal: !_.isEmpty(betaThal)};
+                    const genotype = _.get(_.find(data.content, ({observations}) => observations['Hemoglobin genotype']), ['observations', 'Hemoglobin genotype'], '');
+                    return {subjectUUID, bloodGroup, registrationNumber, genotype};
                 })
             );
         const encounters = await Promise.all(fetchAll)
@@ -340,10 +336,10 @@
             const enrolmentObs = enrolment.observations;
             const bloodGroup = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'bloodGroup', '');
             const registrationNumber = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'registrationNumber', '');
-            const isBetaThal = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'isBetaThal', false);
+            const genotype = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'genotype', '');
             const {Village, Block, District} = subject.location;
             const location = `${Village}, ${Block}, ${District}`;
-            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolment['Enrolment datetime'], location, District, registrationNumber, isBetaThal);
+            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolment['Enrolment datetime'], location, District, registrationNumber, genotype);
             if (index > 0 && (index + 1) % 9 === 0) {
                 if (eligibleSubjectUUIDs.length <= 9) {
                     frontHTMLString += '<div style="margin: 6px; width: 100%"></div>'
