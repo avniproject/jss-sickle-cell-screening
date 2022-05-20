@@ -71,7 +71,7 @@
             .card {
                 margin-top: 2px;
                 border: 1px solid rgba(52, 52, 52, 0.91);
-                height: 530px;
+                height: 490px;
                 page-break-after: always !important;
                 break-inside: avoid;
             }
@@ -89,7 +89,7 @@
 
             .card {
                 border: 1px solid rgba(52, 52, 52, 0.91);
-                height: 530px;
+                height: 490px;
             }
 
             .header {
@@ -155,10 +155,6 @@
                 font-weight: bold;
             }
 
-            .small-font {
-                font-size: 15px;
-            }
-
             .padding {
                 padding: 10px;
             }
@@ -198,7 +194,7 @@
         <button onclick="window.print()">Print / Save</button>
     </div>
     <div id="front-data"></div>
-    <div class="small-font" id="back-data"></div>
+    <div id="back-data"></div>
     <div hidden id="spinner"></div>
 </div>
 </body>
@@ -211,7 +207,7 @@
         return `<div class="card padding">
             <div class="green bold">सिकल सेल बीमारी (SS) होने पर क्या करें :-</div>
             आपको बिलकुल भी डरने की ज़रूरत नही है की आप सिकल सेल एनेमिया बीमारी से ग्रस्त है लेकिन आपको अपनी तबियत का विशेष ध्यान रखना होगा, इसलिए निम्न बिंदुओं पर ध्यान दें -
-            <div class="dark-blue bold padding-top">सावधानियाँ :</div>
+            <div class="dark-blue bold">सावधानियाँ :</div>
             <div style="margin-left: 15px">
                 <div>&#9679; सिकल रोगी को ज्यादा मात्रा में पानी पीना चाहिए <span class="bold">(5-6 लीटर रोज)</span>|</div>
                 <div>&#9679; हमेशा पोष्टिक खाना खाए जैसे - हरी पत्तेदार सब्जियां, मौसमी फल, दूध, मुनगा, अंडा, मांस, मछली, सेव, अनार, कोदो आदि खा सकते हैं|</div>
@@ -219,7 +215,7 @@
                 <div>&#9679; सिकल सेल रोगी को अत्यधिक गर्मी, ठंडी और बरसात के मौसम में अपना ज्यादा ख्याल रखना चाहिए|</div>
                 <div>&#9679; सिकल रोगी अगर कोई भारी या थका देने वाला कार्य करते समय अगर साँस फूलने लगे या शरीर में दर्द होने लगे तो उसे ज्यादा नहीं करना चाहिए|</div>
             </div>
-            <div class="dark-blue bold padding-top">ईलाज:</div>
+            <div class="dark-blue bold">ईलाज:</div>
             <div style="margin-left: 15px">
                 <div>&#9679; सिकल सेल बीमारी की दो मुख्य दवाइयाँ आपको रोज लेना जरूरी है जिनकी डोज़ डॉक्टर के कहे अनुसार ले :</div>
                 <div class="padding-left">1. हाइड्रोक्सीयूरिया</div>
@@ -230,7 +226,7 @@
                 <div class="padding-left">4. जन स्वास्थ्य सहयोग संस्था द्वारा सिकल सेल रोगियों के लिए एक समय अन्तराल के बाद रोगी स्व-सहायता समूह बैठक का आयोजन किया जाता है, उसमे सभी रोगियों की नियमित जांच, परामर्श और दवाइयाँ जैसी सेवाएँ दी जाती है, कृपया बैठक में आ कर समुचित जांच, इलाज और जानकारी प्राप्त करे |
                 </div>
             </div>
-            <div class="green padding-top">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
+            <div class="green">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
                 हुई कोई समस्या होने पर सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
             </div>
         </div>`;
@@ -239,7 +235,7 @@
 
     function getASString() {
         return `<div class="card padding">
-            <span class="green bold padding-top">सिकल सेल एनेमिया वाहक (AS) क्या है :-</span>
+            <div class="green bold padding-top">सिकल सेल एनेमिया वाहक (AS) क्या है :-</div>
             अगर आप सिकल सेल की जांच में सिकल सेल वाहक पाए गए है तो चिंता करने की कोई जरुरत नहीं है इससे आपको कोई तकलीफ़ नहीं होगी|
             सिकल सेल वाहक सिकल सेल जीन का एक प्रकार है, सिकल सेल वाहक सामान्य व्यक्ति की तरह ही होते है,
             जब तक जाँच ना हो इन्हें स्वयं भी मालूम नहीं होता की वे अपने रक्त में सिकल जीन धारण करते है|
@@ -247,13 +243,13 @@
             सिकल सेल वाहक होने से ऐसे इंसान को खुद को कोई नुकसान नहीं होता है, लेकिन जब अनजाने में दूसरे सिकल रोगी या सिकल सेल वाहक से शादी करते है तो उस जोड़े से सिकल सेल पीड़ित संतान पैदा होने की सम्भावना बढ़ जाती है|
             <br>
             सिकल सेल बीमारी के प्रसार की रोकथाम के अभियान में इनका विशेष महत्त्व है|
-            <span class="green bold padding-top">सिकल सेल वाहक (AS) होने पर क्या करें :- </span>
+            <div class="green bold padding-top">सिकल सेल वाहक (AS) होने पर क्या करें :- </div>
             <div><span class="bold padding-left">1.</span> सिकल सेल वाहक होने पर आप सामान्य व्यक्ति की तरह जीवन व्यतीत कर सकते है |</div>
             <div><span class="bold padding-left">2.</span> सिकल सेल वाहक को किसी प्रकार की इलाज की जरुरत नहीं होती है |</div>
             <div><span class="bold padding-left">3.</span> सिकल सेल वाहक व्यक्ति को विवाह से पूर्व होने वाले जीवनसाथी की सिकल सेल जाँच अवश्य करा लेनी चाहिए ताकि, उनके होने वाले बच्चे को सिकल सेल रोग होने की संभावना ना रहे |</div>
             <div><span class="bold padding-left">4.</span> जिस परिवार में सिकल सेल रोगी या सिकल सेल वाहक है, उस परिवार के सभी सदस्यों को अपनी सिकल सेल जांच अवश्य करा लेनी चाहिए |</div>
             <div class="green padding-top">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
-                हुई कोई समस्या पर होने सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
+                हुई कोई समस्या होने पर सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
             </div>
         </div>`;
     }
@@ -288,7 +284,7 @@
 
     function getFrontHTMLString(subjectObs, enrolmentObs, encounter, enrolmentDate, location) {
         const address = `${subjectObs['Address'] || ''} ${location.Village}, ${location.Block}, ${location.District}`;
-        return `<div class="card" style="position: relative; height: 490px;">
+        return `<div class="card padding" style="position: relative;">
             <div class="header">
                 <img src="dignostic-left.png" width="80px" height="70px" alt="logo">
                 <div class="column">
@@ -314,7 +310,7 @@
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: column; flex: 1">
-                            <div>Date : ${enrolmentDate}</div>
+                            <div>Date : ${moment(enrolmentDate, 'YYYY-MM-DD[T]HH:mm:ss.000Z').format('DD/MM/YYYY')}</div>
                             <div>Father/Husband Name : ${subjectObs['Father/Husband'] || ''}</div>
                             <div>Phone Number : ${subjectObs['Contact Number'] || subjectObs['Alternative contact number'] || ''}</div>
                         </div>
@@ -419,7 +415,7 @@
             const enrolment = _.find(enrolments, (enl) => enl['Subject ID'] === uuid);
             const enrolmentObs = enrolment.observations;
             const encounter = _.find(filteredEncounters, (enc) => enc.subjectUUID === uuid);
-            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, encounter, new Date(enrolment['Enrolment datetime']).toLocaleDateString(), subject.location);
+            frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, encounter, enrolment['Enrolment datetime'], subject.location);
             backHTMLString += getBackHTMLString(_.get(encounter, 'electrophoresisResult', ''));
             if (index > 0 && (index + 1) % 2 === 0 && (index + 1) !== eligibleSubjectUUIDs.length) {
                 frontHTMLString += '<div style="margin: 8px; width: 100%"></div>';
