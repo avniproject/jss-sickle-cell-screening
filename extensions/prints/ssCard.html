@@ -234,17 +234,20 @@
                         <div style="display: flex; flex-direction: column; flex: 2">
                             <div>नाम : <span class="bold">${getFullName(subjectObs)}</span></div>
                             <div>पिता/ पति : <span class="bold">${getOrDefault(subjectObs, 'Father/Husband name in hindi', 'Father/Husband')}</span></div>
-                            <div>पता : <span class="bold">${location}</span></div>
-                            <div>लिंग : <span class="bold">${gender}</span></div>
+                            <div style="display: flex; flex-direction: row">
+                                <div>उम्र : <span class="bold">${moment().diff(subjectObs['Date of birth'], 'years')} साल</span></div>
+                                <div style="width: 60px"></div>
+                                <div>लिंग : <span class="bold">${gender}</span></div>
+                            </div>
                         </div>
                         <div style="display: flex; flex-direction: column; flex: 1">
                             <div>पंजीयन संख्या : <span>${registrationNumber}</span></div>
                             <div>दिनांक : <span class="bold">${moment(enrolmentDateTime, 'YYYY-MM-DD[T]HH:mm:ss.000Z').format('DD/MM/YYYY')}</span></div>
-                            <div>उम्र : <span class="bold">${moment().diff(subjectObs['Date of birth'], 'years')} साल</span></div>
                             <div class="red">ब्लड ग्रूप : <span class="bold">${bloodGroup}</span></div>
                         </div>
                     </div>
-                    <div style="margin-top: 10px">
+                    <div>पता : <span class="bold">${location}</span></div>
+                    <div style="margin-top: 5px">
                         <div class="bold">इलेक्ट्रॉफोरेसिस रिज़ल्ट :</div>
                         <div class="row" style="align-items: flex-end">
                             <div class="bold red" style="margin-left: 20px;">
@@ -256,7 +259,7 @@
                                 </div>
                             </div>
                             <div style="font-size: 11px">
-                                मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी ${districtHindiMap[district]}
+                                ${district === 'Anuppur' ? 'पैथोलॉजी प्रभारी, जिला अस्पताल, अनुपपुर' : `मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी ${districtHindiMap[district]}`}
                             </div>
                         </div>
                     </div>
@@ -338,7 +341,9 @@
             const registrationNumber = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'registrationNumber', '');
             const genotype = _.get(_.find(filteredEncounters, (enc) => enc.subjectUUID === subjectUUID), 'genotype', '');
             const {Village, Block, District} = subject.location;
-            const location = `${Village}, ${Block}, ${District}`;
+            const locationValue = _.get(subjectObs, 'Address');
+            const locationString = _.isEmpty(locationValue) ? '' : `${locationValue}, `;
+            const location = `${locationString}${Village}, ${Block}, ${District}, Madhya Pradesh`;
             frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolment['Enrolment datetime'], location, District, registrationNumber, genotype);
             if (index > 0 && (index + 1) % 9 === 0) {
                 if (eligibleSubjectUUIDs.length <= 9) {
