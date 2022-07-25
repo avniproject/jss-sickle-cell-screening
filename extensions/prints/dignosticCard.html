@@ -282,6 +282,11 @@
         return `${properValue(years)} Years, ${properValue(months)} Months`;
     }
 
+    function getSignImage(district) {
+        return district === 'Anuppur' ? `<img src="Dr-Sneha.png" width="50px" height="50px" alt="logo">` :
+            `<img src="Dr R. S. Maravi.png" width="50px" height="50px" alt="logo">`
+    }
+
     function getFrontHTMLString(subjectObs, enrolmentObs, encounter, enrolmentDate, location) {
         const address = `${subjectObs['Address'] || ''} ${location.Village}, ${location.Block}, ${location.District}`;
         return `<div class="card padding" style="position: relative;">
@@ -337,7 +342,7 @@
                 </div>
             </div>
             <div class="footer">
-                <img src="Dr-Sneha.jpg" width="50px" height="50px" alt="logo">
+                ${getSignImage(location.District)}
                 <div>Signature & Seal</div>
             </div>
         </div>`;

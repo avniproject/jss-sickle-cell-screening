@@ -215,6 +215,11 @@
                     </div>`;
     }
 
+    function getSignImage(district) {
+        return district === 'Anuppur' ? `<img src="Dr-Sneha.png" width="50px" height="35px" alt="logo">` :
+            `<img src="Dr R. S. Maravi.png" width="50px" height="35px" alt="logo">`
+    }
+
     function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location, district, registrationNumber, genotype) {
         const districtHindiMap = {Dindori: 'डिंडोरी', Anuppur: 'अनूपपुर'};
         const genderMap = {Male: 'पुस्र्ष', Female: 'महिला', Other:'अन्य'};
@@ -258,7 +263,8 @@
                                     ${enrolmentObs['Enrolment number']}
                                 </div>
                             </div>
-                            <div style="font-size: 11px">
+                            <div style="font-size: 11px; display: flex; flex-direction: column; align-items: center;">
+                                ${getSignImage(district)}
                                 ${district === 'Anuppur' ? 'पैथोलॉजी प्रभारी, जिला अस्पताल, अनुपपुर' : `मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी ${districtHindiMap[district]}`}
                             </div>
                         </div>
