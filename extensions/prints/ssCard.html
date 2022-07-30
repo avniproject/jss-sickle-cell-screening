@@ -59,6 +59,11 @@
                 width: 32.8%;
                 margin-bottom: 1px;
                 height: 260px !important;
+                position: relative;
+            }
+
+            .empty {
+                width: 90px!important;
             }
 
             /*this enables background graphics automatically, works only in chrome*/
@@ -95,6 +100,7 @@
                 width: 32.8%;
                 margin-bottom: 1px;
                 height: 362px;
+                position: relative;
             }
 
             .header {
@@ -157,6 +163,9 @@
                 flex-wrap: wrap;
                 margin-top: 4px;
             }
+            .empty {
+                width: 30px;
+            }
         }
 
     </style>
@@ -189,7 +198,7 @@
         return _.isEmpty(hindiName) ? `${observations['First name']} ${observations['Last name']}` || "" : hindiName;
     }
 
-    function getBackHTMLString() {
+    function getBackHTMLString(helplineNumber) {
         return `<div class="card">
                         <div class="content" style="font-size: 11px">
                             <div class="color-text center">सिकल सेल एनीमिया नियंत्रण अभियान</div>
@@ -210,7 +219,7 @@
                                 <span class="bold">Person having this card is a sickle cell anemia patient so further diagnosis is not required for treatment</span>
                             </div>
                             <div class="space"></div>
-                            <div class="color-text center">सिकल सेल सहायता नंबर 9617240924</div>
+                            <div class="color-text center">सिकल सेल सहायता नंबर ${helplineNumber}</div>
                         </div>
                     </div>`;
     }
@@ -252,20 +261,25 @@
                         </div>
                     </div>
                     <div>पता : <span class="bold">${location}</span></div>
-                    <div style="margin-top: 5px">
-                        <div class="bold">इलेक्ट्रॉफोरेसिस रिज़ल्ट :</div>
-                        <div class="row" style="align-items: flex-end">
-                            <div class="bold red" style="margin-left: 20px;">
-                                <div>
-                                    ${genotype} (रोगी)
-                                </div>
-                                <div>
-                                    ${enrolmentObs['Enrolment number']}
+                    <div style="position: absolute; bottom: 0">
+                        <div style="margin-top: 3px; display: flex; flex-direction: row; justify-content: space-between">
+                            <div>
+                                <div class="bold">इलेक्ट्रॉफोरेसिस रिज़ल्ट :</div>
+                                <div class="row" style="align-items: flex-start">
+                                    <div class="bold red" style="margin-left: 20px;">
+                                        <div>
+                                            ${genotype} (रोगी)
+                                        </div>
+                                        <div>
+                                            ${enrolmentObs['Enrolment number']}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="empty"></div>
                             <div style="font-size: 11px; display: flex; flex-direction: column; align-items: center;">
-                                ${getSignImage(district)}
-                                ${district === 'Anuppur' ? 'पैथोलॉजी प्रभारी, जिला अस्पताल, अनुपपुर' : `मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी ${districtHindiMap[district]}`}
+                                    ${getSignImage(district)}
+                                    ${district === 'Anuppur' ? 'पैथोलॉजी प्रभारी, जिला अस्पताल, अनुपपुर' : `मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी ${districtHindiMap[district]}`}
                             </div>
                         </div>
                     </div>
@@ -363,7 +377,10 @@
         spinner.setAttribute('hidden', '');
         var backHTMLString = '<div style="margin: 4px; width: 100%"></div>';
         for (let i = 0; i < eligibleSubjectUUIDs.length; i++) {
-            backHTMLString += getBackHTMLString();
+            const subject = _.find(allSubjects, sub => sub['ID'] === eligibleSubjectUUIDs[i]);
+            const {District} = subject.location;
+            const helplineNumber = District === 'Anuppur' ? '9617240924' : '9575802880';
+            backHTMLString += getBackHTMLString(helplineNumber);
 
             if (i > 0 && (i + 1) % 9 === 0) {
                 if (eligibleSubjectUUIDs.length <= 9) {

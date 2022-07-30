@@ -203,7 +203,7 @@
     const spinner = document.getElementById("spinner");
     const print = document.getElementById('print');
 
-    function getSSString() {
+    function getSSString(helplineNumber) {
         return `<div class="card padding">
             <div class="green bold">सिकल सेल बीमारी (SS) होने पर क्या करें :-</div>
             आपको बिलकुल भी डरने की ज़रूरत नही है की आप सिकल सेल एनेमिया बीमारी से ग्रस्त है लेकिन आपको अपनी तबियत का विशेष ध्यान रखना होगा, इसलिए निम्न बिंदुओं पर ध्यान दें -
@@ -227,13 +227,13 @@
                 </div>
             </div>
             <div class="green">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
-                हुई कोई समस्या होने पर सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
+                हुई कोई समस्या होने पर सिकल हेल्पलाइन <span class="bold">${helplineNumber}</span> पर संपर्क करें |
             </div>
         </div>`;
     }
 
 
-    function getASString() {
+    function getASString(helplineNumber) {
         return `<div class="card padding">
             <div class="green bold padding-top">सिकल सेल एनेमिया वाहक (AS) क्या है :-</div>
             अगर आप सिकल सेल की जांच में सिकल सेल वाहक पाए गए है तो चिंता करने की कोई जरुरत नहीं है इससे आपको कोई तकलीफ़ नहीं होगी|
@@ -249,13 +249,14 @@
             <div><span class="bold padding-left">3.</span> सिकल सेल वाहक व्यक्ति को विवाह से पूर्व होने वाले जीवनसाथी की सिकल सेल जाँच अवश्य करा लेनी चाहिए ताकि, उनके होने वाले बच्चे को सिकल सेल रोग होने की संभावना ना रहे |</div>
             <div><span class="bold padding-left">4.</span> जिस परिवार में सिकल सेल रोगी या सिकल सेल वाहक है, उस परिवार के सभी सदस्यों को अपनी सिकल सेल जांच अवश्य करा लेनी चाहिए |</div>
             <div class="green padding-top">नोट : अधिक जानकारी के लिए सिकल सेल बीमारी की काउंसलिंग किताब को पढ़ें | सिकल सेल से जुडी
-                हुई कोई समस्या होने पर सिकल हेल्पलाइन <span class="bold">9617240924</span> पर संपर्क करें |
+                हुई कोई समस्या होने पर सिकल हेल्पलाइन <span class="bold">${helplineNumber}</span> पर संपर्क करें |
             </div>
         </div>`;
     }
 
-    function getBackHTMLString(electrophoresisResult) {
-        return electrophoresisResult === 'SS' ? getSSString() : getASString();
+    function getBackHTMLString(electrophoresisResult, district) {
+        const helplineNumber = district === 'Anuppur' ? '9617240924' : '9575802880';
+        return electrophoresisResult === 'SS' ? getSSString(helplineNumber) : getASString(helplineNumber);
     }
 
     function getSSInterpretation() {
@@ -421,7 +422,7 @@
             const enrolmentObs = enrolment.observations;
             const encounter = _.find(filteredEncounters, (enc) => enc.subjectUUID === uuid);
             frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, encounter, enrolment['Enrolment datetime'], subject.location);
-            backHTMLString += getBackHTMLString(_.get(encounter, 'electrophoresisResult', ''));
+            backHTMLString += getBackHTMLString(_.get(encounter, 'electrophoresisResult', ''), subject.location.District);
             if (index > 0 && (index + 1) % 2 === 0 && (index + 1) !== eligibleSubjectUUIDs.length) {
                 frontHTMLString += '<div style="margin: 8px; width: 100%"></div>';
                 backHTMLString += '<div style="margin: 8px; width: 100%"></div>';
