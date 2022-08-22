@@ -69,7 +69,7 @@
             }
 
             .card {
-                margin-top: 2px;
+                margin-top: 4px;
                 border: 1px solid rgba(52, 52, 52, 0.91);
                 height: 490px;
                 page-break-after: always !important;
@@ -423,10 +423,10 @@
             const encounter = _.find(filteredEncounters, (enc) => enc.subjectUUID === uuid);
             frontHTMLString += getFrontHTMLString(subjectObs, enrolmentObs, encounter, enrolment['Enrolment datetime'], subject.location);
             backHTMLString += getBackHTMLString(_.get(encounter, 'electrophoresisResult', ''), subject.location.District);
-            if (index > 0 && (index + 1) % 2 === 0 && (index + 1) !== eligibleSubjectUUIDs.length) {
-                frontHTMLString += '<div style="margin: 8px; width: 100%"></div>';
-                backHTMLString += '<div style="margin: 8px; width: 100%"></div>';
-            }
+            // if (index > 0 && (index + 1) % 2 === 0 && (index + 1) !== eligibleSubjectUUIDs.length) {
+            //     frontHTMLString += '<div style="margin: 8px; width: 100%"></div>';
+            //     backHTMLString += '<div style="margin: 8px; width: 100%"></div>';
+            // }
         });
         document.getElementById("front-data").innerHTML = frontHTMLString;
         document.getElementById("back-data").innerHTML = backHTMLString;
