@@ -285,7 +285,7 @@
                             <div class="empty"></div>
                             <div style="font-size: 11px; display: flex; flex-direction: column; align-items: center;">
                                     ${getSignImage(district)}
-                                    ${district === 'Anuppur' ? 'पैथोलॉजी प्रभारी, जिला अस्पताल, अनुपपुर' : `मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी ${districtHindiMap[district]}`}
+                                    ${_.includes(['Anuppur', 'Shahdol'], district) ? `पैथोलॉजी प्रभारी, जिला अस्पताल, ${districtHindiMap[district]}` : `मुख्य चिकित्सा एवं स्वास्थ्य अधिकारी ${districtHindiMap[district]}`}
                             </div>
                         </div>
                     </div>
