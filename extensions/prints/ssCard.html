@@ -166,6 +166,10 @@
             .empty {
                 width: 30px;
             }
+            .emptyImage {
+                height: 40px !important;
+                width: 40px;
+            }
         }
 
     </style>
@@ -226,11 +230,13 @@
 
     function getSignImage(district) {
         return district === 'Anuppur' ? `<img src="Dr-Sneha.png" width="50px" height="35px" alt="logo">` :
-            `<img src="Dr R. S. Maravi.png" width="50px" height="35px" alt="logo">`
+            (district === 'Dindori' ?
+                `<img src="Dr R. S. Maravi.png" width="50px" height="50px" alt="logo">` :
+                `<div class="emptyImage"></div>`)
     }
 
     function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location, district, registrationNumber, genotype) {
-        const districtHindiMap = {Dindori: 'डिंडोरी', Anuppur: 'अनूपपुर'};
+        const districtHindiMap = {Dindori: 'डिंडोरी', Anuppur: 'अनूपपुर', Shahdol: 'शाहडोल'};
         const genderMap = {Male: 'पुस्र्ष', Female: 'महिला', Other:'अन्य'};
         const gender = genderMap[subjectObs['Gender']];
         return `<div class="card">

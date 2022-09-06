@@ -179,6 +179,10 @@
             .cambria {
                 font-family: Cambria,serif;
             }
+            .emptyImage {
+                height: 40px !important;
+                width: 40px;
+            }
 
         }
 
@@ -285,7 +289,9 @@
 
     function getSignImage(district) {
         return district === 'Anuppur' ? `<img src="Dr-Sneha.png" width="50px" height="50px" alt="logo">` :
-            `<img src="Dr R. S. Maravi.png" width="50px" height="50px" alt="logo">`
+           (district === 'Dindori' ?
+               `<img src="Dr R. S. Maravi.png" width="50px" height="50px" alt="logo">` :
+               `<div class="emptyImage"></div>`)
     }
 
     function getFrontHTMLString(subjectObs, enrolmentObs, encounter, enrolmentDate, location) {
