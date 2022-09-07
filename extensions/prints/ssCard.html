@@ -236,7 +236,7 @@
     }
 
     function getFrontHTMLString(subjectObs, enrolmentObs, bloodGroup, enrolmentDateTime, location, district, registrationNumber, genotype) {
-        const districtHindiMap = {Dindori: 'डिंडोरी', Anuppur: 'अनूपपुर', Shahdol: 'शाहडोल'};
+        const districtHindiMap = {Dindori: 'डिंडोरी', Anuppur: 'अनूपपुर', Shahdol: 'शहडोल'};
         const genderMap = {Male: 'पुस्र्ष', Female: 'महिला', Other:'अन्य'};
         const gender = genderMap[subjectObs['Gender']];
         return `<div class="card">
