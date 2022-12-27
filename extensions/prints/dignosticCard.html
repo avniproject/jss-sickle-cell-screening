@@ -172,13 +172,14 @@
             }
 
             @font-face {
-                font-family:Cambria;
+                font-family: Cambria;
                 src: local('Cambria'), url('Cambria.ttf');
             }
 
             .cambria {
-                font-family: Cambria,serif;
+                font-family: Cambria, serif;
             }
+
             .emptyImage {
                 height: 40px !important;
                 width: 40px;
@@ -264,7 +265,7 @@
     }
 
     function getSSInterpretation() {
-        return  'After all the diagnosis the Genotype of the person is found <span class="bold">"SS"</span> which means the person is Sickle Cell Patient/सिकल सेल रोगी & Need the treatment prescribed by a doctor. He/She also need the proper regular checkup & Follow-up.'
+        return 'After all the diagnosis the Genotype of the person is found <span class="bold">"SS"</span> which means the person is Sickle Cell Patient/सिकल सेल रोगी & Need the treatment prescribed by a doctor. He/She also need the proper regular checkup & Follow-up.'
     }
 
     function getASInterpretation() {
@@ -289,9 +290,9 @@
 
     function getSignImage(district) {
         return district === 'Anuppur' ? `<img src="Dr.ozair-sign.png" width="50px" height="50px" alt="logo">` :
-           (district === 'Dindori' ?
-               `<img src="Dr R. S. Maravi.png" width="50px" height="50px" alt="logo">` :
-               `<div class="emptyImage"></div>`)
+            (district === 'Dindori' ?
+                `<img src="Dr R. S. Maravi.png" width="50px" height="50px" alt="logo">` :
+                `<div class="emptyImage"></div>`)
     }
 
     function getFrontHTMLString(subjectObs, enrolmentObs, encounter, enrolmentDate, location) {
@@ -383,7 +384,15 @@
                 .then(data => data.content)
                 .then(enls => {
                     if (enls.length > 0) {
-                        const enrolment = enls[0];
+                        let enrolment;
+                        enls.forEach(enl => {
+                            if (enl['Exit datetime'] === null) {
+                                enrolment = enl;
+                            } else {
+                                enrolment = enl;
+                            }
+                        })
+
                         enrolments.push(enrolment);
                         return fetch(`/api/programEncounters?programEnrolmentId=${enrolment['ID']}&size=100&page=0`, options)
                     }

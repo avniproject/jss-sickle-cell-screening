@@ -325,7 +325,14 @@
                 .then(data => data.content)
                 .then(enls => {
                     if (enls.length > 0) {
-                        const enrolment = enls[0];
+                        let enrolment ;
+                        enls.forEach(enl => {
+                            if (enl['Exit datetime'] === null) {
+                                enrolment = enl;
+                            } else {
+                                enrolment = enl;
+                            }
+                        })
                         enrolments.push(enrolment);
                         return fetch(`/api/programEncounters?programEnrolmentId=${enrolment['ID']}&size=100&page=0`, options)
                     }
