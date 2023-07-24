@@ -71,7 +71,7 @@
             .card {
                 margin-top: 4px;
                 border: 1px solid rgba(52, 52, 52, 0.91);
-                height: 490px;
+                height: 550px;
                 page-break-after: always !important;
                 break-inside: avoid;
             }
@@ -79,6 +79,12 @@
             #print {
                 margin-bottom: 0;
                 display: none !important;
+            }
+
+            .footer {
+                position: relative;
+                top: 430px;
+                right:10px;
             }
         }
 
@@ -88,8 +94,9 @@
             }
 
             .card {
+                margin-top: 4px;
                 border: 1px solid rgba(52, 52, 52, 0.91);
-                height: 490px;
+                height: 550px;
             }
 
             .header {
@@ -209,7 +216,7 @@
     const print = document.getElementById('print');
 
     function getSSString(helplineNumber) {
-        return `<div class="card padding">
+        return `<div class="card padding" >
             <div class="green bold">सिकल सेल बीमारी (SS) होने पर क्या करें :-</div>
             आपको बिलकुल भी डरने की ज़रूरत नही है की आप सिकल सेल एनेमिया बीमारी से ग्रस्त है लेकिन आपको अपनी तबियत का विशेष ध्यान रखना होगा, इसलिए निम्न बिंदुओं पर ध्यान दें -
             <div class="dark-blue bold">सावधानियाँ :</div>
@@ -239,7 +246,7 @@
 
 
     function getASString(helplineNumber) {
-        return `<div class="card padding">
+        return `<div class="card padding" style="position: relative; top: 5px;">
             <div class="green bold padding-top">सिकल सेल एनेमिया वाहक (AS) क्या है :-</div>
             अगर आप सिकल सेल की जांच में सिकल सेल वाहक पाए गए है तो चिंता करने की कोई जरुरत नहीं है इससे आपको कोई तकलीफ़ नहीं होगी|
             सिकल सेल वाहक सिकल सेल जीन का एक प्रकार है, सिकल सेल वाहक सामान्य व्यक्ति की तरह ही होते है,
@@ -289,7 +296,7 @@
     }
 
     function getSignImage(district) {
-        return district === 'Anuppur' ? `<img src="Dr-Kamlesh-Agriya-Sign.png" width="50px" height="50px" alt="logo">` :
+        return district === 'Anuppur' ? `<img src="Dr-Kamlesh-Agriya-Sign.png" width="100px" height="90px" alt="logo" style="position: relative; top: 17px; left: 12px;">` :
             (district === 'Dindori' ?
                 `<img src="Dr R. S. Maravi.png" width="50px" height="50px" alt="logo">` :
                 `<div class="emptyImage"></div>`)
