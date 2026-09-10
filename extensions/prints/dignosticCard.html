@@ -376,6 +376,12 @@
                 // 'user-name': 'admin@jscs',
             },
         };
+        // avni #8443: a Coded observation comes back from the API as a bare string when stored as a
+        // scalar in Postgres, but as a 1-element array when stored as an array — this happens for the
+        // SAME SingleSelect concept depending on how the value was originally written, so both shapes
+        // must be handled. Without this, a genuinely correct "AS"/"SS" result stored as e.g.
+        // ["AS"] fails the _.includes(['AS','SS'], value) check, since an array is never === a string.
+        const asScalar = (value) => Array.isArray(value) ? value[0] : value;
         const subjectUUIDs = url.searchParams.get("subjectUUIDs");
         const allSubjects = [];
         const enrolments = [];
@@ -408,7 +414,7 @@
                 .then(res => _.isNil(res) ? res : res.json())
                 .then(data => {
                     if (_.isNil(data)) return undefined;
-                    const ssEncounter = _.find(data.content, ({observations}) => _.includes(['AS', "SS"], observations['Hb Electrophoresis']) || _.includes(['AS', "SS"], observations['Result from old sickle cell test report']) || _.includes(['AS', "SS"], observations['Electrophoresis result']) || _.includes(['AS', "SS"], observations['Hemoglobin genotype']) || _.includes(['AS', "SS"], observations['HPLC result']));
+                    const ssEncounter = _.find(data.content, ({observations}) => _.includes(['AS', "SS"], asScalar(observations['Hb Electrophoresis'])) || _.includes(['AS', "SS"], asScalar(observations['Result from old sickle cell test report'])) || _.includes(['AS', "SS"], asScalar(observations['Electrophoresis result'])) || _.includes(['AS', "SS"], asScalar(observations['Hemoglobin genotype'])) || _.includes(['AS', "SS"], asScalar(observations['HPLC result'])));
                     if (_.isEmpty(ssEncounter)) {
                         console.log("no AS/SS encounter found =>>", data.content);
                         return undefined;
@@ -416,11 +422,11 @@
                     console.log("AS/SS encounter found =>>>");
                     const subjectUUID = _.get(ssEncounter, ['Subject ID']);
                     const observations = _.get(ssEncounter, ['observations']);
-                    const electrophoresisResult = observations['Hb Electrophoresis'] || observations['Result from old sickle cell test report'] || observations['Electrophoresis result'] || observations['Hemoglobin genotype'] || observations['HPLC result'];
+                    const electrophoresisResult = asScalar(observations['Hb Electrophoresis']) || asScalar(observations['Result from old sickle cell test report']) || asScalar(observations['Electrophoresis result']) || asScalar(observations['Hemoglobin genotype']) || asScalar(observations['HPLC result']);
                     const bloodGroup = _.get(_.find(data.content, ({observations}) => observations['Blood group']), ['observations', 'Blood group'], '');
                     const hb = _.get(_.find(data.content, ({observations}) => observations['Hb range (Copper Sulphate method)']), ['observations', 'Hb range (Copper Sulphate method)'], '');
                     const solubility = _.get(_.find(data.content, ({observations}) => observations['Solubility result']), ['observations', 'Solubility result'], '');
-                    const hplc = _.get(_.find(data.content, ({observations}) => observations['HPLC result']), ['observations', 'HPLC result'], 'Not Required');
+                    const hplc = asScalar(_.get(_.find(data.content, ({observations}) => observations['HPLC result']), ['observations', 'HPLC result'], 'Not Required'));
                     eligibleSubjectUUIDs.push(subjectUUID);
                     return {subjectUUID, electrophoresisResult, bloodGroup, hb, solubility, hplc};
                 })
